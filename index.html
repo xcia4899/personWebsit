@@ -12,35 +12,76 @@
 
 <body data-theme="light">
   <div class="outWrap">
-    <div class="switch-btn">
-      <div>light</div>
-      <label class="switch">
-        <input type="checkbox" aria-label="Toggle dark mode">
-        <span class="slider"></span>
-      </label>
-      <div>dark</div>
+    <div class="switchBox">
+      <div class="switch-btn">
+        <div class="light">light</div>
+        <label class="switch">
+          <input type="checkbox" aria-label="Toggle dark mode">
+          <span class="slider"></span>
+        </label>
+        <div class="dark">dark</div>
+      </div>
     </div>
     <main id="main" class="main">
-      <section class="person-Intro">
-        <div class="Intro-header">
-          <div class="intro-profile">
-            <figure class="img">
-              <img src="./assets/images/Headshot.jpeg" alt="">
-            </figure>
-            <div class="">
-              <h4 class="">HELLO, WORLD.</h4>
-              <h3 class="name">陳冠瑀</h3>
+      <section class="person-Into profileCard">
+        <!-- 正面內容 -->
+        <div class="person-Into-inner profileCard-inner">
+          <section class="card-face card-front">
+            <div class="Intro">
+              <div class="header-profile">
+                <figure class="img">
+                  <img src="./assets/images/Headshot.jpeg" alt="">
+                </figure>
+                <div class="">
+                  <h4 class="">HELLO, WORLD.</h4>
+                  <h3 class="name">陳冠瑀</h3>
+                </div>
+              </div>
+              <button class="flip-btn" type="button">FLIP ↻</button>
             </div>
-          </div>
-        </div>
+            <div class=""> </div>
+          </section>
+          <!-- 背面內容 -->
+          <section class="card-face card-back">
+            <button class="flip-btn" type="button">返回↻</button>
 
+            <div class="back-content">
+              <h2>
+                SET <span>@Site_Theme</span> =
+                <strong>'Frontend Developer'</strong>
+              </h2>
+
+              <div class="divider"></div>
+
+              <p>
+                我是一名前端工程師學習者，主要使用 Vue、Nuxt、
+                TypeScript 與 SCSS 製作響應式網站。
+              </p>
+
+              <p>
+                我喜歡研究網站互動效果，並將設計稿轉換成具有動畫、
+                操作回饋與良好使用體驗的網頁。
+              </p>
+
+              <p>
+                除了畫面實作，也會建立 API、會員系統、
+                商品管理與後台 CRUD 功能。
+              </p>
+
+              <blockquote>
+                持續改善每一個細節，讓設計不只是畫面，
+                而是完整的操作體驗。
+              </blockquote>
+            </div>
+          </section>
+        </div>
       </section>
 
-      <section class="aboutMe">
+      <section class="aboutMe profileCard">
         <h2>履歷</h2>
       </section>
 
-      <section class="work">
+      <section class="work profileCard">
         <h1>作品</h1>
         <figure>圖片</figure>
         <a href="">連結</a>

@@ -6,28 +6,38 @@
   z-index: 1;
 }
 
-.switch-btn {
-  display: flex;
+.switchBox {
+  text-align: right;
+  text-transform: uppercase;
+}
+.switchBox .switch-btn {
+  display: inline-flex;
   align-items: center;
   justify-content: flex-end;
   column-gap: 1em;
-  font-size: 16px;
-  padding: 16px;
-  color: var(--text-secondary);
+  padding: 8px 16px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 20px;
   margin-bottom: 24px;
 }
-.switch-btn .switch {
+.switchBox .switch-btn .light,
+.switchBox .switch-btn .dark {
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+.switchBox .switch-btn .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-.switch-btn .switch input {
+.switchBox .switch-btn .switch input {
   display: none;
 }
-.switch-btn .slider {
+.switchBox .switch-btn .slider {
   position: absolute;
   inset: 0;
   background: var(--switch-track);
@@ -35,7 +45,7 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.switch-btn .slider::before {
+.switchBox .switch-btn .slider::before {
   content: "";
   position: absolute;
   width: 26px;
@@ -46,12 +56,17 @@
   border-radius: 50%;
   transition: 0.3s;
 }
-.switch-btn input:checked + .slider {
+.switchBox .switch-btn input:checked + .slider {
   background: var(--switch-track-active);
 }
-.switch-btn input:checked + .slider::before {
+.switchBox .switch-btn input:checked + .slider::before {
   background: var(--switch-thumb-active);
   transform: translateX(26px);
+}
+
+[data-theme=light] .switch-btn .light,
+[data-theme=dark] .switch-btn .dark {
+  color: var(--text-primary);
 }
 
 /* main -start */
@@ -73,7 +88,7 @@
   padding: 32px;
   border-radius: 32px;
   box-shadow: 0 18px 54px var(--shadow);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(4px) saturate(130%);
 }
 
 .person-Intro {

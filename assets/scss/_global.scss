@@ -23,9 +23,11 @@ body {
 
 body {
 
+  position: relative;
   min-height: 100vh;
   color: var(--text-primary);
   background: var(--page-bg);
+  isolation: isolate;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
