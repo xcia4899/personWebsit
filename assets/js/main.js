@@ -28,8 +28,24 @@ function initTheme() {
     }
 }
 
+function cardRotato() {
+    const cards = document.querySelectorAll(".profileCard");
+
+    cards.forEach((card) => {
+        const flipButtons = card.querySelectorAll(".flip-btn");
+
+        flipButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                card.classList.toggle("is-flipped");
+            });
+        });
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     initTheme();
+    cardRotato();
     await loadSvgSprite();
     await loadLayout();
     initHeader();
