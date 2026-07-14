@@ -1,15 +1,44 @@
-* {
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
+html,
 body {
-  color: #222;
-  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  color: #edf2ff;
+  background: var(--gradient-bg);
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
 img {
-  width: 100%;
   display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 a {
@@ -17,10 +46,143 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+figure {
+  margin: 0;
+}
+
+.inOutAniBtn {
+  --btn-x: 50%;
+  --btn-y: 50%;
+  background-color: transparent;
+  border: 1px solid #333333;
+  color: #fff;
+  max-width: 330px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  isolation: isolate;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.4s ease-in-out;
+}
+.inOutAniBtn::before, .inOutAniBtn::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.inOutAniBtn::before {
+  top: var(--btn-y);
+  left: var(--btn-x);
+  width: 0;
+  height: 0;
+  background-color: #fff;
+  border-radius: 99px;
+  transform: translate(-50%, -50%);
+  transition: width 0.45s ease-in-out, height 0.45s ease-in-out;
+  z-index: -1;
+}
+.inOutAniBtn::after {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333333;
+  z-index: -2;
+}
+.inOutAniBtn:hover {
+  color: #333;
+}
+.inOutAniBtn:hover::before {
+  width: 220%;
+  height: 600%;
+}
+
+:root {
+  /*Background*/
+  /* 主背景 */
+  --bg: #050816;
+  --bg-secondary: #090f24;
+  --surface: #10152d;
+  /* Hover / 卡片 */
+  --surface-light: #181d3a;
+  /*Text*/
+  --text: #edf2ff;
+  --text-secondary: #98a6d3;
+  --text-muted: #5f6b94;
+  /*Primary Colors*/
+  --blue: #00b7ff;
+  --cyan: #3ae6ff;
+  --purple: #8c47ff;
+  --pink: #ff3dbf;
+  --pink-light: #ff74e1;
+  /*Glow*/
+  /* 發光 */
+  --glow-blue: #43e0ff;
+  --glow-purple: #9d62ff;
+  --glow-pink: #ff5edb;
+  /*Lines*/
+  /* 一般描邊 */
+  --line: rgba(255, 255, 255, 0.05);
+  --line-blue: rgba(0, 183, 255, 0.28);
+  --line-purple: rgba(140, 71, 255, 0.22);
+  --line-pink: rgba(255, 61, 191, 0.28);
+  /*Hexagon*/
+  /* 六角形 */
+  --hex: rgba(140, 71, 255, 0.15);
+  --hex-active: #a44dff;
+  /*Dot Pattern*/
+  /* 粉色點陣 */
+  --dot-pink: rgba(255, 61, 191, 0.65);
+  /* 藍色點陣 */
+  --dot-blue: rgba(0, 183, 255, 0.55);
+  /*Shadow*/
+  /* 深陰影 */
+  --shadow: rgba(0, 0, 0, 0.55);
+  /*Gradient*/
+  /* 網站主要背景漸層 */
+  --gradient-bg: linear-gradient(180deg,
+      #090f24 0%,
+      #050816 40%,
+      #03040d 100%);
+  /* 霓虹藍 */
+  --gradient-blue: linear-gradient(90deg,
+      #00b7ff,
+      #3ae6ff);
+  /* 霓虹紫 */
+  --gradient-purple: linear-gradient(90deg,
+      #8c47ff,
+      #ff3dbf);
+  /* 藍紫漸層 */
+  --gradient-neon: linear-gradient(135deg,
+      #00b7ff 0%,
+      #8c47ff 55%,
+      #ff3dbf 100%);
+}
+
 .header {
   width: 100%;
   padding: 20px;
-  background: #111;
+  background: #291f1f;
   color: #fff;
 }
 .header .header-inner {
@@ -35,4 +197,92 @@ a {
 .header .menu.is-open {
   opacity: 1;
   background: #9b9b9b;
-}/*# sourceMappingURL=style.css.map */
+}
+
+.outWrap {
+  padding: 3rem;
+  max-width: 1080px;
+  margin: auto auto;
+}
+
+.switch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 1em;
+  font-size: 16px;
+  padding: 16px;
+  border: 1px solid;
+  margin-bottom: 24px;
+}
+.switch-btn .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch-btn .switch input {
+  display: none;
+}
+.switch-btn .slider {
+  position: absolute;
+  inset: 0;
+  background: #333;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.switch-btn .slider::before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  left: 4px;
+  top: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.switch-btn input:checked + .slider {
+  background: #fff;
+}
+.switch-btn input:checked + .slider::before {
+  background: #333;
+  transform: translateX(26px);
+}
+
+/* main -start */
+.main {
+  max-width: 1080px;
+  height: 100%;
+  margin: auto auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(440px, 1fr));
+  gap: 2rem;
+}
+
+.person-info,
+.aboutMe,
+.work {
+  border: 1px solid red;
+  padding: 16px;
+  border-radius: 32px;
+}
+
+.person-info {
+  grid-column: 1/3;
+}
+
+.aboutMe {
+  grid-column: 3/5;
+}
+
+.work {
+  grid-column: 1/5;
+  grid-row: 2/3;
+}
+
+/* main - end */
+
+/*# sourceMappingURL=style.css.map */

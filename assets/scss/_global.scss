@@ -13,9 +13,12 @@ body {
 
 body {
 
-  color: #222;
-  background: #f0f0f0;
-
+  min-height: 100vh;
+  color: #edf2ff;
+  background: var(--gradient-bg);
+  // background-image: url(/assets/images/3mVKS-Y1k2H5S1bZb8IXKsHtQIIfgiynO49Xd9lBTv43USyTsXSxaMl4l-mVSXHuJ0SrAV1F4f4wiPSp44hpPt3LllpTDef0Ngci7k5Az2svWmdz22fI9VBEjX2S5pM0ESr58NJf60MQAP7S4-dqYwycwl9emwocuFUkB5a5cwxr8gTj7tPz9OWEdYTJU-Iq.jfif);
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 
 article,
@@ -57,6 +60,10 @@ ul {
 button {
   border: none;
   background: transparent;
+}
+
+figure {
+  margin: 0;
 }
 
 .inOutAniBtn {
@@ -124,4 +131,81 @@ button {
       height: 600%;
     }
   }
+}
+
+
+:root {
+  /*Background*/
+  /* 主背景 */
+  --bg: #050816;
+  --bg-secondary: #090f24;
+  --surface: #10152d;
+  /* Hover / 卡片 */
+  --surface-light: #181d3a;
+
+  /*Text*/
+  --text: #edf2ff;
+  --text-secondary: #98a6d3;
+  --text-muted: #5f6b94;
+
+  /*Primary Colors*/
+  --blue: #00b7ff;
+  --cyan: #3ae6ff;
+  --purple: #8c47ff;
+  --pink: #ff3dbf;
+  --pink-light: #ff74e1;
+
+  /*Glow*/
+  /* 發光 */
+  --glow-blue: #43e0ff;
+  --glow-purple: #9d62ff;
+  --glow-pink: #ff5edb;
+
+  /*Lines*/
+  /* 一般描邊 */
+  --line: rgba(255, 255, 255, 0.05);
+  --line-blue: rgba(0, 183, 255, 0.28);
+  --line-purple: rgba(140, 71, 255, 0.22);
+  --line-pink: rgba(255, 61, 191, 0.28);
+
+  /*Hexagon*/
+  /* 六角形 */
+  --hex: rgba(140, 71, 255, 0.15);
+  --hex-active: #a44dff;
+
+  /*Dot Pattern*/
+
+  /* 粉色點陣 */
+  --dot-pink: rgba(255, 61, 191, 0.65);
+  /* 藍色點陣 */
+  --dot-blue: rgba(0, 183, 255, 0.55);
+
+  /*Shadow*/
+
+  /* 深陰影 */
+  --shadow: rgba(0, 0, 0, 0.55);
+
+  /*Gradient*/
+
+  /* 網站主要背景漸層 */
+  --gradient-bg: linear-gradient(180deg,
+      #090f24 0%,
+      #050816 40%,
+      #03040d 100%);
+
+  /* 霓虹藍 */
+  --gradient-blue: linear-gradient(90deg,
+      #00b7ff,
+      #3ae6ff);
+
+  /* 霓虹紫 */
+  --gradient-purple: linear-gradient(90deg,
+      #8c47ff,
+      #ff3dbf);
+
+  /* 藍紫漸層 */
+  --gradient-neon: linear-gradient(135deg,
+      #00b7ff 0%,
+      #8c47ff 55%,
+      #ff3dbf 100%);
 }
