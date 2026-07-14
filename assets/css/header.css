@@ -1,8 +1,8 @@
 .header {
   width: 100%;
   padding: 20px;
-  background: #291f1f;
-  color: #fff;
+  background: var(--header-bg);
+  color: var(--text-primary);
 }
 .header .header-inner {
   display: flex;
@@ -15,7 +15,7 @@
 }
 .header .menu.is-open {
   opacity: 1;
-  background: #9b9b9b;
+  background: var(--header-menu-bg);
 }
 
 /*# sourceMappingURL=header.css.map */

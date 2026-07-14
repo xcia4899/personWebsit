@@ -24,8 +24,11 @@ body {
 body {
 
   min-height: 100vh;
-  color: #edf2ff;
-  background: $indigo;
+  color: var(--text-primary);
+  background: var(--page-bg);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   // background-image: url(/assets/images/3mVKS-Y1k2H5S1bZb8IXKsHtQIIfgiynO49Xd9lBTv43USyTsXSxaMl4l-mVSXHuJ0SrAV1F4f4wiPSp44hpPt3LllpTDef0Ngci7k5Az2svWmdz22fI9VBEjX2S5pM0ESr58NJf60MQAP7S4-dqYwycwl9emwocuFUkB5a5cwxr8gTj7tPz9OWEdYTJU-Iq.jfif);
   // background-repeat: no-repeat;
   // background-size: cover;
@@ -70,6 +73,7 @@ ul {
 button {
   border: none;
   background: transparent;
+  color: inherit;
 }
 
 figure {
@@ -81,8 +85,8 @@ figure {
   --btn-y: 50%;
 
   background-color: transparent;
-  border: 1px solid #333333;
-  color: #fff;
+  border: 1px solid var(--button-border);
+  color: var(--button-text);
   max-width: 330px;
 
   position: relative;
@@ -116,7 +120,7 @@ figure {
     left: var(--btn-x);
     width: 0;
     height: 0;
-    background-color: #fff;
+    background-color: var(--button-bg-hover);
     border-radius: 99px;
     transform: translate(-50%, -50%);
     transition:
@@ -129,12 +133,12 @@ figure {
     inset: 0;
     width: 100%;
     height: 100%;
-    background-color: #333333;
+    background-color: var(--button-bg);
     z-index: -2;
   }
 
   &:hover {
-    color: #333;
+    color: var(--button-text-hover);
 
     &::before {
       width: 220%;
@@ -189,7 +193,7 @@ p {
   font-weight: 400;
   overflow-wrap: break-word;
   cursor: default;
-  // color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 
