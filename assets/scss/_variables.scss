@@ -1,9 +1,94 @@
-$primary-color: #ef5b00;
-$text-color: #222;
-$bg-color: #111;
+$white: #fff;
+$black: #181818;
+$indigo: #0b0e11;
+$indigo11: #2c3e50;
 
-$container-width: 1400px;
+// Neutral
+$color-white: rgb(250, 250, 250);
+$color-black: rgb(10, 10, 10);
+$color-gray-50: #fafafa; // 幾乎白，page 背景
+$color-gray-100: #f0f0f0; // surface 
+$color-gray-200: #e0e0e0; // border 
+$color-gray-300: #c8c8c8; // disabled 
+$color-gray-400: #a0a0a0; // placeholder 
+$color-gray-500: #787878; // 次要文字
+$color-gray-600: #5f5f5f; // 輔助文字
+$color-gray-700: #333333; // 主要文字
+$color-gray-800: #222222; // 深色文字
+$color-gray-900: #141414; // 最深背景
 
-$pc-media: 1400px;
-$tablet-media: 1024px;
-$mobile-media: 767px;
+:root {
+  /*Background*/
+  /* 主背景 */
+  --bg: #070708;
+  --bg-secondary: #090f24;
+  --surface: #10152d;
+  /* Hover / 卡片 */
+  --surface-light: #181d3a;
+
+  /*Text*/
+  --text: #edf2ff;
+  --text-secondary: #98a6d3;
+  --text-muted: #5f6b94;
+
+  /*Primary Colors*/
+  --blue: #00b7ff;
+  --cyan: #3ae6ff;
+  --purple: #8c47ff;
+  --pink: #ff3dbf;
+  --pink-light: #ff74e1;
+
+  /*Glow*/
+  /* 發光 */
+  --glow-blue: #43e0ff;
+  --glow-purple: #9d62ff;
+  --glow-pink: #ff5edb;
+
+  /*Lines*/
+  /* 一般描邊 */
+  --line: rgba(255, 255, 255, 0.05);
+  --line-blue: rgba(0, 183, 255, 0.28);
+  --line-purple: rgba(140, 71, 255, 0.22);
+  --line-pink: rgba(255, 61, 191, 0.28);
+
+  /*Hexagon*/
+  /* 六角形 */
+  --hex: rgba(140, 71, 255, 0.15);
+  --hex-active: #a44dff;
+
+  /*Dot Pattern*/
+
+  /* 粉色點陣 */
+  --dot-pink: rgba(255, 61, 191, 0.65);
+  /* 藍色點陣 */
+  --dot-blue: rgba(0, 183, 255, 0.55);
+
+  /*Shadow*/
+
+  /* 深陰影 */
+  --shadow: rgba(0, 0, 0, 0.55);
+
+  /*Gradient*/
+
+  /* 網站主要背景漸層 */
+  --gradient-bg: linear-gradient(180deg,
+      #050813 0%,
+      #02030c 40%,
+      #03040d 100%);
+
+  /* 霓虹藍 */
+  --gradient-blue: linear-gradient(90deg,
+      #00b7ff,
+      #3ae6ff);
+
+  /* 霓虹紫 */
+  --gradient-purple: linear-gradient(90deg,
+      #8c47ff,
+      #ff3dbf);
+
+  /* 藍紫漸層 */
+  --gradient-neon: linear-gradient(135deg,
+      #00b7ff 0%,
+      #8c47ff 55%,
+      #ff3dbf 100%);
+}
