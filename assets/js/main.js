@@ -28,8 +28,8 @@ function initTheme() {
     }
 }
 
-function cardRotato() {
-    const cards = document.querySelectorAll(".profileCard");
+function initCardFlip() {
+    const cards = document.querySelectorAll(".card");
 
     cards.forEach((card) => {
         const flipButtons = card.querySelectorAll(".flip-btn");
@@ -45,7 +45,7 @@ function cardRotato() {
 
 document.addEventListener("DOMContentLoaded", async () => {
     initTheme();
-    cardRotato();
+    initCardFlip();
     await loadSvgSprite();
     await loadLayout();
     initHeader();

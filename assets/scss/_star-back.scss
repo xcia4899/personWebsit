@@ -16,6 +16,7 @@
     height: 100%;
     width: 100%;
     background: var(--back-gradient);
+    transition: all 0.4s ease;
     overflow: hidden;
   }
 
@@ -23,6 +24,7 @@
     width: 1px;
     height: 1px;
     background: transparent;
+    transition: all 0.4s ease;
     box-shadow:
       501px 811px var(--star-color),
       1450px 1324px var(--star-color),
@@ -734,6 +736,7 @@
     width: 1px;
     height: 1px;
     background: transparent;
+    transition: all 0.4s ease;
     box-shadow:
       501px 811px var(--star-color),
       1450px 1324px var(--star-color),

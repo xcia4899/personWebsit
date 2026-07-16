@@ -1,0 +1,8 @@
+@mixin glass-card {
+  // padding: 32px;
+  border: 1px solid var(--card-border);
+  // border-radius: 32px;
+  background: var(--card-bg);
+  box-shadow: 0 18px 54px var(--shadow);
+  backdrop-filter: blur(2px) saturate(130%);
+}

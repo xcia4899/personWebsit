@@ -1,3 +1,5 @@
+@use "./mixins" as *;
+
 .outWrap {
   padding: 3rem;
   max-width: 1080px;
@@ -110,42 +112,45 @@
 
 }
 
-.profileCard {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding: 32px;
-  border-radius: 32px;
-  box-shadow: 0 18px 54px var(--shadow);
-  backdrop-filter: blur(4px) saturate(130%);
+.card {
+  position: relative;
 
-  &:hover {
-    // box-shadow:  0px 0px 24px  var(--button-bg-hover);
-    box-shadow:
-      0 0 15px #ff38ff59,
-      0 0 35px #8b2cff40,
-      0 0 70px #8b2cff26;
-  }
+  perspective: 1200px;
+  transition: box-shadow 0.3s ease;
+  // border-radius: 32px;
 
-  .profileCard-inner {
+  .card-inner {
     position: relative;
     width: 100%;
     height: 100%;
-
     transform-style: preserve-3d;
     transition: transform 0.8s ease;
   }
 
-  &.is-flipped .profileCard-inner {
+  &.is-flipped .card-inner {
     transform: rotateY(180deg);
   }
 
-  /* 正面、背面占據完全相同的位置 */
   .card-face {
+    @include glass-card;
+
+    padding: 32px;
+    border-radius: 32px;
+    
     position: absolute;
     inset: 0;
-
+    width: 100%;
+    height: 100%;
     backface-visibility: hidden;
-    overflow: hidden;
+    overflow: auto;
+    scrollbar-width: none;
+
+    &:hover {
+      box-shadow:
+        0 0 15px #ff38ff59,
+        0 0 35px #8b2cff40,
+        0 0 70px #8b2cff26;
+    }
   }
 
   .card-back {
@@ -154,39 +159,41 @@
 }
 
 
-.person-Into {
+.personData {
   grid-column: 1 / 3;
   position: relative;
-  overflow: hidden;
 
-  .Intro {
-    display: flex;
-    justify-content: space-between;
-    .header-profile {
+  .card-front {
+    .top {
       display: flex;
-      // justify-content: center;
-      align-items: center;
-      gap: 1rem;
+      justify-content: space-between;
 
-      .img {
-        width: 80px;
-        border-radius: 20px;
-        overflow: hidden;
+      .profile {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        gap: 1rem;
 
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        .img {
+          width: 80px;
+          border-radius: 20px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         }
       }
     }
   }
 
-  // &:hover {
-  //   .intro-back {
-  //     display: block;
-  //   }
-  // }
+  .card-back {
+    .btnBox {
+      text-align: right;
+    }
+  }
 }
 
 .aboutMe {
