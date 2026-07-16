@@ -24,9 +24,11 @@ function initCardFlip() {
 
 document.addEventListener("DOMContentLoaded", async () => {
     initTheme();
+    btnHoverAni();
     initCardFlip();
     await loadSvgSprite();
     await loadLayout();
+
     initHeader();
     initMenu();
     scrollAnimation();

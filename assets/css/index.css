@@ -70,7 +70,7 @@
 .switchBox:hover .switch-btn {
   transform: scale(1.06);
   border: 1px solid var(--border-strong);
-  box-shadow: 0px 0px 8px var(--button-bg-hover);
+  box-shadow: 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
 }
 .switchBox:hover {
   text-shadow: 0 0 2px #a0a0a0;
@@ -96,6 +96,7 @@
   position: relative;
   perspective: 1200px;
   transition: box-shadow 0.3s ease;
+  border-radius: 32px;
 }
 .card .card-inner {
   position: relative;
@@ -123,7 +124,7 @@
   scrollbar-width: none;
 }
 .card .card-face:hover {
-  box-shadow: 0 0 15px rgba(255, 56, 255, 0.3490196078), 0 0 35px rgba(139, 44, 255, 0.2509803922), 0 0 70px rgba(139, 44, 255, 0.1490196078);
+  box-shadow: 0 0 15px rgba(165, 56, 255, 0.3490196078), 0 0 70px rgba(139, 44, 255, 0.1490196078);
 }
 .card .card-back {
   transform: rotateY(180deg);
@@ -136,6 +137,7 @@
 .personData .card-front .top {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 .personData .card-front .top .profile {
   display: flex;
