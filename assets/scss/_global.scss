@@ -96,17 +96,17 @@ figure {
   --btn-y: 50%;
 
   background-color: transparent;
-  border: 1px solid var(--button-border);
-  color: var(--button-text);
+  border: 1px solid var(--inout-btn-border);
+  color: var(--inout-btn-text);
   max-width: 330px;
 
   position: relative;
   display: inline-block;
   width: 100%;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.01em;
-  line-height: 1.5;
+  line-height: 1.2;
 
   text-transform: uppercase;
   text-align: center;
@@ -131,7 +131,7 @@ figure {
     left: var(--btn-x);
     width: 0;
     height: 0;
-    background-color: var(--button-bg-hover);
+    background-color: var(--inout-btn-bg-hover);
     border-radius: 99px;
     transform: translate(-50%, -50%);
     transition:
@@ -144,16 +144,16 @@ figure {
     inset: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--button-bg);
+    background-color: var(--inout-btn-bg);
     z-index: -2;
   }
 
   &:hover {
-    color: var(--button-text-hover);
+    color: var(--inout-btn-text-hover);
 
     &::before {
       width: 220%;
-      height: 600%;
+      height: 800%;
     }
   }
 }
@@ -163,14 +163,14 @@ figure {
   position: relative;
   padding: 10px 20px;
   border-radius: 6px;
-  border: 1px solid rgb(61, 106, 255);
+  border: 1px solid var(--flip-btn-border);
   font-size: 12px;
   line-height: 100%;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 2px;
-  background: transparent;
-  color: #fff;
+  background: var(--flip-btn-bg);
+  color: var(--flip-btn-text);
   overflow: hidden;
   box-shadow: 0 0 0 0 transparent;
   -webkit-transition: all 0.2s ease-in;
@@ -178,8 +178,9 @@ figure {
   transition: all 0.2s ease-in;
 
   &:hover {
-    background: rgb(61, 106, 255);
-    box-shadow: 0 0 18px 2px rgba(0, 142, 236, 0.815);
+    color: var(--flip-btn-text-hover);
+    background: var(--flip-btn-bg-hover);
+    box-shadow: 0 0 18px 2px var(--flip-btn-glow);
     
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
@@ -201,8 +202,8 @@ figure {
     top: 7%;
     left: 0%;
     opacity: 0;
-    // background: #fff;
-    box-shadow: 0 0 50px 24px #fff;
+    background: #fff;
+    box-shadow: 0 0 50px 36px var(--flip-btn-shine);
     
     -webkit-transform: skewX(-20deg);
     -moz-transform: skewX(-20deg);

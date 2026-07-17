@@ -1,3 +1,78 @@
+:root,
+[data-theme=light] {
+  color-scheme: light;
+  --page-bg: #dfe7f2;
+  --text-primary: #181818;
+  --text-secondary: #5f5f5f;
+  --text-muted: #b6b6b6;
+  --surface: rgba(250, 250, 250, 0.82);
+  --surface-hover: rgba(255, 255, 255, 0.96);
+  --surface-strong: #ffffff;
+  --border: rgba(24, 24, 24, 0.14);
+  --border-strong: #333333;
+  --shadow: rgba(24, 24, 24, 0.18);
+  --header-bg: rgba(250, 250, 250, 0.88);
+  --header-menu-bg: rgba(224, 224, 224, 0.96);
+  --switch-track: #2c3e50;
+  --switch-track-active: #0f0f0f;
+  --switch-thumb: #ffffff;
+  --switch-thumb-active: #ffffff;
+  --inout-btn-text: #6d28d9;
+  --inout-btn-text-hover: #ffffff;
+  --inout-btn-bg: #ffffff;
+  --inout-btn-bg-hover: #7c3aed;
+  --inout-btn-border: #7c3aed;
+  --flip-btn-text: #6d28d9;
+  --flip-btn-text-hover: #ffffff;
+  --flip-btn-bg: transparent;
+  --flip-btn-bg-hover: #7c3aed;
+  --flip-btn-border: #7c3aed;
+  --flip-btn-glow: rgba(124, 58, 237, 0.5);
+  --flip-btn-shine: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.2);
+  --card-border: rgba(255, 255, 255, 0.5);
+  --back-opacity: 1;
+  --back-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%, #f7f3ea 100%);
+  --star-color: rgba(209, 7, 165, 0.72);
+}
+
+[data-theme=dark] {
+  color-scheme: dark;
+  --page-bg: #010508;
+  --text-primary: #edf2ff;
+  --text-secondary: #98a6d3;
+  --text-muted: #43507a;
+  --surface: rgba(16, 21, 45, 0.72);
+  --surface-hover: rgba(24, 29, 58, 0.88);
+  --surface-strong: #181d3a;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.32);
+  --shadow: rgba(0, 0, 0, 0.55);
+  --header-bg: rgba(11, 14, 17, 0.37);
+  --header-menu-bg: rgba(24, 29, 58, 0.96);
+  --switch-track: #2c3e50;
+  --switch-track-active: #d4d4d4;
+  --switch-thumb: #d4d4d4;
+  --switch-thumb-active: #333333;
+  --inout-btn-text: #ffffff;
+  --inout-btn-text-hover: #3d6aff;
+  --inout-btn-bg: #3d6aff62;
+  --inout-btn-bg-hover: #fffffff8;
+  --inout-btn-border: #3d6aff;
+  --flip-btn-text: #ffffff;
+  --flip-btn-text-hover: #ffffff;
+  --flip-btn-bg: transparent;
+  --flip-btn-bg-hover: #3d6aff;
+  --flip-btn-border: #3d6aff;
+  --flip-btn-glow: rgba(34, 99, 238, 0.55);
+  --flip-btn-shine: #ffffff;
+  --card-bg: rgba(16, 21, 45, 0.38);
+  --card-border: rgba(255, 255, 255, 0.24);
+  --back-opacity: 1;
+  --back-gradient: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  --star-color: #ffffff;
+}
+
 .outWrap {
   padding: 3rem;
   max-width: 1080px;
@@ -134,6 +209,11 @@
   grid-column: 1/3;
   position: relative;
 }
+.personData .card-front {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
 .personData .card-front .top {
   display: flex;
   justify-content: space-between;
@@ -153,6 +233,37 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.personData .card-front .dataBox {
+  display: flex;
+  justify-content: space-between;
+}
+.personData .card-front .dataBox .skill-group {
+  flex: 1;
+}
+.personData .card-front .dataBox .skill-group .skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+}
+.personData .card-front .dataBox .skill-group .skill-list span {
+  border: 1px solid;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.personData .card-front .dataBox .skill-group.under {
+  align-self: flex-end;
+  flex: 1;
+}
+.personData .card-front .bottom .link .btn {
+  display: block;
+  padding: 8px 16px;
+  max-width: 160px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+.personData .card-front .bottom .link .btn::after {
+  backdrop-filter: blur(2px);
 }
 .personData .card-back .btnBox {
   text-align: right;

@@ -18,11 +18,18 @@
   --switch-track-active: #0f0f0f;
   --switch-thumb: #ffffff;
   --switch-thumb-active: #ffffff;
-  --button-text: #ffffff;
-  --button-text-hover: #333333;
-  --button-bg: #333333;
-  --button-bg-hover: #ffffff;
-  --button-border: #333333;
+  --inout-btn-text: #6d28d9;
+  --inout-btn-text-hover: #ffffff;
+  --inout-btn-bg: #ffffff25;
+  --inout-btn-bg-hover: #7c3aed;
+  --inout-btn-border: #7c3aed;
+  --flip-btn-text: #6d28d9;
+  --flip-btn-text-hover: #ffffff;
+  --flip-btn-bg: transparent;
+  --flip-btn-bg-hover: #7c3aed;
+  --flip-btn-border: #7c3aed;
+  --flip-btn-glow: rgba(124, 58, 237, 0.5);
+  --flip-btn-shine: #fffdf4;
   --card-bg: rgba(255, 255, 255, 0.2);
   --card-border: rgba(255, 255, 255, 0.5);
   --back-opacity: 1;
@@ -48,11 +55,18 @@
   --switch-track-active: #d4d4d4;
   --switch-thumb: #d4d4d4;
   --switch-thumb-active: #333333;
-  --button-text: #ffffff;
-  --button-text-hover: #333333;
-  --button-bg: #333333;
-  --button-bg-hover: #ffffff;
-  --button-border: #333333;
+  --inout-btn-text: #ffffff;
+  --inout-btn-text-hover: #3d6aff;
+  --inout-btn-bg: #3d6aff62;
+  --inout-btn-bg-hover: #fffffff8;
+  --inout-btn-border: #3d6aff;
+  --flip-btn-text: #ffffff;
+  --flip-btn-text-hover: #ffffff;
+  --flip-btn-bg: transparent;
+  --flip-btn-bg-hover: #3d6aff;
+  --flip-btn-border: #3d6aff;
+  --flip-btn-glow: rgba(34, 99, 238, 0.55);
+  --flip-btn-shine: #ffffff;
   --card-bg: rgba(16, 21, 45, 0.38);
   --card-border: rgba(255, 255, 255, 0.24);
   --back-opacity: 1;
@@ -143,16 +157,16 @@ figure {
   --btn-x: 50%;
   --btn-y: 50%;
   background-color: transparent;
-  border: 1px solid var(--button-border);
-  color: var(--button-text);
+  border: 1px solid var(--inout-btn-border);
+  color: var(--inout-btn-text);
   max-width: 330px;
   position: relative;
   display: inline-block;
   width: 100%;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.01em;
-  line-height: 1.5;
+  line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
   padding: 1rem 1.5rem;
@@ -174,7 +188,7 @@ figure {
   left: var(--btn-x);
   width: 0;
   height: 0;
-  background-color: var(--button-bg-hover);
+  background-color: var(--inout-btn-bg-hover);
   border-radius: 99px;
   transform: translate(-50%, -50%);
   transition: width 0.45s ease-in-out, height 0.45s ease-in-out;
@@ -184,15 +198,15 @@ figure {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--button-bg);
+  background-color: var(--inout-btn-bg);
   z-index: -2;
 }
 .inOutAniBtn:hover {
-  color: var(--button-text-hover);
+  color: var(--inout-btn-text-hover);
 }
 .inOutAniBtn:hover::before {
   width: 220%;
-  height: 600%;
+  height: 800%;
 }
 
 /* From Uiverse.io by mrhyddenn */
@@ -200,14 +214,14 @@ figure {
   position: relative;
   padding: 10px 20px;
   border-radius: 6px;
-  border: 1px solid rgb(61, 106, 255);
+  border: 1px solid var(--flip-btn-border);
   font-size: 12px;
   line-height: 100%;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 2px;
-  background: transparent;
-  color: #fff;
+  background: var(--flip-btn-bg);
+  color: var(--flip-btn-text);
   overflow: hidden;
   box-shadow: 0 0 0 0 transparent;
   -webkit-transition: all 0.2s ease-in;
@@ -215,8 +229,9 @@ figure {
   transition: all 0.2s ease-in;
 }
 .flip-btn:hover {
-  background: rgb(61, 106, 255);
-  box-shadow: 0 0 18px 2px rgba(0, 142, 236, 0.815);
+  color: var(--flip-btn-text-hover);
+  background: var(--flip-btn-bg-hover);
+  box-shadow: 0 0 18px 2px var(--flip-btn-glow);
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -235,7 +250,8 @@ figure {
   top: 7%;
   left: 0%;
   opacity: 0;
-  box-shadow: 0 0 50px 24px #fff;
+  background: #fff;
+  box-shadow: 0 0 50px 36px var(--flip-btn-shine);
   -webkit-transform: skewX(-20deg);
   -moz-transform: skewX(-20deg);
   -ms-transform: skewX(-20deg);
@@ -446,6 +462,11 @@ p {
   grid-column: 1/3;
   position: relative;
 }
+.personData .card-front {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
 .personData .card-front .top {
   display: flex;
   justify-content: space-between;
@@ -465,6 +486,37 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.personData .card-front .dataBox {
+  display: flex;
+  justify-content: space-between;
+}
+.personData .card-front .dataBox .skill-group {
+  flex: 1;
+}
+.personData .card-front .dataBox .skill-group .skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+}
+.personData .card-front .dataBox .skill-group .skill-list span {
+  border: 1px solid;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.personData .card-front .dataBox .skill-group.under {
+  align-self: flex-end;
+  flex: 1;
+}
+.personData .card-front .bottom .link .btn {
+  display: block;
+  padding: 8px 16px;
+  max-width: 160px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+.personData .card-front .bottom .link .btn::after {
+  backdrop-filter: blur(2px);
 }
 .personData .card-back .btnBox {
   text-align: right;

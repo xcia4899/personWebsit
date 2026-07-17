@@ -2,7 +2,8 @@ $white: #fff;
 $black: #181818;
 $indigo: #0b0e11;
 $indigo11: #2c3e50;
-
+$color-blue:#3d6aff;
+$color-blue-50:#3d6aff5e;
 // Neutral palette
 $color-white: rgb(250, 250, 250);
 $color-black: rgb(10, 10, 10);
@@ -41,11 +42,19 @@ $color-gray-900: #141414;
   --switch-thumb: #ffffff;
   --switch-thumb-active: #ffffff;
 
-  --button-text: #ffffff;
-  --button-text-hover: #333333;
-  --button-bg: #333333;
-  --button-bg-hover: #ffffff;
-  --button-border: #333333;
+  --inout-btn-text: #6d28d9;
+  --inout-btn-text-hover: #ffffff;
+  --inout-btn-bg: #ffffff25;
+  --inout-btn-bg-hover: #7c3aed;
+  --inout-btn-border: #7c3aed;
+
+  --flip-btn-text: #6d28d9;
+  --flip-btn-text-hover: #ffffff;
+  --flip-btn-bg: transparent;
+  --flip-btn-bg-hover: #7c3aed;
+  --flip-btn-border: #7c3aed;
+  --flip-btn-glow: rgba(124, 58, 237, 0.5);
+  --flip-btn-shine: #fffdf4;
 
   --card-bg: rgba(255, 255, 255, 0.2);
   --card-border: rgba(255, 255, 255, 0.5);
@@ -79,11 +88,19 @@ $color-gray-900: #141414;
   --switch-thumb: #d4d4d4;
   --switch-thumb-active: #333333;
 
-  --button-text: #ffffff;
-  --button-text-hover: #333333;
-  --button-bg: #333333;
-  --button-bg-hover: #ffffff;
-  --button-border: #333333;
+  --inout-btn-text: #ffffff;
+  --inout-btn-text-hover: #3d6aff;
+  --inout-btn-bg: #3d6aff62;
+  --inout-btn-bg-hover: #fffffff8;
+  --inout-btn-border: #3d6aff;
+
+  --flip-btn-text: #ffffff;
+  --flip-btn-text-hover: #ffffff;
+  --flip-btn-bg: transparent;
+  --flip-btn-bg-hover: #3d6aff;
+  --flip-btn-border: #3d6aff;
+  --flip-btn-glow: rgba(34, 99, 238, 0.55);
+  --flip-btn-shine: #ffffff;
 
   --card-bg: rgba(16, 21, 45, 0.38);
   --card-border: rgba(255, 255, 255, 0.24);
