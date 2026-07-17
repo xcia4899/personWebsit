@@ -52,7 +52,7 @@
               </button>
             </div>
             <div class="dataBox">
-              <div class="skill-group">
+              <div class="skill-group left">
                 <h4 class="title">Design</h4>
                 <div class="skill-list">
                   <span>Figma</span>
@@ -60,7 +60,7 @@
                   <span>Illustrator</span>
                 </div>
               </div>
-              <div class="skill-group under">
+              <div class="skill-group right">
                 <h4 class="title">Development</h4>
                 <div class="skill-list">
                   <span>HTML</span>
@@ -74,7 +74,9 @@
               </div>
             </div>
             <div class="bottom">
-              <div class="expertise"></div>
+              <div class="expertise">
+                <h5>具備數位媒體設計背景的 前端開發者</h5>
+              </div>
               <div class="link">
                 <button class="inOutAniBtn btn">Email</button>
                 <button class="inOutAniBtn btn">104</button>
@@ -84,36 +86,14 @@
           <!-- 背面內容 -->
           <section class="card-face card-back">
             <div class="btnBox">
-              <button class="flip-btn" type="button">返回↻</button>
+              <button class="flip-btn" type="button"><svg class="icon">
+                  <use href="#returnIcon"></use>
+                </svg>
+              </button>
             </div>
 
             <div class="back-content">
-              <h2>
-                SET <span>@Site_Theme</span> =
-                <strong>'Frontend Developer'</strong>
-              </h2>
 
-              <div class="divider"></div>
-
-              <p>
-                我是一名前端工程師學習者，主要使用 Vue、Nuxt、
-                TypeScript 與 SCSS 製作響應式網站。
-              </p>
-
-              <p>
-                我喜歡研究網站互動效果，並將設計稿轉換成具有動畫、
-                操作回饋與良好使用體驗的網頁。
-              </p>
-
-              <p>
-                除了畫面實作，也會建立 API、會員系統、
-                商品管理與後台 CRUD 功能。
-              </p>
-
-              <blockquote>
-                持續改善每一個細節，讓設計不只是畫面，
-                而是完整的操作體驗。
-              </blockquote>
             </div>
           </section>
         </div>
@@ -122,16 +102,41 @@
       <section class="aboutMe card">
         <div class="card-inner">
           <section class="card-face card-front">
-            <h2>履歷</h2>
             <div class="btnBox">
-              <button class="flip-btn" type="button">返回↻</button>
+              <button class="flip-btn" type="button">自傳
+                <svg class="icon">
+                  <use href="#returnIcon"></use>
+                </svg></button>
             </div>
+
+            <h2>經歷</h2>
           </section>
           <section class="card-face card-back">
-            <h2>履歷</h2>
             <div class="btnBox">
-              <button class="flip-btn" type="button">返回↻</button>
+              <button class="flip-btn" type="button"><svg class="icon">
+                  <use href="#returnIcon"></use>
+                </svg>
+              </button>
             </div>
+            <h2>履歷</h2>
+            <h4>
+              const role = "Frontend Developer";
+            </h4>
+            <p>您好：
+
+              感謝您撥冗閱讀我的自我介紹。我雖然不是走最典型路線進入前端領域的人，但我很清楚自己的優勢，也非常確定自己適合走這條路。
+
+              我的優勢來自於橫跨設計與實作的背景，以及在多年職場經驗中培養出的穩定性、自學能力與執行力。過去的工作環境雖未提供完整的技術養成條件，但也讓我習慣在資源有限的情況下主動補足所需能力，透過持續學習與實作，逐步建立完整的前端開發基礎，並能獨立完成從設計到功能實作的專案開發。
+
+              在學期間，我曾擔任畢業專題負責人，負責流程規劃、協作整合與程式實作，具備實際推進專案的經驗。畢業後累積多年職場歷練，使我在工作態度、責任感與抗壓性上更加成熟穩定，面對問題時也能以更有條理的方式拆解與解決。
+              在技術能力上，我透過職訓建立 HTML、CSS、JavaScript 基礎，並持續自主學習現代前端技術，以 Vue 3 與 Nuxt 為核心開發框架，並導入 TypeScript
+              提升程式碼的穩定性與可維護性。在學習過程中，我習慣以實作作為主要方式，透過專案開發釐清觀念，並在遇到問題時優先查閱官方文件（如 Vue 、Element Plus），理解元件設計與 API
+              使用方式，再透過實測與調整找到合適解法。
+
+              目前已透過多項個人專案完成 API 串接、Pinia 狀態管理與 UI 元件庫應用，能將設計稿轉化為高還原度且具備良好結構的前端介面，並具備獨立完成開發流程與跨角色協作的能力。
+              對我而言，職稱並非首要考量，我更重視能在專業環境中持續成長。我願意從基層職位切入，快速吸收團隊經驗，並以穩定的執行力與學習效率，成為能實際分擔開發工作的成員。
+
+              如果貴公司希望尋找的是一位成熟穩定、學習速度快且具備成長潛力的前端工程師，我相信自己會是值得考慮的人選。期待有機會進一步面談，向您說明我的能力與作品。感謝您的審閱。</p>
           </section>
         </div>
       </section>
@@ -139,20 +144,28 @@
       <section class="work card">
         <div class="card-inner">
           <section class="card-face card-front">
-            <h1>作品</h1>
-            <figure>圖片</figure>
-            <a href="">連結</a>
             <div class="btnBox">
-              <button class="flip-btn" type="button">返回↻</button>
+              <button class="flip-btn" type="button">更多作品 <svg class="icon">
+                  <use href="#returnIcon"></use>
+                </svg></button>
             </div>
+           <div class="project">
+              <h1>作品</h1>
+              <figure>圖片</figure>
+              <a href="">連結</a>
+           </div>
+
           </section>
           <section class="card-face card-back">
+            <button class="flip-btn" type="button">
+              <svg class="icon">
+                <use href="#returnIcon"></use>
+              </svg>
+            </button>
             <h1>作品</h1>
             <figure>圖片</figure>
             <a href="">連結</a>
-            <div class="btnBox">
-              <button class="flip-btn" type="button">返回↻</button>
-            </div>
+
           </section>
         </div>
       </section>

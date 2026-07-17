@@ -212,11 +212,15 @@ figure {
 /* From Uiverse.io by mrhyddenn */
 .flip-btn {
   position: relative;
-  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 12px;
   border-radius: 6px;
   border: 1px solid var(--flip-btn-border);
-  font-size: 12px;
-  line-height: 100%;
+  font-size: 10px;
+  line-height: 1.2;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 2px;
@@ -227,11 +231,19 @@ figure {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.flip-btn .icon {
+  display: block;
+  width: 1.6em;
+  height: 1.6em;
+  transition: all 0.6s ease-in-out;
 }
 .flip-btn:hover {
   color: var(--flip-btn-text-hover);
   background: var(--flip-btn-bg-hover);
-  box-shadow: 0 0 18px 2px var(--flip-btn-glow);
+  box-shadow: 0 0 20px 4px var(--flip-btn-glow);
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -240,6 +252,9 @@ figure {
   -webkit-animation: sh02 0.5s 0s linear;
   -moz-animation: sh02 0.5s 0s linear;
   animation: sh02 0.5s 0s linear;
+}
+.flip-btn:hover .icon {
+  transform: rotate(180deg);
 }
 .flip-btn::before {
   content: "";
@@ -251,7 +266,7 @@ figure {
   left: 0%;
   opacity: 0;
   background: #fff;
-  box-shadow: 0 0 50px 36px var(--flip-btn-shine);
+  box-shadow: 0 0 32px 24px var(--flip-btn-shine);
   -webkit-transform: skewX(-20deg);
   -moz-transform: skewX(-20deg);
   -ms-transform: skewX(-20deg);
@@ -328,7 +343,7 @@ p {
 
 .outWrap {
   padding: 3rem;
-  max-width: 1080px;
+  max-width: 1180px;
   margin: auto auto;
   position: relative;
   z-index: 1;
@@ -411,7 +426,7 @@ p {
 
 /* main -start */
 .main {
-  max-width: 1080px;
+  max-width: 1180px;
   height: 100%;
   margin: auto auto;
   display: grid;
@@ -424,7 +439,7 @@ p {
   position: relative;
   perspective: 1200px;
   transition: box-shadow 0.3s ease;
-  border-radius: 32px;
+  border-radius: 24px;
 }
 .card .card-inner {
   position: relative;
@@ -432,6 +447,7 @@ p {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
+  padding: 12px;
 }
 .card.is-flipped .card-inner {
   transform: rotateY(180deg);
@@ -457,6 +473,11 @@ p {
 .card .card-back {
   transform: rotateY(180deg);
 }
+.card .card-back .flip-btn {
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 99px;
+}
 
 .personData {
   grid-column: 1/3;
@@ -465,6 +486,7 @@ p {
 .personData .card-front {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   row-gap: 2rem;
 }
 .personData .card-front .top {
@@ -490,9 +512,15 @@ p {
 .personData .card-front .dataBox {
   display: flex;
   justify-content: space-between;
+  column-gap: 6rem;
 }
 .personData .card-front .dataBox .skill-group {
-  flex: 1;
+  flex: 1 1 0;
+}
+.personData .card-front .dataBox .skill-group h4 {
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 4px;
 }
 .personData .card-front .dataBox .skill-group .skill-list {
   display: flex;
@@ -504,15 +532,35 @@ p {
   padding: 4px 10px;
   border-radius: 4px;
 }
-.personData .card-front .dataBox .skill-group.under {
+.personData .card-front .dataBox .skill-group.left .skill-list {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.personData .card-front .dataBox .skill-group.right {
   align-self: flex-end;
   flex: 1;
+  text-align: right;
+}
+.personData .card-front .dataBox .skill-group.right .skill-list {
+  justify-content: flex-end;
+}
+.personData .card-front .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+}
+.personData .card-front .bottom .expertise,
+.personData .card-front .bottom .link {
+  flex: 1 1 0;
+  min-width: 0;
 }
 .personData .card-front .bottom .link .btn {
   display: block;
   padding: 8px 16px;
-  max-width: 160px;
-  border-radius: 6px;
+  margin-left: auto;
+  max-width: 200px;
+  border-radius: 16px;
   margin-top: 8px;
 }
 .personData .card-front .bottom .link .btn::after {

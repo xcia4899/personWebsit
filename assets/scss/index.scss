@@ -4,7 +4,7 @@
 
 .outWrap {
   padding: 3rem;
-  max-width: 1080px;
+  max-width: 1180px;
   margin: auto auto;
   position: relative;
   z-index: 1;
@@ -106,7 +106,7 @@
 /* main -start */
 .main {
   // padding: 4rem;
-  max-width: 1080px;
+  max-width: 1180px;
   height: 100%;
   margin: auto auto;
 
@@ -122,8 +122,8 @@
 
   perspective: 1200px;
   transition: box-shadow 0.3s ease;
-  border-radius: 32px;
-
+  border-radius: 24px;
+  // 
 
   .card-inner {
     position: relative;
@@ -131,6 +131,7 @@
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.8s ease;
+    padding: 12px;
   }
 
   &.is-flipped .card-inner {
@@ -165,6 +166,11 @@
 
   .card-back {
     transform: rotateY(180deg);
+    .flip-btn{
+      font-size: 14px;
+      padding: 8px;
+      border-radius: 99px;
+    }
   }
 }
 
@@ -177,6 +183,7 @@
   .card-front {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     row-gap: 2rem;
 
     .top {
@@ -207,9 +214,16 @@
     .dataBox {
       display: flex;
       justify-content: space-between;
+      column-gap: 6rem;
 
       .skill-group {
-        flex: 1;
+        flex: 1 1 0;
+
+        h4 {
+          font-size: 12px;
+          font-weight: 900;
+          margin-bottom: 4px;
+        }
 
         .skill-list {
           display: flex;
@@ -222,26 +236,51 @@
             border-radius: 4px;
           }
         }
-
       }
 
-      .skill-group.under {
+      .skill-group.left {
+        .skill-list {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      .skill-group.right {
         align-self: flex-end;
         flex: 1;
+        text-align: right;
+
+        .skill-list {
+          justify-content: flex-end;
+        }
+
       }
     }
 
     .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6rem;
+
+      .expertise,
       .link {
+        flex: 1 1 0;
+        min-width: 0;
+      }
+
+      .link {
+        // flex: 1;
 
         .btn {
           display: block;
           padding: 8px 16px;
-          max-width: 160px;
-          border-radius: 6px;
+          margin-left: auto;
+          max-width: 200px;
+          border-radius: 16px;
 
           margin-top: 8px;
-    
+
           &::after {
             backdrop-filter: blur(2px);
           }
@@ -265,6 +304,8 @@
 .work {
   grid-column: 1 / 5;
   grid-row: 2 / 3;
+
+  
 }
 
 
