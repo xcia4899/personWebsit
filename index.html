@@ -149,13 +149,78 @@
                   <use href="#returnIcon"></use>
                 </svg></button>
             </div>
-           <div class="project">
-              <h1>作品</h1>
-              <figure>圖片</figure>
-              <a href="">連結</a>
-           </div>
+            <article class="project-card">
+              <div class="project-overview">
+                <figure class="project-img">
+                  <img src="./assets/images/Horizon.png" alt="Horizon 電商網站首頁畫面">
+                </figure>
+                <div class="rightArea">
+                  <div class="project-header">
+                    <h3 class="title">Horizon | 電商網站</h3>
+                    <p class="date">2026 / 01 ～ 2026 / 04</p>
+                  </div>
+                  <ul class="tech-list" aria-label="使用技術">
+                    <li>Nuxt 3</li>
+                    <li>Vue 3</li>
+                    <li>TypeScript</li>
+                    <li>Pinia</li>
+                    <li>Element Plus</li>
+                    <li>Supabase</li>
+                    <li>Vercel</li>
+                  </ul>
+                  <div class="project-description">
+                    <p>
+                      此專案為個人從 0 開始規劃與設計之電商平台，並將既有 Vue 2
+                      架構重構為 Nuxt 3，導入 TypeScript 與 Supabase，
+                      建立具備型別安全與可維護性的應用架構。
+                    </p>
+
+                    <p>
+                      專案涵蓋商品展示、搜尋篩選、購物流程與後台 CRUD 管理，
+                      透過 RESTful API 串接前後端，實作使用者驗證與權限控管，
+                      並整合狀態管理與表單驗證，提升系統穩定性與使用者體驗。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom">
+                <section class="demo-account">
+                  <div class="account-heading">
+                    <h4>測試帳號</h4>
+                    <p>亦可自行註冊新帳號進行體驗。</p>
+                  </div>
+
+                  <dl class="account-info">
+                    <div>
+                      <dt>Admin</dt>
+                      <dd>horizon@aaa.com</dd>
+                    </div>
+
+                    <div>
+                      <dt>Password</dt>
+                      <dd>00000000</dd>
+                    </div>
+                  </dl>
+                </section>
+                <nav class="project-link" aria-label="Horizon 專案連結">
+                  <button class="inOutAniBtn btn">
+                    <a href="https://horizon-v3.vercel.app/" target="_blank" rel="noopener noreferrer">
+                      Live Demo
+                    </a>
+                  </button>
+
+                  <button class="inOutAniBtn btn">
+                    <a href="https://github.com/xcia4899/Horizon-V2/" target="_blank" rel="noopener noreferrer">
+                      GitHub
+                    </a>
+                  </button>
+                </nav>
+               
+              </div>
+            </article>
 
           </section>
+
           <section class="card-face card-back">
             <button class="flip-btn" type="button">
               <svg class="icon">
@@ -163,7 +228,7 @@
               </svg>
             </button>
             <h1>作品</h1>
-            <figure>圖片</figure>
+            <figure class="img">圖片</figure>
             <a href="">連結</a>
 
           </section>

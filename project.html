@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizon｜電商網站專案</title>
+  <script>
+    document.documentElement.dataset.theme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches ? "dark" : "light";
+  </script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/project.css">
+</head>
+
+<body class="project-page">
+  <main class="project-main">
+    <article class="project-card">
+      <header class="project-header">
+        <div class="project-heading">
+          <p class="project-eyebrow">Featured project</p>
+          <h1 class="title">Horizon <span>｜電商網站</span></h1>
+          <p class="date">2026 / 01 ～ 2026 / 04</p>
+        </div>
+
+        <nav class="project-link" aria-label="Horizon 專案連結">
+          <a href="https://horizon-v3.vercel.app/" target="_blank" rel="noopener noreferrer">
+            Live Demo
+          </a>
+          <a href="https://github.com/xcia4899/Horizon-V2/" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </nav>
+      </header>
+
+      <ul class="tech-list" aria-label="使用技術">
+        <li>Nuxt 3</li>
+        <li>Vue 3</li>
+        <li>TypeScript</li>
+        <li>Pinia</li>
+        <li>Element Plus</li>
+        <li>Supabase</li>
+        <li>Vercel</li>
+      </ul>
+
+      <div class="project-overview">
+        <figure class="project-img">
+          <img src="./assets/images/Horizon.png" alt="Horizon 電商網站首頁畫面">
+        </figure>
+
+        <div class="project-description">
+          <p>
+            此專案為個人從 0 開始規劃與設計之電商平台，並將既有 Vue 2
+            架構重構為 Nuxt 3，導入 TypeScript 與 Supabase，
+            建立具備型別安全與可維護性的應用架構。
+          </p>
+          <p>
+            專案涵蓋商品展示、搜尋篩選、購物流程與後台 CRUD 管理，
+            透過 RESTful API 串接前後端，實作使用者驗證與權限控管，
+            並整合狀態管理與表單驗證，提升系統穩定性與使用者體驗。
+          </p>
+        </div>
+      </div>
+
+      <section class="project-section" aria-labelledby="feature-title">
+        <h2 id="feature-title">專案特色</h2>
+        <ul class="feature-list">
+          <li>重構既有 Vue 2 專案為 Nuxt 3 架構，導入 TypeScript，提升型別安全與可維護性。</li>
+          <li>使用 Pinia 建立全域狀態管理，統一資料流與跨元件狀態共享。</li>
+          <li>串接 Supabase（Auth + Database），完成會員登入、註冊與資料存取機制。</li>
+          <li>建立商品 CRUD 功能，完成前後端資料操作流程。</li>
+          <li>實作商品搜尋、分類篩選、購物車與商品詳細頁功能。</li>
+          <li>建立登入驗證與路由權限控管，限制後台管理頁面存取。</li>
+          <li>使用 Element Plus 建立 UI 元件與表單系統，提高開發效率與介面一致性。</li>
+          <li>實作表單驗證、錯誤提示與例外處理，提升使用者體驗。</li>
+          <li>部署於 Vercel，建立自動化部署流程與環境管理。</li>
+        </ul>
+      </section>
+
+      <section class="demo-account" aria-labelledby="account-title">
+        <div class="account-heading">
+          <h2 id="account-title">測試帳號</h2>
+          <p>亦可自行註冊新帳號進行體驗。</p>
+        </div>
+
+        <dl class="account-info">
+          <div>
+            <dt>Admin</dt>
+            <dd>horizon@aaa.com</dd>
+          </div>
+          <div>
+            <dt>Password</dt>
+            <dd>00000000</dd>
+          </div>
+        </dl>
+      </section>
+    </article>
+  </main>
+</body>
+
+</html>
