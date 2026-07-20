@@ -2,8 +2,8 @@ $white: #fff;
 $black: #181818;
 $indigo: #0b0e11;
 $indigo11: #2c3e50;
-$color-blue:#3d6aff;
-$color-blue-50:#3d6aff5e;
+$color-blue: #3d6aff;
+$color-blue-50: #3d6aff5e;
 // Neutral palette
 $color-white: rgb(250, 250, 250);
 $color-black: rgb(10, 10, 10);
@@ -60,17 +60,17 @@ $color-gray-900: #141414;
   --card-border: rgba(255, 255, 255, 0.5);
 
   --back-opacity: 1;
-  --back-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%,  #f7f3ea 100%);
+  --back-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%, #f7f3ea 100%);
   --star-color: rgba(209, 7, 165, 0.72);
-  
+
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
 
   --page-bg: #010508;
-  --text-primary: #edf2ff;
-  --text-secondary: #98a6d3;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
   --text-muted: #43507a;
 
   --surface: rgba(16, 21, 45, 0.72);
@@ -104,6 +104,20 @@ $color-gray-900: #141414;
 
   --card-bg: rgba(16, 21, 45, 0.38);
   --card-border: rgba(255, 255, 255, 0.24);
+
+  --work-card-bg: linear-gradient(200deg,
+      rgba(78, 57, 192, 0.08),
+      transparent 35%),
+    rgba(15, 23, 42, 0.72);
+  --work-card-bg-hover: linear-gradient(200deg,
+      rgba(211, 78, 223, 0.452),
+      transparent 35%),
+      rgba(15, 23, 42, 0.72);
+  --project-border: rgba(148, 163, 184, 0.22);
+  --work-accent-text: #38bdf8;
+  --work-aceent-border:rgba(56, 189, 248, 0.25);
+  --work-accent-light: rgba(56, 189, 248, 0.12);
+  --work-accent-light-hover: rgba(56, 191, 248, 0.329);
 
   --back-opacity: 1;
   --back-gradient: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
