@@ -12,7 +12,7 @@
   --project-accent: #7c9cff;
   --project-accent-soft: rgba(124, 156, 255, 0.12);
   --project-line: rgba(255, 255, 255, 0.14);
-  --project-panel: rgba(16, 43, 45, 0.62);
+  --project-panel: rgba(16, 21, 45, 0.62);
 }
 
 .project-main {
@@ -244,5 +244,3 @@
     flex: 1;
   }
 }
-
-/*# sourceMappingURL=project.css.map */
