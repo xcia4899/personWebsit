@@ -86,12 +86,13 @@
   transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
 }
 
-.project-link a:hover {
-  color: #fff;
-  background: var(--project-accent);
-  transform: translateY(-2px);
+@media (min-width: 640px) {
+  .project-link a:hover {
+    color: #fff;
+    background: var(--project-accent);
+    transform: translateY(-2px);
+  }
 }
-
 .tech-list {
   display: flex;
   flex-wrap: wrap;

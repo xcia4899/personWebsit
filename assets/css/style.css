@@ -214,12 +214,14 @@ figure {
   background-color: var(--inout-btn-bg);
   z-index: -2;
 }
-.inOutAniBtn:hover {
-  color: var(--inout-btn-text-hover);
-}
-.inOutAniBtn:hover::before {
-  width: 200%;
-  height: 1000%;
+@media (min-width: 640px) {
+  .inOutAniBtn:hover {
+    color: var(--inout-btn-text-hover);
+  }
+  .inOutAniBtn:hover::before {
+    width: 200%;
+    height: 1000%;
+  }
 }
 
 /* From Uiverse.io by mrhyddenn */
@@ -253,21 +255,23 @@ figure {
   height: 1.6em;
   transition: all 0.6s ease-in-out;
 }
-.flip-btn:hover {
-  color: var(--flip-btn-text-hover);
-  background: var(--flip-btn-bg-hover);
-  box-shadow: 0 0 20px 4px var(--flip-btn-glow);
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
-.flip-btn:hover::before {
-  -webkit-animation: sh02 0.5s 0s linear;
-  -moz-animation: sh02 0.5s 0s linear;
-  animation: sh02 0.5s 0s linear;
-}
-.flip-btn:hover .icon {
-  transform: rotate(180deg);
+@media (min-width: 640px) {
+  .flip-btn:hover {
+    color: var(--flip-btn-text-hover);
+    background: var(--flip-btn-bg-hover);
+    box-shadow: 0 0 20px 4px var(--flip-btn-glow);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  .flip-btn:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+  .flip-btn:hover .icon {
+    transform: rotate(180deg);
+  }
 }
 .flip-btn::before {
   content: "";
@@ -423,13 +427,15 @@ p {
   transform: translateX(20px);
   box-shadow: inset 6px -4px 0px 0px var(--switch-thumb);
 }
-.switchBox:hover .switch-btn {
-  transform: scale(1.06);
-  border: 1px solid var(--border-strong);
-  box-shadow: 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
-}
-.switchBox:hover {
-  text-shadow: 0 0 2px #a0a0a0;
+@media (min-width: 640px) {
+  .switchBox:hover .switch-btn {
+    transform: scale(1.06);
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+  }
+  .switchBox:hover {
+    text-shadow: 0 0 2px #a0a0a0;
+  }
 }
 
 [data-theme=light] .switch-btn .light,
@@ -479,8 +485,10 @@ p {
   overflow: auto;
   scrollbar-width: none;
 }
-.card .card-face:hover {
-  box-shadow: 0 0 15px rgba(165, 56, 255, 0.3490196078), 0 0 70px rgba(139, 44, 255, 0.1490196078);
+@media (min-width: 640px) {
+  .card .card-face:hover {
+    box-shadow: 0 0 15px rgba(165, 56, 255, 0.3490196078), 0 0 70px rgba(139, 44, 255, 0.1490196078);
+  }
 }
 .card .card-back {
   transform: rotateY(180deg);
@@ -593,8 +601,10 @@ p {
   grid-row: 3/6;
   transition: all 0.6s ease;
 }
-.work:hover {
-  transform: translate(6px, -10px);
+@media (min-width: 640px) {
+  .work:hover {
+    transform: translate(6px, -10px);
+  }
 }
 .work .card-front {
   inset: 0;
@@ -631,27 +641,43 @@ p {
   height: 660px;
   scrollbar-width: none;
 }
-.work .project-card .leftBox .project-img {
+.work .project-card .leftBox .project {
+  position: relative;
+}
+.work .project-card .leftBox .project .project-tag {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  padding: 8px 32px;
+  border-radius: 24px;
+  z-index: 1;
+  color: #fff;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: 0 18px 54px var(--shadow);
+  backdrop-filter: blur(8px);
+}
+.work .project-card .leftBox .project .project-img {
   position: relative;
   overflow: hidden;
 }
-.work .project-card .leftBox .project-img::after {
+.work .project-card .leftBox .project .project-img::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 40%);
 }
-.work .project-card .leftBox .project-img img {
+.work .project-card .leftBox .project .project-img img {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16/10;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
 }
-.work .project-card .leftBox .project-img:hover img {
-  transform: scale(1.03);
+@media (min-width: 640px) {
+  .work .project-card .leftBox .project .project-img:hover img {
+    transform: scale(1.03);
+  }
 }
 .work .project-card .rightBox {
   padding: 32px 32px 32px 0;
@@ -756,9 +782,11 @@ p {
   height: 40px;
   padding: 4px 8px;
 }
-.work .project-card .rightBox .project-link .btn:hover::before {
-  width: 200%;
-  height: 200%;
+@media (min-width: 640px) {
+  .work .project-card .rightBox .project-link .btn:hover::before {
+    width: 200%;
+    height: 200%;
+  }
 }
 .work .project-card .rightBox .project-link .iconlink {
   font-weight: 900;
