@@ -336,13 +336,17 @@
   overflow: hidden;
 }
 .work .btnBox {
-  scale: 1.4;
-  transform-origin: right bottom;
   position: absolute;
   right: 24px;
-  bottom: 24px;
+  top: 24px;
   text-align: right;
   z-index: 4;
+}
+@media (max-width: 1000px) {
+  .work .btnBox {
+    background-color: var(--surface);
+    border-radius: 12px;
+  }
 }
 .work .project-card {
   position: relative;
@@ -394,32 +398,6 @@
   font-size: clamp(1.75rem, 3vw, 2rem);
   line-height: 1.2;
   letter-spacing: -0.03em;
-}
-.work .project-card .rightBox .project-header .project-link {
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 0.85rem;
-}
-.work .project-card .rightBox .project-header .project-link a {
-  height: 100%;
-  width: 100%;
-}
-.work .project-card .rightBox .project-header .project-link .btn {
-  width: 40px;
-  height: 40px;
-  padding: 4px 8px;
-}
-.work .project-card .rightBox .project-header .project-link .btn:hover::before {
-  width: 200%;
-  height: 200%;
-}
-.work .project-card .rightBox .project-header .project-link .iconlink {
-  font-weight: 900;
-  height: 100%;
-  width: 100%;
 }
 .work .project-card .rightBox .project-header .date {
   margin: 0.75rem 0 0;
@@ -476,7 +454,7 @@
 .work .project-card .rightBox .demo-account .account-info {
   border: 1px solid var(--project-border);
   border-radius: 8px;
-  margin-top: 4px;
+  margin-top: 8px;
   padding: 0.4rem 1rem;
 }
 .work .project-card .rightBox .demo-account .account-info div {
@@ -496,18 +474,51 @@
   font-size: 1rem;
   overflow-wrap: anywhere;
 }
-@media (max-width: 900px) {
+.work .project-card .rightBox .project-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.85rem;
+}
+.work .project-card .rightBox .project-link a {
+  height: 100%;
+  width: 100%;
+}
+.work .project-card .rightBox .project-link .btn {
+  width: 80px;
+  height: 40px;
+  padding: 4px 8px;
+}
+.work .project-card .rightBox .project-link .btn:hover::before {
+  width: 200%;
+  height: 200%;
+}
+.work .project-card .rightBox .project-link .iconlink {
+  font-weight: 900;
+  height: 100%;
+  width: 100%;
+}
+@media (max-width: 1000px) {
   .work .project-card .project-overview {
     grid-template-columns: 1fr;
+    overflow: auto;
+    scrollbar-width: none;
+    height: 660px;
+    gap: 0;
+  }
+  .work .project-card .leftBox {
+    order: 2;
+    height: 560px;
+    overflow: auto;
+  }
+  .work .project-card .rightBox {
+    order: 1;
+    padding-left: 32px;
   }
 }
 @media (max-width: 640px) {
   .work .project-card {
     padding: 1.25rem;
     border-radius: 18px;
-  }
-  .work .project-card .project-link {
-    width: 100%;
   }
 }
 
