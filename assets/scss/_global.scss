@@ -258,6 +258,68 @@ figure {
   }
 }
 
+.btnTag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  overflow: hidden;
+
+  color: var(--project-tag-text);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  border: 1px solid var(--project-tag-border);
+  border-radius: 999px;
+  background: var(--project-tag-bg);
+  box-shadow: 0 8px 32px var(--project-tag-glow);
+  backdrop-filter: blur(12px) saturate(130%);
+  isolation: isolate;
+  cursor: default;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--project-tag-accent);
+    box-shadow: 0 0 10px 2px var(--project-tag-glow);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -50% auto -50% -45%;
+    width: 32%;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--project-tag-shine), transparent);
+    filter: blur(2px);
+    transform: skewX(-18deg) translateX(0);
+    transition: transform 0.55s ease;
+  }
+
+  @media (min-width: 640px) {
+    &:hover {
+      border-color: var(--project-tag-accent);
+      box-shadow: 0 10px 34px var(--project-tag-glow);
+      transform: translateY(-2px);
+
+      &::after {
+        transform: skewX(-18deg) translateX(520%);
+      }
+    }
+  }
+}
+
 
 h2,
 h3,

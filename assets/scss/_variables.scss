@@ -59,6 +59,13 @@ $color-gray-900: #141414;
   --card-bg: rgba(255, 255, 255, 0.2);
   --card-border: rgba(255, 255, 255, 0.5);
 
+  --project-tag-text: #6d28d9;
+  --project-tag-bg: rgba(255, 255, 255, 0.82);
+  --project-tag-border: rgba(124, 58, 237, 0.32);
+  --project-tag-accent: #7c3aed;
+  --project-tag-glow: rgba(124, 58, 237, 0.4);
+  --project-tag-shine: rgba(255, 255, 255, 0.8);
+
   --back-opacity: 1;
   --back-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%, #f7f3ea 100%);
   --star-color: rgba(209, 7, 165, 0.72);
@@ -104,6 +111,13 @@ $color-gray-900: #141414;
 
   --card-bg: rgba(16, 21, 45, 0.38);
   --card-border: rgba(255, 255, 255, 0.24);
+
+  --project-tag-text: #a9c3ff;
+  --project-tag-bg: rgba(15, 23, 42, 0.84);
+  --project-tag-border: rgba(61, 106, 255, 0.42);
+  --project-tag-accent: #3d6aff;
+  --project-tag-glow: rgba(61, 106, 255, 0.48);
+  --project-tag-shine: rgba(255, 255, 255, 0.5);
 
   --work-card-bg: linear-gradient(200deg,
       rgba(78, 57, 192, 0.08),

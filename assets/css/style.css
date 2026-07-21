@@ -32,6 +32,12 @@
   --flip-btn-shine: #fffdf4;
   --card-bg: rgba(255, 255, 255, 0.2);
   --card-border: rgba(255, 255, 255, 0.5);
+  --project-tag-text: #6d28d9;
+  --project-tag-bg: rgba(255, 255, 255, 0.82);
+  --project-tag-border: rgba(124, 58, 237, 0.32);
+  --project-tag-accent: #7c3aed;
+  --project-tag-glow: rgba(124, 58, 237, 0.4);
+  --project-tag-shine: rgba(255, 255, 255, 0.8);
   --back-opacity: 1;
   --back-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%, #f7f3ea 100%);
   --star-color: rgba(209, 7, 165, 0.72);
@@ -69,6 +75,12 @@
   --flip-btn-shine: #ffffff;
   --card-bg: rgba(16, 21, 45, 0.38);
   --card-border: rgba(255, 255, 255, 0.24);
+  --project-tag-text: #a9c3ff;
+  --project-tag-bg: rgba(15, 23, 42, 0.84);
+  --project-tag-border: rgba(61, 106, 255, 0.42);
+  --project-tag-accent: #3d6aff;
+  --project-tag-glow: rgba(61, 106, 255, 0.48);
+  --project-tag-shine: rgba(255, 255, 255, 0.5);
   --work-card-bg: linear-gradient(200deg,
       rgba(78, 57, 192, 0.08),
       transparent 35%),
@@ -308,6 +320,59 @@ figure {
   -webkit-transition: box-shadow 0.2s ease-in;
   -moz-transition: box-shadow 0.2s ease-in;
   transition: box-shadow 0.2s ease-in;
+}
+
+.btnTag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  overflow: hidden;
+  color: var(--project-tag-text);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  border: 1px solid var(--project-tag-border);
+  border-radius: 999px;
+  background: var(--project-tag-bg);
+  box-shadow: 0 8px 32px var(--project-tag-glow);
+  backdrop-filter: blur(12px) saturate(130%);
+  isolation: isolate;
+  cursor: default;
+  transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.btnTag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--project-tag-accent);
+  box-shadow: 0 0 10px 2px var(--project-tag-glow);
+}
+.btnTag::after {
+  content: "";
+  position: absolute;
+  inset: -50% auto -50% -45%;
+  width: 32%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--project-tag-shine), transparent);
+  filter: blur(2px);
+  transform: skewX(-18deg) translateX(0);
+  transition: transform 0.55s ease;
+}
+@media (min-width: 640px) {
+  .btnTag:hover {
+    border-color: var(--project-tag-accent);
+    box-shadow: 0 10px 34px var(--project-tag-glow);
+    transform: translateY(-2px);
+  }
+  .btnTag:hover::after {
+    transform: skewX(-18deg) translateX(520%);
+  }
 }
 
 h2,
@@ -648,14 +713,7 @@ p {
   position: absolute;
   left: 16px;
   top: 16px;
-  padding: 8px 32px;
-  border-radius: 24px;
-  z-index: 1;
-  color: #fff;
-  border: 1px solid var(--card-border);
-  background: var(--card-bg);
-  box-shadow: 0 18px 54px var(--shadow);
-  backdrop-filter: blur(8px);
+  z-index: 2;
 }
 .work .project-card .leftBox .project .project-img {
   position: relative;
@@ -673,11 +731,6 @@ p {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
-}
-@media (min-width: 640px) {
-  .work .project-card .leftBox .project .project-img:hover img {
-    transform: scale(1.03);
-  }
 }
 .work .project-card .rightBox {
   padding: 32px 32px 32px 0;
@@ -817,7 +870,5 @@ p {
     border-radius: 18px;
   }
 }
-
-/* main - end */
 
 /*# sourceMappingURL=style.css.map */

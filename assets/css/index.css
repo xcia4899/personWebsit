@@ -31,6 +31,12 @@
   --flip-btn-shine: #fffdf4;
   --card-bg: rgba(255, 255, 255, 0.2);
   --card-border: rgba(255, 255, 255, 0.5);
+  --project-tag-text: #6d28d9;
+  --project-tag-bg: rgba(255, 255, 255, 0.82);
+  --project-tag-border: rgba(124, 58, 237, 0.32);
+  --project-tag-accent: #7c3aed;
+  --project-tag-glow: rgba(124, 58, 237, 0.4);
+  --project-tag-shine: rgba(255, 255, 255, 0.8);
   --back-opacity: 1;
   --back-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%, #f7f3ea 100%);
   --star-color: rgba(209, 7, 165, 0.72);
@@ -68,6 +74,12 @@
   --flip-btn-shine: #ffffff;
   --card-bg: rgba(16, 21, 45, 0.38);
   --card-border: rgba(255, 255, 255, 0.24);
+  --project-tag-text: #a9c3ff;
+  --project-tag-bg: rgba(15, 23, 42, 0.84);
+  --project-tag-border: rgba(61, 106, 255, 0.42);
+  --project-tag-accent: #3d6aff;
+  --project-tag-glow: rgba(61, 106, 255, 0.48);
+  --project-tag-shine: rgba(255, 255, 255, 0.5);
   --work-card-bg: linear-gradient(200deg,
       rgba(78, 57, 192, 0.08),
       transparent 35%),
@@ -376,14 +388,7 @@
   position: absolute;
   left: 16px;
   top: 16px;
-  padding: 8px 32px;
-  border-radius: 24px;
-  z-index: 1;
-  color: #fff;
-  border: 1px solid var(--card-border);
-  background: var(--card-bg);
-  box-shadow: 0 18px 54px var(--shadow);
-  backdrop-filter: blur(8px);
+  z-index: 2;
 }
 .work .project-card .leftBox .project .project-img {
   position: relative;
@@ -401,11 +406,6 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
-}
-@media (min-width: 640px) {
-  .work .project-card .leftBox .project .project-img:hover img {
-    transform: scale(1.03);
-  }
 }
 .work .project-card .rightBox {
   padding: 32px 32px 32px 0;
@@ -545,7 +545,5 @@
     border-radius: 18px;
   }
 }
-
-/* main - end */
 
 /*# sourceMappingURL=index.css.map */
