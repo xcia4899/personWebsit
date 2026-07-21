@@ -218,12 +218,12 @@
     }
 
     .dataBox {
-      display: flex;
-      justify-content: space-between;
-      column-gap: 6rem;
+      display: grid;
+      grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.15fr);
+      column-gap: clamp(1.5rem, 4vw, 4rem);
 
       .skill-group {
-        flex: 1 1 0;
+        min-width: 0;
 
         h4 {
           font-size: 12px;
@@ -233,14 +233,82 @@
 
         .skill-list {
           display: flex;
+          align-items: center;
           flex-wrap: wrap;
-          gap: 8px 4px;
+          gap: 10px;
 
-          span {
+          .skill-icon {
+            --skill-brand-color: var(--text-primary);
+
+            display: block;
+
+            font-size: 20px;
+            padding: 8px;
+
+
+            color: var(--skill-brand-color);
             border: 1px solid;
-            padding: 4px 10px;
             border-radius: 4px;
+            opacity: 1;
+            transform-origin: center;
+            transition:
+              filter 0.3s ease,
+              opacity 0.3s ease,
+              transform 0.3s ease;
+
+            @media (min-width: 640px) {
+              &:hover {
+                opacity: 1;
+                filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
+                transform: translateY(-3px) scale(1.1);
+              }
+            }
+
+            &[icon="simple-icons:figma"] {
+              --skill-brand-color: var(--brand-figma);
+            }
+
+            &[icon="simple-icons:adobephotoshop"] {
+              --skill-brand-color: var(--brand-photoshop);
+            }
+
+            &[icon="simple-icons:adobeillustrator"] {
+              --skill-brand-color: var(--brand-illustrator);
+            }
+
+            &[icon="simple-icons:html5"] {
+              --skill-brand-color: var(--brand-html);
+            }
+
+            &[icon="simple-icons:css"] {
+              --skill-brand-color: var(--brand-css);
+            }
+
+            &[icon="simple-icons:sass"] {
+              --skill-brand-color: var(--brand-sass);
+            }
+
+            &[icon="simple-icons:javascript"] {
+              --skill-brand-color: var(--brand-javascript);
+            }
+
+            &[icon="simple-icons:typescript"] {
+              --skill-brand-color: var(--brand-typescript);
+            }
+
+            &[icon="simple-icons:vuedotjs"] {
+              --skill-brand-color: var(--brand-vue);
+            }
+
+            &[icon="simple-icons:nuxt"] {
+              --skill-brand-color: var(--brand-nuxt);
+            }
+
+            &[icon="simple-icons:pinia"] {
+              --skill-brand-color: var(--brand-pinia);
+            }
           }
+
         }
       }
 
@@ -252,8 +320,8 @@
       }
 
       .skill-group.right {
+
         align-self: flex-end;
-        flex: 1;
         text-align: right;
 
         .skill-list {
@@ -276,16 +344,16 @@
       }
 
       .link {
-        // flex: 1;
+
+        display: grid;
+        gap: 8px;
 
         .btn {
           display: block;
           padding: 8px 16px;
           margin-left: auto;
           max-width: 200px;
-          border-radius: 16px;
-
-          margin-top: 8px;
+          // margin-top: 8px;
 
           &::after {
             backdrop-filter: blur(2px);
@@ -457,7 +525,7 @@
           @media (min-width: 640px) {
             &:hover {
               border: 1px solid var(--work-aceent-border-hover);
-              transform: translate(1px, -3px);
+              transform: translate(1px, -2px);
               background: var(--work-accent-light-hover);
             }
           }
@@ -490,12 +558,13 @@
         .account-info {
           border: 1px solid var(--project-border);
           border-radius: 8px;
-          margin-top: 8px;
+          margin-top: 0.4rem;
           padding: 0.4rem 1rem;
 
           div {
             display: flex;
             align-items: center;
+
           }
 
           dt {
@@ -507,6 +576,7 @@
           }
 
           dd {
+            margin-top: 4px;
             color: var(--text-primary);
             font-family: monospace;
             font-size: 1rem;

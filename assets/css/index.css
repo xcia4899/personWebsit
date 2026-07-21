@@ -5,6 +5,17 @@
   --text-primary: #181818;
   --text-secondary: #5f5f5f;
   --text-muted: #b6b6b6;
+  --brand-figma: #f24e1e;
+  --brand-photoshop: #31a8ff;
+  --brand-illustrator: #ff9a00;
+  --brand-html: #e34f26;
+  --brand-css: #663399;
+  --brand-sass: #cc6699;
+  --brand-javascript: #f7df1e;
+  --brand-typescript: #3178c6;
+  --brand-vue: #4fc08d;
+  --brand-nuxt: #00dc82;
+  --brand-pinia: #ffd859;
   --surface: rgba(250, 250, 250, 0.82);
   --surface-hover: rgba(255, 255, 255, 0.96);
   --surface-strong: #ffffff;
@@ -26,8 +37,8 @@
   --inout-btn-bg: #f5f3ff;
   --inout-btn-bg-hover: #8b5cf6;
   --inout-btn-border: #8b5cf6;
-  --inout-btn-shadow: 0 6px 18px rgba(139, 92, 246, 0.18);
-  --inout-btn-shadow-hover: 0 10px 28px rgba(139, 92, 246, 0.38);
+  --inout-btn-shadow: 0 4px 10px rgba(138, 92, 246, 0.116);
+  --inout-btn-shadow-hover: 0 8px 28px rgba(138, 92, 246, 0.473);
   --flip-btn-text: #6d28d9;
   --flip-btn-text-hover: #ffffff;
   --flip-btn-bg: transparent;
@@ -90,8 +101,8 @@
   --inout-btn-bg: rgba(59, 130, 246, 0.12);
   --inout-btn-bg-hover: #bfdbfe;
   --inout-btn-border: #60a5fa;
-  --inout-btn-shadow: 0 3px 6px rgba(96, 165, 250, 0.2);
-  --inout-btn-shadow-hover: 0px 3px 18px rgba(96, 165, 250, 0.4);
+  --inout-btn-shadow: 0 4px 10px rgba(96, 165, 250, 0.2);
+  --inout-btn-shadow-hover: 0px 8px 28px rgba(96, 165, 250, 0.4);
   --flip-btn-text: #93c5fd;
   --flip-btn-text-hover: #172554;
   --flip-btn-bg: transparent;
@@ -301,12 +312,12 @@
   object-fit: cover;
 }
 .personData .card-front .dataBox {
-  display: flex;
-  justify-content: space-between;
-  column-gap: 6rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.15fr);
+  column-gap: clamp(1.5rem, 4vw, 4rem);
 }
 .personData .card-front .dataBox .skill-group {
-  flex: 1 1 0;
+  min-width: 0;
 }
 .personData .card-front .dataBox .skill-group h4 {
   font-size: 12px;
@@ -315,13 +326,61 @@
 }
 .personData .card-front .dataBox .skill-group .skill-list {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 8px 4px;
+  gap: 10px;
 }
-.personData .card-front .dataBox .skill-group .skill-list span {
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon {
+  --skill-brand-color: var(--text-primary);
+  display: block;
+  font-size: 20px;
+  padding: 8px;
+  color: var(--skill-brand-color);
   border: 1px solid;
-  padding: 4px 10px;
   border-radius: 4px;
+  opacity: 1;
+  transform-origin: center;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+@media (min-width: 640px) {
+  .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover {
+    opacity: 1;
+    filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
+    transform: translateY(-3px) scale(1.1);
+  }
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:figma"] {
+  --skill-brand-color: var(--brand-figma);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:adobephotoshop"] {
+  --skill-brand-color: var(--brand-photoshop);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:adobeillustrator"] {
+  --skill-brand-color: var(--brand-illustrator);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:html5"] {
+  --skill-brand-color: var(--brand-html);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:css"] {
+  --skill-brand-color: var(--brand-css);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:sass"] {
+  --skill-brand-color: var(--brand-sass);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:javascript"] {
+  --skill-brand-color: var(--brand-javascript);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:typescript"] {
+  --skill-brand-color: var(--brand-typescript);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:vuedotjs"] {
+  --skill-brand-color: var(--brand-vue);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:nuxt"] {
+  --skill-brand-color: var(--brand-nuxt);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:pinia"] {
+  --skill-brand-color: var(--brand-pinia);
 }
 .personData .card-front .dataBox .skill-group.left .skill-list {
   flex-direction: column;
@@ -329,7 +388,6 @@
 }
 .personData .card-front .dataBox .skill-group.right {
   align-self: flex-end;
-  flex: 1;
   text-align: right;
 }
 .personData .card-front .dataBox .skill-group.right .skill-list {
@@ -346,13 +404,15 @@
   flex: 1 1 0;
   min-width: 0;
 }
+.personData .card-front .bottom .link {
+  display: grid;
+  gap: 8px;
+}
 .personData .card-front .bottom .link .btn {
   display: block;
   padding: 8px 16px;
   margin-left: auto;
   max-width: 200px;
-  border-radius: 16px;
-  margin-top: 8px;
 }
 .personData .card-front .bottom .link .btn::after {
   backdrop-filter: blur(2px);
@@ -483,7 +543,7 @@
 @media (min-width: 640px) {
   .work .project-card .rightBox .tech-list li:hover {
     border: 1px solid var(--work-aceent-border-hover);
-    transform: translate(1px, -3px);
+    transform: translate(1px, -2px);
     background: var(--work-accent-light-hover);
   }
 }
@@ -506,7 +566,7 @@
 .work .project-card .rightBox .demo-account .account-info {
   border: 1px solid var(--project-border);
   border-radius: 8px;
-  margin-top: 8px;
+  margin-top: 0.4rem;
   padding: 0.4rem 1rem;
 }
 .work .project-card .rightBox .demo-account .account-info div {
@@ -521,6 +581,7 @@
   letter-spacing: 0.08em;
 }
 .work .project-card .rightBox .demo-account .account-info dd {
+  margin-top: 4px;
   color: var(--text-primary);
   font-family: monospace;
   font-size: 1rem;
