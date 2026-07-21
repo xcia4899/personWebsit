@@ -37,24 +37,31 @@ $color-gray-900: #141414;
   --header-bg: rgba(250, 250, 250, 0.88);
   --header-menu-bg: rgba(224, 224, 224, 0.96);
 
-  --switch-track: #2c3e50;
-  --switch-track-active: #0f0f0f;
+  --switch-track: #ada0e9;
+  --switch-track-active: #8b5cf6;
   --switch-thumb: #ffffff;
   --switch-thumb-active: #ffffff;
+  --switch-border: #c4b5fd;
+  --switch-border-hover: #8b5cf6;
+  --switch-shadow: 0 4px 14px rgba(139, 92, 246, 0.18);
+  --switch-shadow-hover: 0 0 18px rgba(138, 92, 246, 0.726);
 
   --inout-btn-text: #6d28d9;
   --inout-btn-text-hover: #ffffff;
-  --inout-btn-bg: #ffffff25;
-  --inout-btn-bg-hover: #7c3aed;
-  --inout-btn-border: #7c3aed;
+  --inout-btn-bg: #f5f3ff;
+  --inout-btn-bg-hover: #8b5cf6;
+  --inout-btn-border: #8b5cf6;
+  --inout-btn-shadow: 0 6px 18px rgba(139, 92, 246, 0.18);
+  --inout-btn-shadow-hover: 0 10px 28px rgba(139, 92, 246, 0.38);
 
   --flip-btn-text: #6d28d9;
   --flip-btn-text-hover: #ffffff;
   --flip-btn-bg: transparent;
-  --flip-btn-bg-hover: #7c3aed;
-  --flip-btn-border: #7c3aed;
-  --flip-btn-glow: rgba(124, 58, 237, 0.5);
-  --flip-btn-shine: #fffdf4;
+  --flip-btn-bg-hover: #8b5cf6;
+  --flip-btn-border: #8b5cf6;
+  --flip-btn-shadow: 0 4px 14px rgba(139, 92, 246, 0.16);
+  --flip-btn-glow: rgba(139, 92, 246, 0.45);
+  --flip-btn-shine: #ede9fe;
 
   --card-bg: rgba(255, 255, 255, 0.2);
   --card-border: rgba(255, 255, 255, 0.5);
@@ -65,6 +72,23 @@ $color-gray-900: #141414;
   --project-tag-accent: #7c3aed;
   --project-tag-glow: rgba(124, 58, 237, 0.4);
   --project-tag-shine: rgba(255, 255, 255, 0.8);
+
+  --work-card-bg: linear-gradient(200deg,
+      rgba(124, 58, 237, 0.08),
+      transparent 35%),
+    rgba(255, 255, 255, 0.72);
+  --work-card-bg-hover: linear-gradient(200deg,
+      rgba(124, 58, 237, 0.16),
+      transparent 35%),
+    rgba(255, 255, 255, 0.84);
+  --project-border: rgba(109, 40, 217, 0.18);
+
+  --work-accent-text: #047857;
+  --work-aceent-border: #6ee7b7;
+  --work-aceent-border-hover: #10b981;
+
+  --work-accent-light: #ecfdf5;
+  --work-accent-light-hover: #d1fae5;
 
   --back-opacity: 1;
   --back-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%, #f7f3ea 100%);
@@ -90,23 +114,30 @@ $color-gray-900: #141414;
   --header-bg: rgba(11, 14, 17, 0.37);
   --header-menu-bg: rgba(24, 29, 58, 0.96);
 
-  --switch-track: #2c3e50;
-  --switch-track-active: #d4d4d4;
-  --switch-thumb: #d4d4d4;
-  --switch-thumb-active: #333333;
+  --switch-track: #172554;
+  --switch-track-active: #60a5fa;
+  --switch-thumb: #bfdbfe;
+  --switch-thumb-active: #172554;
+  --switch-border: rgba(96, 165, 250, 0.38);
+  --switch-border-hover: #60a5fa;
+  --switch-shadow: 0 4px 14px rgba(96, 165, 250, 0.2);
+  --switch-shadow-hover: 0 0 18px rgba(96, 165, 250, 0.38);
 
-  --inout-btn-text: #ffffff;
-  --inout-btn-text-hover: #3d6aff;
-  --inout-btn-bg: #3d6aff62;
-  --inout-btn-bg-hover: #fffffff8;
-  --inout-btn-border: #3d6aff;
+  --inout-btn-text: #93c5fd;
+  --inout-btn-text-hover: #172554;
+  --inout-btn-bg: rgba(59, 130, 246, 0.12);
+  --inout-btn-bg-hover: #bfdbfe;
+  --inout-btn-border: #60a5fa;
+  --inout-btn-shadow: 0 3px 6px rgba(96, 165, 250, 0.2);
+  --inout-btn-shadow-hover: 0px 3px 18px rgba(96, 165, 250, 0.4);
 
-  --flip-btn-text: #ffffff;
-  --flip-btn-text-hover: #ffffff;
+  --flip-btn-text: #93c5fd;
+  --flip-btn-text-hover: #172554;
   --flip-btn-bg: transparent;
-  --flip-btn-bg-hover: #3d6aff;
-  --flip-btn-border: #3d6aff;
-  --flip-btn-glow: rgba(34, 99, 238, 0.55);
+  --flip-btn-bg-hover: #93c5fd;
+  --flip-btn-border: #60a5fa;
+  --flip-btn-shadow: 0 4px 14px rgba(96, 165, 250, 0.18);
+  --flip-btn-glow: rgba(96, 165, 250, 0.5);
   --flip-btn-shine: #ffffff;
 
   --card-bg: rgba(16, 21, 45, 0.38);
@@ -128,10 +159,11 @@ $color-gray-900: #141414;
       transparent 35%),
       rgba(15, 23, 42, 0.72);
   --project-border: rgba(148, 163, 184, 0.22);
-  --work-accent-text: #38bdf8;
-  --work-aceent-border:rgba(56, 189, 248, 0.25);
-  --work-accent-light: rgba(56, 189, 248, 0.12);
-  --work-accent-light-hover: rgba(56, 191, 248, 0.329);
+  --work-accent-text: #7dd3fc;
+  --work-aceent-border: rgba(56, 189, 248, 0.3);
+  --work-aceent-border-hover: #38bdf8;
+  --work-accent-light: rgba(56, 189, 248, 0.1);
+  --work-accent-light-hover: rgba(56, 189, 248, 0.2);
 
   --back-opacity: 1;
   --back-gradient: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
