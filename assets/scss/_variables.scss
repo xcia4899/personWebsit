@@ -34,7 +34,7 @@ $color-slate-950: #010508;
 // Navy colors
 $color-navy-600: #3d6aff;
 $color-navy-800: #181d3a;
-$color-navy-900: #10152d;
+$color-slate-900: #10152d;
 $color-navy-950: #0b0e11;
 
 // Purple colors
@@ -169,8 +169,9 @@ $color-brand-pinia: #ffd859;
 
   // Shared cards
   --card-bg: #{rgba($color-white, 0.2)};
+  --card-bg-hover: #{$color-white};
   --card-border: #{rgba($color-white, 0.5)};
-  --card-shadow: #{rgba($color-gray-850, 0.18)};
+  --card-shadow: #{rgba($color-gray-850, 0.28)};
   --card-hover-shadow:
     0 0 0 1px #{rgba($color-purple-500, 0.22)},
     0 0 18px #{rgba($color-purple-500, 0.38)},
@@ -254,7 +255,8 @@ $color-brand-pinia: #ffd859;
   --flip-btn-shine: #{$color-white};
 
   // Shared cards
-  --card-bg: #{rgba($color-navy-900, 0.38)};
+  --card-bg: #{rgba($color-slate-900, 0.38)};
+  --card-bg-hover: #{$color-slate-900};
   --card-border: #{rgba($color-white, 0.24)};
   --card-shadow: #{rgba($color-black-pure, 0.55)};
   --card-hover-shadow:
@@ -271,7 +273,7 @@ $color-brand-pinia: #ffd859;
   --project-tag-shine: #{rgba($color-white, 0.5)};
 
   // Work section
-  --work-btn-box-bg: #{rgba($color-navy-900, 0.72)};
+  --work-btn-box-bg: #{rgba($color-slate-900, 0.72)};
   --work-card-bg: linear-gradient(200deg,
       #{rgba($color-purple-800, 0.08)},
       transparent 35%),

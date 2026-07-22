@@ -1,6 +1,6 @@
 @mixin glass-card {
   // padding: 32px;
-  border: 1px solid var(--card-border);
+  border: 2px solid var(--card-shadow);
   // border-radius: 32px;
   background: var(--card-bg);
   box-shadow: 0 18px 54px var(--card-shadow);
