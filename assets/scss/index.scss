@@ -125,7 +125,7 @@
   perspective: 1200px;
   transition: box-shadow 0.3s ease;
   border-radius: 24px;
-  // 
+  
 
   .card-inner {
     position: relative;
@@ -191,7 +191,7 @@
     flex-direction: column;
     justify-content: space-between;
     row-gap: 2rem;
-
+    overflow: visible;
     .top {
       display: flex;
       justify-content: space-between;
@@ -240,15 +240,17 @@
           .skill-icon {
             --skill-brand-color: var(--text-primary);
 
+            position: relative;
             display: block;
-
             font-size: 20px;
             padding: 8px;
 
-
+            // overflow: hidden;
             color: var(--skill-brand-color);
+            // background-color: color-mix(in srgb, var(--skill-brand-color) 22%, transparent);
             border: 1px solid;
             border-radius: 4px;
+            filter: drop-shadow(0 0 0px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
             opacity: 1;
             transform-origin: center;
             transition:
@@ -256,13 +258,64 @@
               opacity 0.3s ease,
               transform 0.3s ease;
 
+            &::after {
+              content: "";
+              position: absolute;
+              display: block;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+              transform: scaleY(0);
+              // transform-origin: bottom;
+              transition: all 0.4s ease;
+
+              background-color: color-mix(
+                in srgb,
+                var(--skill-brand-color) var(--skill-icon-hover-strength),
+                var(--skill-icon-hover-surface)
+              );
+            }
+            &::before {
+              content: attr(aria-label);
+              position: absolute;
+              top: -100%;
+              left: 50%;
+              z-index: 2;
+              transform: translate(-50%, 0);
+              padding: 5px 9px;
+              font-size: 12px;
+              font-weight: 600;
+              line-height: 1.2;
+              letter-spacing: 0.02em;
+              white-space: nowrap;
+              color: var(--skill-tooltip-text);
+              border: 1px solid var(--skill-brand-color);
+              border-radius: 4px;
+              opacity: 0;
+              background-color: var(--skill-tooltip-bg);
+              box-shadow: 0 4px 12px var(--skill-tooltip-shadow);
+              text-shadow: 0 1px 2px var(--skill-tooltip-text-shadow);
+              backdrop-filter: blur(8px);
+              pointer-events: none;
+            }
             @media (min-width: 640px) {
               &:hover {
                 opacity: 1;
                 filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
                 transform: translateY(-3px) scale(1.1);
+
+                &::after {
+                  transform: scaleY(1);
+                }
+                &::before {
+                  opacity: 1;
+                }
+
               }
             }
+
 
             &[icon="simple-icons:figma"] {
               --skill-brand-color: var(--brand-figma);

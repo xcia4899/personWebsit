@@ -39,6 +39,13 @@ $color-gray-900: #141414;
   --brand-nuxt: #00dc82;
   --brand-pinia: #ffd859;
 
+  --skill-tooltip-bg: rgba(255, 255, 255, 0.94);
+  --skill-tooltip-text: #181818;
+  --skill-tooltip-shadow: rgba(24, 24, 24, 0.2);
+  --skill-tooltip-text-shadow: transparent;
+  --skill-icon-hover-strength: 18%;
+  --skill-icon-hover-surface: rgba(255, 255, 255, 0.72);
+
   --surface: rgba(250, 250, 250, 0.82);
   --surface-hover: rgba(255, 255, 255, 0.96);
   --surface-strong: #ffffff;
@@ -115,6 +122,13 @@ $color-gray-900: #141414;
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
   --text-muted: #43507a;
+
+  --skill-tooltip-bg: rgba(15, 23, 42, 0.94);
+  --skill-tooltip-text: #f8fafc;
+  --skill-tooltip-shadow: rgba(0, 0, 0, 0.42);
+  --skill-tooltip-text-shadow: rgba(0, 0, 0, 0.45);
+  --skill-icon-hover-strength: 28%;
+  --skill-icon-hover-surface: rgba(15, 23, 42, 0.72);
 
   --surface: rgba(16, 21, 45, 0.72);
   --surface-hover: rgba(24, 29, 58, 0.88);
