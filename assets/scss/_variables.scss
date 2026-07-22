@@ -48,17 +48,31 @@ $color-purple-600: #7c3aed;
 $color-purple-700: #6d28d9;
 $color-purple-800: #4e39c0;
 
-// Blue colors
+// Tailwind blue colors
+$color-blue-50: #eff6ff;
+$color-blue-100: #dbeafe;
 $color-blue-200: #bfdbfe;
-$color-blue-250: #a9c3ff;
 $color-blue-300: #93c5fd;
 $color-blue-400: #60a5fa;
 $color-blue-500: #3b82f6;
-$color-blue-900: #172554;
+$color-blue-600: #2563eb;
+$color-blue-700: #1d4ed8;
+$color-blue-800: #1e40af;
+$color-blue-900: #1e3a8a;
+$color-blue-950: #172554;
 
-// Sky blue colors
+// Tailwind sky colors
+$color-sky-50: #f0f9ff;
+$color-sky-100: #e0f2fe;
+$color-sky-200: #bae6fd;
 $color-sky-300: #7dd3fc;
 $color-sky-400: #38bdf8;
+$color-sky-500: #0ea5e9;
+$color-sky-600: #0284c7;
+$color-sky-700: #0369a1;
+$color-sky-800: #075985;
+$color-sky-900: #0c4a6e;
+$color-sky-950: #082f49;
 
 // Green colors
 $color-green-50: #ecfdf5;
@@ -135,13 +149,13 @@ $color-brand-pinia: #ffd859;
   --switch-shadow-hover: 0 0 18px #{rgba($color-purple-shadow, 0.726)};
 
   // In/out button
-  --inout-btn-text: #{$color-purple-700};
+  --inout-btn-text: #{$color-green-700};
   --inout-btn-text-hover: #{$color-white};
-  --inout-btn-bg: #{$color-purple-50};
-  --inout-btn-bg-hover: #{$color-purple-500};
-  --inout-btn-border: #{$color-purple-500};
-  --inout-btn-shadow: 0 4px 10px #{rgba($color-purple-shadow, 0.116)};
-  --inout-btn-shadow-hover: 0 8px 28px #{rgba($color-purple-shadow, 0.473)};
+  --inout-btn-bg: #{$color-green-50};
+  --inout-btn-bg-hover: #{$color-green-500};
+  --inout-btn-border: #{$color-green-500};
+  --inout-btn-shadow: 0 4px 10px #{rgba($color-green-500, 0.16)};
+  --inout-btn-shadow-hover: 0 8px 28px #{rgba($color-green-500, 0.48)};
 
   // Flip button
   --flip-btn-text: #{$color-purple-700};
@@ -157,6 +171,10 @@ $color-brand-pinia: #ffd859;
   --card-bg: #{rgba($color-white, 0.2)};
   --card-border: #{rgba($color-white, 0.5)};
   --card-shadow: #{rgba($color-gray-850, 0.18)};
+  --card-hover-shadow:
+    0 0 0 1px #{rgba($color-purple-500, 0.22)},
+    0 0 18px #{rgba($color-purple-500, 0.38)},
+    0 0 60px #{rgba($color-pink-500, 0.18)};
 
   // Project tags
   --project-tag-text: #{$color-purple-700};
@@ -207,41 +225,45 @@ $color-brand-pinia: #ffd859;
   --skill-icon-hover-surface: #{rgba($color-slate-900, 0.72)};
 
   // Theme switch
-  --switch-track: #{$color-blue-900};
+  --switch-track: #{$color-blue-950};
   --switch-track-active: #{$color-blue-400};
   --switch-thumb: #{$color-blue-200};
-  --switch-thumb-active: #{$color-blue-900};
+  --switch-thumb-active: #{$color-blue-950};
   --switch-border: #{rgba($color-blue-400, 0.38)};
   --switch-border-hover: #{$color-blue-400};
   --switch-shadow: 0 4px 14px #{rgba($color-blue-400, 0.2)};
   --switch-shadow-hover: 0 0 18px #{rgba($color-blue-400, 0.38)};
 
   // In/out button
-  --inout-btn-text: #{$color-blue-300};
-  --inout-btn-text-hover: #{$color-blue-900};
-  --inout-btn-bg: #{rgba($color-blue-500, 0.12)};
-  --inout-btn-bg-hover: #{$color-blue-200};
-  --inout-btn-border: #{$color-blue-400};
-  --inout-btn-shadow: 0 4px 10px #{rgba($color-blue-400, 0.2)};
-  --inout-btn-shadow-hover: 0px 8px 28px #{rgba($color-blue-400, 0.4)};
+  --inout-btn-text: #{$color-sky-300};
+  --inout-btn-text-hover: #{$color-sky-950};
+  --inout-btn-bg: #{rgba($color-sky-500, 0.14)};
+  --inout-btn-bg-hover: #{$color-sky-300};
+  --inout-btn-border: #{$color-sky-400};
+  --inout-btn-shadow: 0 4px 10px #{rgba($color-sky-400, 0.22)};
+  --inout-btn-shadow-hover: 0px 8px 28px #{rgba($color-sky-400, 0.46)};
 
   // Flip button
-  --flip-btn-text: #{$color-blue-300};
-  --flip-btn-text-hover: #{$color-blue-900};
+  --flip-btn-text: #{$color-blue-400};
+  --flip-btn-text-hover: #{$color-white};
   --flip-btn-bg: transparent;
-  --flip-btn-bg-hover: #{$color-blue-300};
+  --flip-btn-bg-hover: #{$color-blue-600};
   --flip-btn-border: #{$color-blue-400};
-  --flip-btn-shadow: 0 4px 14px #{rgba($color-blue-400, 0.18)};
-  --flip-btn-glow: #{rgba($color-blue-400, 0.5)};
+  --flip-btn-shadow: 0 4px 16px #{rgba($color-blue-500, 0.38)};
+  --flip-btn-glow: #{rgba($color-blue-500, 0.78)};
   --flip-btn-shine: #{$color-white};
 
   // Shared cards
   --card-bg: #{rgba($color-navy-900, 0.38)};
   --card-border: #{rgba($color-white, 0.24)};
   --card-shadow: #{rgba($color-black-pure, 0.55)};
+  --card-hover-shadow:
+    0 0 0 1px #{rgba($color-sky-400, 0.34)},
+    0 0 22px #{rgba($color-sky-400, 0.58)},
+    0 0 76px #{rgba($color-blue-600, 0.32)};
 
   // Project tags
-  --project-tag-text: #{$color-blue-250};
+  --project-tag-text: #{$color-blue-300};
   --project-tag-bg: #{rgba($color-slate-900, 0.84)};
   --project-tag-border: #{rgba($color-navy-600, 0.42)};
   --project-tag-accent: #{$color-navy-600};

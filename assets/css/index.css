@@ -30,13 +30,13 @@
   --switch-border-hover: #8b5cf6;
   --switch-shadow: 0 4px 14px rgba(139, 92, 246, 0.18);
   --switch-shadow-hover: 0 0 18px rgba(138, 92, 246, 0.726);
-  --inout-btn-text: #6d28d9;
+  --inout-btn-text: #047857;
   --inout-btn-text-hover: #ffffff;
-  --inout-btn-bg: #f5f3ff;
-  --inout-btn-bg-hover: #8b5cf6;
-  --inout-btn-border: #8b5cf6;
-  --inout-btn-shadow: 0 4px 10px rgba(138, 92, 246, 0.116);
-  --inout-btn-shadow-hover: 0 8px 28px rgba(138, 92, 246, 0.473);
+  --inout-btn-bg: #ecfdf5;
+  --inout-btn-bg-hover: #10b981;
+  --inout-btn-border: #10b981;
+  --inout-btn-shadow: 0 4px 10px rgba(16, 185, 129, 0.16);
+  --inout-btn-shadow-hover: 0 8px 28px rgba(16, 185, 129, 0.48);
   --flip-btn-text: #6d28d9;
   --flip-btn-text-hover: #ffffff;
   --flip-btn-bg: transparent;
@@ -48,6 +48,10 @@
   --card-bg: rgba(255, 255, 255, 0.2);
   --card-border: rgba(255, 255, 255, 0.5);
   --card-shadow: rgba(24, 24, 24, 0.18);
+  --card-hover-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.22),
+    0 0 18px rgba(139, 92, 246, 0.38),
+    0 0 60px rgba(211, 78, 223, 0.18);
   --project-tag-text: #6d28d9;
   --project-tag-bg: rgba(255, 255, 255, 0.82);
   --project-tag-border: rgba(124, 58, 237, 0.32);
@@ -90,25 +94,29 @@
   --switch-border-hover: #60a5fa;
   --switch-shadow: 0 4px 14px rgba(96, 165, 250, 0.2);
   --switch-shadow-hover: 0 0 18px rgba(96, 165, 250, 0.38);
-  --inout-btn-text: #93c5fd;
-  --inout-btn-text-hover: #172554;
-  --inout-btn-bg: rgba(59, 130, 246, 0.12);
-  --inout-btn-bg-hover: #bfdbfe;
-  --inout-btn-border: #60a5fa;
-  --inout-btn-shadow: 0 4px 10px rgba(96, 165, 250, 0.2);
-  --inout-btn-shadow-hover: 0px 8px 28px rgba(96, 165, 250, 0.4);
-  --flip-btn-text: #93c5fd;
-  --flip-btn-text-hover: #172554;
+  --inout-btn-text: #7dd3fc;
+  --inout-btn-text-hover: #082f49;
+  --inout-btn-bg: rgba(14, 165, 233, 0.14);
+  --inout-btn-bg-hover: #7dd3fc;
+  --inout-btn-border: #38bdf8;
+  --inout-btn-shadow: 0 4px 10px rgba(56, 189, 248, 0.22);
+  --inout-btn-shadow-hover: 0px 8px 28px rgba(56, 189, 248, 0.46);
+  --flip-btn-text: #60a5fa;
+  --flip-btn-text-hover: #ffffff;
   --flip-btn-bg: transparent;
-  --flip-btn-bg-hover: #93c5fd;
+  --flip-btn-bg-hover: #2563eb;
   --flip-btn-border: #60a5fa;
-  --flip-btn-shadow: 0 4px 14px rgba(96, 165, 250, 0.18);
-  --flip-btn-glow: rgba(96, 165, 250, 0.5);
+  --flip-btn-shadow: 0 4px 16px rgba(59, 130, 246, 0.38);
+  --flip-btn-glow: rgba(59, 130, 246, 0.78);
   --flip-btn-shine: #ffffff;
   --card-bg: rgba(16, 21, 45, 0.38);
   --card-border: rgba(255, 255, 255, 0.24);
   --card-shadow: rgba(0, 0, 0, 0.55);
-  --project-tag-text: #a9c3ff;
+  --card-hover-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.34),
+    0 0 22px rgba(56, 189, 248, 0.58),
+    0 0 76px rgba(37, 99, 235, 0.32);
+  --project-tag-text: #93c5fd;
   --project-tag-bg: rgba(15, 23, 42, 0.84);
   --project-tag-border: rgba(61, 106, 255, 0.42);
   --project-tag-accent: #3d6aff;
@@ -131,7 +139,7 @@
 }
 
 .outWrap {
-  padding: 3rem;
+  padding: clamp(1rem, 3vw, 3rem);
   max-width: 1180px;
   margin: auto auto;
   position: relative;
@@ -226,6 +234,11 @@
   grid-template-rows: repeat(5, minmax(200px, 1fr));
   gap: 2rem;
 }
+@media (max-width: 960px) {
+  .main {
+    grid-template-rows: repeat(7, minmax(200px, 1fr));
+  }
+}
 
 .card {
   position: relative;
@@ -260,8 +273,15 @@
 }
 @media (min-width: 640px) {
   .card .card-face:hover {
-    box-shadow: 0 0 15px rgba(165, 56, 255, 0.3490196078), 0 0 70px rgba(139, 44, 255, 0.1490196078);
+    box-shadow: var(--card-hover-shadow);
   }
+}
+.card .btnBox {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 4;
+  text-align: right;
 }
 .card .card-back {
   transform: rotateY(180deg);
@@ -276,6 +296,11 @@
   grid-column: 1/3;
   grid-row: 1/3;
   position: relative;
+}
+@media (max-width: 960px) {
+  .personData {
+    grid-column: 1/5;
+  }
 }
 .personData .card-front {
   display: flex;
@@ -454,19 +479,28 @@
 .personData .card-front .bottom .link .btn::after {
   backdrop-filter: blur(2px);
 }
-.personData .card-back .btnBox {
-  text-align: right;
-}
 
 .aboutMe {
   grid-column: 3/5;
   grid-row: 1/3;
+}
+@media (max-width: 960px) {
+  .aboutMe {
+    grid-column: 1/5;
+    grid-row: 3/5;
+  }
 }
 
 .work {
   grid-column: 1/5;
   grid-row: 3/6;
   transition: all 0.6s ease;
+}
+@media (max-width: 960px) {
+  .work {
+    grid-column: 1/5;
+    grid-row: 5/8;
+  }
 }
 @media (min-width: 640px) {
   .work:hover {
@@ -479,13 +513,6 @@
   background: var(--work-card-bg);
   isolation: isolate;
   overflow: hidden;
-}
-.work .btnBox {
-  position: absolute;
-  right: 24px;
-  top: 24px;
-  text-align: right;
-  z-index: 4;
 }
 @media (max-width: 1000px) {
   .work .btnBox {
