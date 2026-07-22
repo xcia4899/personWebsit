@@ -457,7 +457,7 @@
     z-index: 4;
 
     @media (max-width: 1000px) {
-      background-color: var(--surface);
+      background-color: var(--work-btn-box-bg);
       border-radius: 12px;
     }
   }
@@ -566,20 +566,20 @@
         li {
           padding: 0.3rem 0.6rem;
 
-          color: var(--work-accent-text);
+          color: var(--work-tech-text);
           font-size: 0.8rem;
-          border: 1px solid var(--work-aceent-border);
+          border: 1px solid var(--work-tech-border);
           border-radius: 16px;
 
-          background: var(--work-accent-light);
+          background: var(--work-tech-bg);
           cursor: default;
           transition: all 0.3s ease-in-out;
 
           @media (min-width: 640px) {
             &:hover {
-              border: 1px solid var(--work-aceent-border-hover);
+              border: 1px solid var(--work-tech-border-hover);
               transform: translate(1px, -2px);
-              background: var(--work-accent-light-hover);
+              background: var(--work-tech-bg-hover);
             }
           }
         }
@@ -609,7 +609,7 @@
         }
 
         .account-info {
-          border: 1px solid var(--project-border);
+          border: 1px solid var(--work-project-border);
           border-radius: 8px;
           margin-top: 0.4rem;
           padding: 0.4rem 1rem;

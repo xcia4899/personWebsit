@@ -1,19 +1,10 @@
 .header {
   width: 100%;
   padding: 20px;
-  background: var(--header-bg);
   color: var(--text-primary);
 }
 .header .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.header .menu {
-  display: flex;
-  gap: 20px;
-}
-.header .menu.is-open {
-  opacity: 1;
-  background: var(--header-menu-bg);
 }

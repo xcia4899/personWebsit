@@ -2,7 +2,6 @@
 .header {
   width: 100%;
   padding: 20px;
-  background: var(--header-bg);
   color: var(--text-primary);
 
   .header-inner {
@@ -11,13 +10,4 @@
     align-items: center;
   }
 
-  .menu {
-    display: flex;
-    gap: 20px;
-
-    &.is-open {
-      opacity: 1;
-      background: var(--header-menu-bg);
-    }
-  }
 }

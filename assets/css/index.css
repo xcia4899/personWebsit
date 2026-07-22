@@ -22,14 +22,6 @@
   --skill-tooltip-text-shadow: transparent;
   --skill-icon-hover-strength: 18%;
   --skill-icon-hover-surface: rgba(255, 255, 255, 0.72);
-  --surface: rgba(250, 250, 250, 0.82);
-  --surface-hover: rgba(255, 255, 255, 0.96);
-  --surface-strong: #ffffff;
-  --border: rgba(24, 24, 24, 0.14);
-  --border-strong: #333333;
-  --shadow: rgba(24, 24, 24, 0.18);
-  --header-bg: rgba(250, 250, 250, 0.88);
-  --header-menu-bg: rgba(224, 224, 224, 0.96);
   --switch-track: #ada0e9;
   --switch-track-active: #8b5cf6;
   --switch-thumb: #ffffff;
@@ -55,28 +47,26 @@
   --flip-btn-shine: #ede9fe;
   --card-bg: rgba(255, 255, 255, 0.2);
   --card-border: rgba(255, 255, 255, 0.5);
+  --card-shadow: rgba(24, 24, 24, 0.18);
   --project-tag-text: #6d28d9;
   --project-tag-bg: rgba(255, 255, 255, 0.82);
   --project-tag-border: rgba(124, 58, 237, 0.32);
   --project-tag-accent: #7c3aed;
   --project-tag-glow: rgba(124, 58, 237, 0.4);
   --project-tag-shine: rgba(255, 255, 255, 0.8);
+  --work-btn-box-bg: rgba(250, 250, 250, 0.82);
   --work-card-bg: linear-gradient(200deg,
       rgba(124, 58, 237, 0.08),
       transparent 35%),
     rgba(255, 255, 255, 0.72);
-  --work-card-bg-hover: linear-gradient(200deg,
-      rgba(124, 58, 237, 0.16),
-      transparent 35%),
-    rgba(255, 255, 255, 0.84);
-  --project-border: rgba(109, 40, 217, 0.18);
-  --work-accent-text: #047857;
-  --work-aceent-border: #6ee7b7;
-  --work-aceent-border-hover: #10b981;
-  --work-accent-light: #ecfdf5;
-  --work-accent-light-hover: #d1fae5;
-  --back-opacity: 1;
-  --back-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%, #f7f3ea 100%);
+  --work-project-border: rgba(109, 40, 217, 0.18);
+  --work-tech-text: #047857;
+  --work-tech-border: #6ee7b7;
+  --work-tech-border-hover: #10b981;
+  --work-tech-bg: #ecfdf5;
+  --work-tech-bg-hover: #d1fae5;
+  --star-field-opacity: 1;
+  --page-backdrop-gradient: radial-gradient(ellipse at bottom, #ecf2ff 0%, #f7f3ea 100%);
   --star-color: rgba(209, 7, 165, 0.72);
 }
 
@@ -92,14 +82,6 @@
   --skill-tooltip-text-shadow: rgba(0, 0, 0, 0.45);
   --skill-icon-hover-strength: 28%;
   --skill-icon-hover-surface: rgba(15, 23, 42, 0.72);
-  --surface: rgba(16, 21, 45, 0.72);
-  --surface-hover: rgba(24, 29, 58, 0.88);
-  --surface-strong: #181d3a;
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.32);
-  --shadow: rgba(0, 0, 0, 0.55);
-  --header-bg: rgba(11, 14, 17, 0.37);
-  --header-menu-bg: rgba(24, 29, 58, 0.96);
   --switch-track: #172554;
   --switch-track-active: #60a5fa;
   --switch-thumb: #bfdbfe;
@@ -125,28 +107,26 @@
   --flip-btn-shine: #ffffff;
   --card-bg: rgba(16, 21, 45, 0.38);
   --card-border: rgba(255, 255, 255, 0.24);
+  --card-shadow: rgba(0, 0, 0, 0.55);
   --project-tag-text: #a9c3ff;
   --project-tag-bg: rgba(15, 23, 42, 0.84);
   --project-tag-border: rgba(61, 106, 255, 0.42);
   --project-tag-accent: #3d6aff;
   --project-tag-glow: rgba(61, 106, 255, 0.48);
   --project-tag-shine: rgba(255, 255, 255, 0.5);
+  --work-btn-box-bg: rgba(16, 21, 45, 0.72);
   --work-card-bg: linear-gradient(200deg,
       rgba(78, 57, 192, 0.08),
       transparent 35%),
     rgba(15, 23, 42, 0.72);
-  --work-card-bg-hover: linear-gradient(200deg,
-      rgba(211, 78, 223, 0.452),
-      transparent 35%),
-      rgba(15, 23, 42, 0.72);
-  --project-border: rgba(148, 163, 184, 0.22);
-  --work-accent-text: #7dd3fc;
-  --work-aceent-border: rgba(56, 189, 248, 0.3);
-  --work-aceent-border-hover: #38bdf8;
-  --work-accent-light: rgba(56, 189, 248, 0.1);
-  --work-accent-light-hover: rgba(56, 189, 248, 0.2);
-  --back-opacity: 1;
-  --back-gradient: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  --work-project-border: rgba(148, 163, 184, 0.22);
+  --work-tech-text: #7dd3fc;
+  --work-tech-border: rgba(56, 189, 248, 0.3);
+  --work-tech-border-hover: #38bdf8;
+  --work-tech-bg: rgba(56, 189, 248, 0.1);
+  --work-tech-bg-hover: rgba(56, 189, 248, 0.2);
+  --star-field-opacity: 1;
+  --page-backdrop-gradient: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   --star-color: #ffffff;
 }
 
@@ -266,7 +246,7 @@
 .card .card-face {
   border: 1px solid var(--card-border);
   background: var(--card-bg);
-  box-shadow: 0 18px 54px var(--shadow);
+  box-shadow: 0 18px 54px var(--card-shadow);
   backdrop-filter: blur(2px) saturate(130%);
   padding: 24px;
   border-radius: 32px;
@@ -509,7 +489,7 @@
 }
 @media (max-width: 1000px) {
   .work .btnBox {
-    background-color: var(--surface);
+    background-color: var(--work-btn-box-bg);
     border-radius: 12px;
   }
 }
@@ -589,19 +569,19 @@
 }
 .work .project-card .rightBox .tech-list li {
   padding: 0.3rem 0.6rem;
-  color: var(--work-accent-text);
+  color: var(--work-tech-text);
   font-size: 0.8rem;
-  border: 1px solid var(--work-aceent-border);
+  border: 1px solid var(--work-tech-border);
   border-radius: 16px;
-  background: var(--work-accent-light);
+  background: var(--work-tech-bg);
   cursor: default;
   transition: all 0.3s ease-in-out;
 }
 @media (min-width: 640px) {
   .work .project-card .rightBox .tech-list li:hover {
-    border: 1px solid var(--work-aceent-border-hover);
+    border: 1px solid var(--work-tech-border-hover);
     transform: translate(1px, -2px);
-    background: var(--work-accent-light-hover);
+    background: var(--work-tech-bg-hover);
   }
 }
 .work .project-card .rightBox .demo-account dl {
@@ -621,7 +601,7 @@
   line-height: 1.6;
 }
 .work .project-card .rightBox .demo-account .account-info {
-  border: 1px solid var(--project-border);
+  border: 1px solid var(--work-project-border);
   border-radius: 8px;
   margin-top: 0.4rem;
   padding: 0.4rem 1rem;
