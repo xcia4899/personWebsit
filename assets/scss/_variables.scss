@@ -33,13 +33,15 @@ $color-slate-950: #010508;
 
 // Navy colors
 $color-navy-600: #3d6aff;
+$color-navy-700: #2c46a3;
 $color-navy-800: #181d3a;
-$color-slate-900: #10152d;
+$color-navy-900: #10152d;
 $color-navy-950: #0b0e11;
 
 // Purple colors
 $color-purple-50: #f5f3ff;
 $color-purple-100: #ede9fe;
+$color-purple-200: #ddd6fe;
 $color-purple-300: #c4b5fd;
 $color-purple-400: #ada0e9;
 $color-purple-500: #8b5cf6;
@@ -77,6 +79,7 @@ $color-sky-950: #082f49;
 // Green colors
 $color-green-50: #ecfdf5;
 $color-green-100: #d1fae5;
+$color-green-200: #a7f3d0;
 $color-green-300: #6ee7b7;
 $color-green-500: #10b981;
 $color-green-700: #047857;
@@ -169,13 +172,33 @@ $color-brand-pinia: #ffd859;
 
   // Shared cards
   --card-bg: #{rgba($color-white, 0.2)};
-  --card-bg-hover: #{$color-white};
+  --person-card-bg-hover: linear-gradient(
+    to bottom left,
+    #{$color-purple-200} 0%,
+    #{$color-slate-100} 28%,
+    #{$color-slate-50} 76%,
+    #{$color-green-200} 100%
+  );
+  --about-card-bg-hover: linear-gradient(
+    to bottom left,
+    #{$color-blue-200} 0%,
+    #{$color-slate-50} 28%,
+    #{$color-blue-50} 76%,
+    #{$color-purple-200} 100%
+  );
+  --work-card-bg-hover: linear-gradient(
+    to bottom left,
+    #{$color-green-100} 0%,
+    #{$color-blue-50} 28%,
+    #{$color-blue-100} 76%,
+    #{$color-blue-200} 100%
+  );
+
   --card-border: #{rgba($color-white, 0.5)};
   --card-shadow: #{rgba($color-gray-850, 0.28)};
-  --card-hover-shadow:
-    0 0 0 1px #{rgba($color-purple-500, 0.22)},
-    0 0 18px #{rgba($color-purple-500, 0.38)},
-    0 0 60px #{rgba($color-pink-500, 0.18)};
+  --card-hover-shadow: 0 0 0 1px #{rgba($color-purple-500, 0.22)},
+  0 0 18px #{rgba($color-purple-500, 0.38)},
+  0 0 60px #{rgba($color-pink-500, 0.18)};
 
   // Project tags
   --project-tag-text: #{$color-purple-700};
@@ -188,9 +211,9 @@ $color-brand-pinia: #ffd859;
   // Work section
   --work-btn-box-bg: #{rgba($color-gray-50, 0.82)};
   --work-card-bg: linear-gradient(200deg,
-      #{rgba($color-purple-600, 0.08)},
-      transparent 35%),
-    #{rgba($color-white, 0.72)};
+    #{rgba($color-purple-600, 0.08)},
+    transparent 35%),
+  #{rgba($color-white, 0.72)};
   --work-project-border: #{rgba($color-purple-700, 0.18)};
 
   --work-tech-text: #{$color-green-700};
@@ -256,13 +279,32 @@ $color-brand-pinia: #ffd859;
 
   // Shared cards
   --card-bg: #{rgba($color-slate-900, 0.38)};
-  --card-bg-hover: #{$color-slate-900};
+  --person-card-bg-hover: linear-gradient(
+    to bottom left,
+    #{$color-blue-950} 0%,
+    #{$color-slate-900} 28%,
+    #{$color-slate-900} 76%,
+    #{$color-navy-950} 100%
+  );
+  --about-card-bg-hover: linear-gradient(
+    to bottom left,
+    #{$color-sky-950} 0%,
+    #{$color-blue-950} 28%,
+    #{$color-blue-950} 76%,
+    #{$color-slate-900} 100%
+  );
+  --work-card-bg-hover: linear-gradient(
+    to bottom left,
+    #{$color-blue-900} 0%,
+    #{$color-sky-950} 28%,
+    #{$color-slate-900} 76%,
+    #{$color-blue-900} 100%
+  );
   --card-border: #{rgba($color-white, 0.24)};
   --card-shadow: #{rgba($color-black-pure, 0.55)};
-  --card-hover-shadow:
-    0 0 0 1px #{rgba($color-sky-400, 0.34)},
-    0 0 22px #{rgba($color-sky-400, 0.58)},
-    0 0 76px #{rgba($color-blue-600, 0.32)};
+  --card-hover-shadow: 0 0 0 1px #{rgba($color-sky-400, 0.34)},
+  0 0 22px #{rgba($color-sky-400, 0.58)},
+  0 0 76px #{rgba($color-blue-600, 0.32)};
 
   // Project tags
   --project-tag-text: #{$color-blue-300};
@@ -275,9 +317,9 @@ $color-brand-pinia: #ffd859;
   // Work section
   --work-btn-box-bg: #{rgba($color-slate-900, 0.72)};
   --work-card-bg: linear-gradient(200deg,
-      #{rgba($color-purple-800, 0.08)},
-      transparent 35%),
-    #{rgba($color-slate-900, 0.72)};
+    #{rgba($color-purple-800, 0.08)},
+    transparent 35%),
+  #{rgba($color-slate-900, 0.72)};
   --work-project-border: #{rgba($color-slate-400, 0.22)};
   --work-tech-text: #{$color-sky-300};
   --work-tech-border: #{rgba($color-sky-400, 0.3)};
