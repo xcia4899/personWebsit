@@ -119,6 +119,7 @@ $color-brand-pinia: #ffd859;
   --text-primary: #{$color-gray-850};
   --text-secondary: #{$color-gray-600};
   --text-muted: #{$color-slate-300};
+  --scrollbar-thumb: #{$color-green-500};
 
   // Brand colors exposed to skill icons
   --brand-figma: #{$color-brand-figma};
@@ -139,7 +140,7 @@ $color-brand-pinia: #ffd859;
   --skill-tooltip-shadow: #{rgba($color-gray-850, 0.2)};
   --skill-tooltip-text-shadow: transparent;
   --skill-icon-hover-strength: 18%;
-  --skill-icon-hover-surface: #{rgba($color-white, 0.72)};
+  --skill-icon-hover-surface: #{rgba($color-white, 0.12)};
 
   // Theme switch
   --switch-track: #{$color-purple-400};
@@ -245,6 +246,7 @@ $color-brand-pinia: #ffd859;
   --text-primary: #{$color-slate-100};
   --text-secondary: #{$color-slate-400};
   --text-muted: #{$color-slate-500};
+  --scrollbar-thumb: #{$color-sky-400};
 
   // Brand colors are inherited from :root.
 
@@ -254,7 +256,7 @@ $color-brand-pinia: #ffd859;
   --skill-tooltip-shadow: #{rgba($color-black-pure, 0.42)};
   --skill-tooltip-text-shadow: #{rgba($color-black-pure, 0.45)};
   --skill-icon-hover-strength: 28%;
-  --skill-icon-hover-surface: #{rgba($color-slate-900, 0.72)};
+  --skill-icon-hover-surface: #{rgba($color-slate-900, 0.2)};
 
   // Theme switch
   --switch-track: #{$color-blue-950};

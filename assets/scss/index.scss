@@ -156,7 +156,6 @@
     height: 100%;
     backface-visibility: hidden;
     overflow: hidden;
-    scrollbar-width: none;
     transition: box-shadow 0.4s ease;
 
     &::before {
@@ -291,8 +290,8 @@
   }
 
   .card-front {
-    // overflow: visible;
 
+    // overflow: visible;
     .content {
       display: flex;
       flex-direction: column;
@@ -309,7 +308,7 @@
         display: flex;
         // justify-content: center;
         align-items: center;
-        gap: 1rem;
+        gap: 1.6rem;
 
         .img {
           width: 80px;
@@ -322,14 +321,29 @@
             object-fit: cover;
           }
         }
+
+        .personName {
+          .subtitle {
+            color: var(--text-secondary);
+            line-height: 1.4;
+            letter-spacing: 0.08em;
+          }
+
+          .name {
+            color: var(--text-primary);
+            line-height: 1.4;
+            letter-spacing: 0.12em;
+          }
+        }
       }
     }
 
     .dataBox {
+      flex: 1 1 auto;
       display: grid;
-      grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.15fr);
+      grid-template-columns: minmax(0, 0.45fr) minmax(0, 1.05fr);
       column-gap: clamp(1.5rem, 4vw, 4rem);
-      padding-inline: 16px;
+      padding-inline: 12px;
 
       .skill-group {
         min-width: 0;
@@ -413,7 +427,7 @@
               &:hover {
                 opacity: 1;
                 filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
-                transform: translateY(-3px) scale(1.1);
+                transform: translateY(-4px) scale(1.1);
 
                 &::after {
                   transform: scaleY(1);
@@ -477,7 +491,7 @@
 
       .skill-group.left {
         .skill-list {
-          flex-direction: column;
+          // flex-direction: column;
           align-items: flex-start;
         }
       }
@@ -498,16 +512,26 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 6rem;
+      gap: clamp(1rem, 5vw, 6rem);
 
       .expertise,
       .link {
-        flex: 1 1 0;
         min-width: 0;
       }
 
-      .link {
+      .expertise {
+        flex: 1 1 auto;
 
+        h5 {
+          max-width: 28ch;
+          font-size: clamp(13px, 1.5vw, 16px);
+          line-height: 1.6;
+          text-wrap: balance;
+        }
+      }
+
+      .link {
+        flex: 0 1 200px;
         display: grid;
         gap: 8px;
 
@@ -521,6 +545,21 @@
           &::after {
             backdrop-filter: blur(2px);
           }
+        }
+      }
+
+      @media (max-width: 640px) {
+        align-items: flex-end;
+        gap: 1rem;
+
+        .expertise h5 {
+          max-width: 20ch;
+          font-size: 13px;
+          line-height: 1.5;
+        }
+
+        .link {
+          flex-basis: 120px;
         }
       }
     }
@@ -545,33 +584,21 @@
     // justify-content: center;
     // align-items: center;
   }
-  .intro{
+
+  .intro {
     padding: 12px;
     color: var(--text-muted);
   }
+
   .resume {
-    width: 97%;
+    width: 100%;
     max-height: 320px;
     padding: 4px 12px 4px 4px;
     display: grid;
     gap: 18px;
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: $color-sky-400 transparent;
 
-    &::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $color-sky-400;
-      border-radius: 999px;
-    }
     .resume-section {
 
       .resume-title {
@@ -583,7 +610,7 @@
         line-height: 1.4;
         letter-spacing: 0.08em;
       }
-  
+
       p {
         padding-left: 12px;
         margin: 6px 0 0;
@@ -648,8 +675,7 @@
 
     .leftBox {
       overflow: auto;
-      height: 660px;
-      scrollbar-width: none;
+      height: 652px;
 
       .project {
         position: relative;
@@ -702,12 +728,10 @@
         position: relative;
 
         .title {
-          font-size: clamp(1.75rem, 3vw, 2rem);
+          // font-size: clamp(1.75rem, 3vw, 2rem);
           line-height: 1.2;
           letter-spacing: -0.03em;
         }
-
-
 
         .date {
           margin: 0.75rem 0 0;
@@ -850,7 +874,6 @@
       .project-overview {
         grid-template-columns: 1fr;
         overflow: auto;
-        scrollbar-width: none;
         height: 660px;
         gap: 0;
       }

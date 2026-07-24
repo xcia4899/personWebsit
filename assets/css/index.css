@@ -5,6 +5,7 @@
   --text-primary: #181818;
   --text-secondary: #5f5f5f;
   --text-muted: #b6b6b6;
+  --scrollbar-thumb: #10b981;
   --brand-figma: #f24e1e;
   --brand-photoshop: #31a8ff;
   --brand-illustrator: #ff9a00;
@@ -21,7 +22,7 @@
   --skill-tooltip-shadow: rgba(24, 24, 24, 0.2);
   --skill-tooltip-text-shadow: transparent;
   --skill-icon-hover-strength: 18%;
-  --skill-icon-hover-surface: rgba(255, 255, 255, 0.72);
+  --skill-icon-hover-surface: rgba(255, 255, 255, 0.12);
   --switch-track: #ada0e9;
   --switch-track-active: #8b5cf6;
   --switch-thumb: #ffffff;
@@ -108,12 +109,13 @@
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
   --text-muted: #43507a;
+  --scrollbar-thumb: #38bdf8;
   --skill-tooltip-bg: rgba(15, 23, 42, 0.94);
   --skill-tooltip-text: #f8fafc;
   --skill-tooltip-shadow: rgba(0, 0, 0, 0.42);
   --skill-tooltip-text-shadow: rgba(0, 0, 0, 0.45);
   --skill-icon-hover-strength: 28%;
-  --skill-icon-hover-surface: rgba(15, 23, 42, 0.72);
+  --skill-icon-hover-surface: rgba(15, 23, 42, 0.2);
   --switch-track: #172554;
   --switch-track-active: #60a5fa;
   --switch-thumb: #bfdbfe;
@@ -324,7 +326,6 @@
   height: 100%;
   backface-visibility: hidden;
   overflow: hidden;
-  scrollbar-width: none;
   transition: box-shadow 0.4s ease;
 }
 .card .card-face::before {
@@ -450,7 +451,7 @@
 .personData .card-front .top .profile {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.6rem;
 }
 .personData .card-front .top .profile .img {
   width: 80px;
@@ -462,11 +463,22 @@
   height: 100%;
   object-fit: cover;
 }
+.personData .card-front .top .profile .personName .subtitle {
+  color: var(--text-secondary);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+.personData .card-front .top .profile .personName .name {
+  color: var(--text-primary);
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+}
 .personData .card-front .dataBox {
+  flex: 1 1 auto;
   display: grid;
-  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 0.45fr) minmax(0, 1.05fr);
   column-gap: clamp(1.5rem, 4vw, 4rem);
-  padding-inline: 16px;
+  padding-inline: 12px;
 }
 .personData .card-front .dataBox .skill-group {
   min-width: 0;
@@ -536,7 +548,7 @@
   .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover {
     opacity: 1;
     filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
-    transform: translateY(-3px) scale(1.1);
+    transform: translateY(-4px) scale(1.1);
   }
   .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover::after {
     transform: scaleY(1);
@@ -579,7 +591,6 @@
   --skill-brand-color: var(--brand-pinia);
 }
 .personData .card-front .dataBox .skill-group.left .skill-list {
-  flex-direction: column;
   align-items: flex-start;
 }
 .personData .card-front .dataBox .skill-group.right {
@@ -593,14 +604,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 6rem;
+  gap: clamp(1rem, 5vw, 6rem);
 }
 .personData .card-front .bottom .expertise,
 .personData .card-front .bottom .link {
-  flex: 1 1 0;
   min-width: 0;
 }
+.personData .card-front .bottom .expertise {
+  flex: 1 1 auto;
+}
+.personData .card-front .bottom .expertise h5 {
+  max-width: 28ch;
+  font-size: clamp(13px, 1.5vw, 16px);
+  line-height: 1.6;
+  text-wrap: balance;
+}
 .personData .card-front .bottom .link {
+  flex: 0 1 200px;
   display: grid;
   gap: 8px;
 }
@@ -612,6 +632,20 @@
 }
 .personData .card-front .bottom .link .btn::after {
   backdrop-filter: blur(2px);
+}
+@media (max-width: 640px) {
+  .personData .card-front .bottom {
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  .personData .card-front .bottom .expertise h5 {
+    max-width: 20ch;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .personData .card-front .bottom .link {
+    flex-basis: 120px;
+  }
 }
 
 .aboutMe {
@@ -631,25 +665,13 @@
   color: var(--text-muted);
 }
 .aboutMe .resume {
-  width: 97%;
+  width: 100%;
   max-height: 320px;
   padding: 4px 12px 4px 4px;
   display: grid;
   gap: 18px;
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: #38bdf8 transparent;
-}
-.aboutMe .resume::-webkit-scrollbar {
-  width: 5px;
-}
-.aboutMe .resume::-webkit-scrollbar-track {
-  background: transparent;
-}
-.aboutMe .resume::-webkit-scrollbar-thumb {
-  background: #38bdf8;
-  border-radius: 999px;
 }
 .aboutMe .resume .resume-section .resume-title {
   margin: 0;
@@ -713,8 +735,7 @@
 }
 .work .project-card .leftBox {
   overflow: auto;
-  height: 660px;
-  scrollbar-width: none;
+  height: 652px;
 }
 .work .project-card .leftBox .project {
   position: relative;
@@ -752,7 +773,6 @@
   position: relative;
 }
 .work .project-card .rightBox .project-header .title {
-  font-size: clamp(1.75rem, 3vw, 2rem);
   line-height: 1.2;
   letter-spacing: -0.03em;
 }
@@ -861,7 +881,6 @@
   .work .project-card .project-overview {
     grid-template-columns: 1fr;
     overflow: auto;
-    scrollbar-width: none;
     height: 660px;
     gap: 0;
   }
