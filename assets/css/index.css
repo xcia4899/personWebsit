@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root,
 [data-theme=light] {
   color-scheme: light;
@@ -673,22 +674,62 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+.aboutMe .resume .resume-section {
+  border-radius: 8px;
+}
 .aboutMe .resume .resume-section .resume-title {
+  position: relative;
   margin: 0;
   color: var(--text-primary);
-  padding-left: 12px;
+  padding-left: 14px;
   font-size: 1rem;
   line-height: 1.4;
   letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+.aboutMe .resume .resume-section .resume-title::before {
+  content: "✦";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  color: var(--scrollbar-thumb);
+  font-size: 14px;
+  line-height: 1;
+  transform: translateY(-50%);
+  transform-origin: center;
+  transition: all 0.3s ease;
+  animation: resume-star-spin 5s linear infinite;
 }
 .aboutMe .resume .resume-section p {
-  padding-left: 12px;
+  padding-left: 14px;
   margin: 6px 0 0;
   color: var(--text-secondary);
   line-height: 1.8;
   text-align: justify;
+  transition: color 0.8s, translate 0.3s ease;
+}
+@media (min-width: 640px) {
+  .aboutMe .resume .resume-section:hover .resume-title {
+    translate: 4px 0px;
+    color: color-mix(in srgb, var(--text-primary) 75%, var(--scrollbar-thumb));
+  }
+  .aboutMe .resume .resume-section:hover .resume-title::before {
+    translate: -4px 0px;
+  }
+  .aboutMe .resume .resume-section:hover p {
+    translate: 4px 0px;
+    color: var(--text-primary);
+  }
 }
 
+@keyframes resume-star-spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
 .work {
   --card-bg-hover: var(--work-card-bg-hover);
   --card-hover-shadow: var(--work-card-hover-shadow);

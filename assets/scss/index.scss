@@ -600,27 +600,76 @@
     overflow-x: hidden;
 
     .resume-section {
+      border-radius: 8px;
 
       .resume-title {
+        position: relative;
         margin: 0;
         color: var(--text-primary);
-        padding-left: 12px;
-        // border-left: 3px solid $color-sky-400;
+        padding-left: 14px;
         font-size: 1rem;
         line-height: 1.4;
         letter-spacing: 0.08em;
+        transition: all 0.3s ease, ;
+
+        &::before {
+          content: "✦";
+          position: absolute;
+          left: -6px;
+          top: 50%;
+          color: var(--scrollbar-thumb);
+          font-size: 14px;
+          line-height: 1;
+
+          transform: translateY(-50%);
+          transform-origin: center;
+          transition: all 0.3s ease;
+          animation: resume-star-spin 5s linear infinite;
+        }
       }
 
       p {
-        padding-left: 12px;
+        padding-left: 14px;
         margin: 6px 0 0;
         color: var(--text-secondary);
         line-height: 1.8;
         text-align: justify;
+        transition: color 0.8s, translate 0.3s ease;
+      }
+
+      @media (min-width: 640px) {
+        &:hover {
+          .resume-title {
+            translate: 4px 0px;
+            color: color-mix(in srgb,
+                var(--text-primary) 75%,
+                var(--scrollbar-thumb));
+
+            &::before {
+              translate: -4px 0px;
+            }
+          }
+
+          p {
+            translate: 4px 0px;
+            color: var(--text-primary);
+          }
+        }
       }
     }
   }
 }
+
+@keyframes resume-star-spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
 
 .work {
   --card-bg-hover: var(--work-card-bg-hover);
