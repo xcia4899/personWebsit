@@ -673,6 +673,7 @@ p {
   height: 100%;
   backface-visibility: hidden;
   overflow: hidden;
+  isolation: isolate;
   transition: box-shadow 0.4s ease;
 }
 .card .card-face::before {
@@ -691,6 +692,7 @@ p {
   animation: rotation_9018 12000ms infinite linear;
   animation-play-state: paused;
   z-index: -3;
+  pointer-events: none;
 }
 .card .card-face::after {
   opacity: 0;
@@ -704,6 +706,7 @@ p {
   z-index: -2;
   background: transparent;
   backdrop-filter: blur(30px);
+  pointer-events: none;
 }
 .card .card-face .content {
   position: relative;
@@ -717,7 +720,7 @@ p {
   display: block;
   transition: all 0.4s ease;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
   isolation: isolate;
 }
 .card .card-face .content::before {
