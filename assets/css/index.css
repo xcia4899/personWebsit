@@ -196,6 +196,7 @@
 
 .outWrap {
   padding: clamp(1rem, 3vw, 3rem);
+  padding-bottom: calc(clamp(1rem, 3vw, 3rem) + 64px);
   max-width: 1180px;
   margin: auto auto;
   position: relative;
@@ -337,7 +338,7 @@
   transform-origin: center;
   width: 70%;
   height: 200%;
-  background: linear-gradient(#ff2288, #387ef0);
+  background: linear-gradient(#ff2288, #902fff);
   transition: opacity 0s ease;
   animation: rotation_9018 12000ms infinite linear;
   animation-play-state: paused;
@@ -354,7 +355,7 @@
   height: 100%;
   z-index: -2;
   background: transparent;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(30px);
 }
 .card .card-face .content {
   position: relative;
@@ -398,7 +399,7 @@
     opacity: 1;
   }
   .card .card-face:hover::before {
-    transition: opacity 2.2s ease 1s;
+    transition: opacity 2s ease 0.7s;
     opacity: 1;
     animation-play-state: running;
   }
@@ -625,10 +626,45 @@
     grid-row: 3/5;
   }
 }
-.aboutMe .card-front .content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.aboutMe .intro {
+  padding: 12px;
+  color: var(--text-muted);
+}
+.aboutMe .resume {
+  width: 97%;
+  max-height: 320px;
+  padding: 4px 12px 4px 4px;
+  display: grid;
+  gap: 18px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #38bdf8 transparent;
+}
+.aboutMe .resume::-webkit-scrollbar {
+  width: 5px;
+}
+.aboutMe .resume::-webkit-scrollbar-track {
+  background: transparent;
+}
+.aboutMe .resume::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 999px;
+}
+.aboutMe .resume .resume-section .resume-title {
+  margin: 0;
+  color: var(--text-primary);
+  padding-left: 12px;
+  font-size: 1rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+.aboutMe .resume .resume-section p {
+  padding-left: 12px;
+  margin: 6px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  text-align: justify;
 }
 
 .work {

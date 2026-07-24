@@ -4,6 +4,7 @@
 
 .outWrap {
   padding: clamp(1rem, 3vw, 3rem);
+  padding-bottom: calc(clamp(1rem, 3vw, 3rem) + 64px);
   max-width: 1180px;
   margin: auto auto;
   position: relative;
@@ -169,12 +170,13 @@
       transform-origin: center;
       width: 70%;
       height: 200%;
-      background: linear-gradient(#ff2288, #387ef0);
+      background: linear-gradient(#ff2288, #902fff);
       transition: opacity 0s ease;
       animation: rotation_9018 12000ms infinite linear;
       animation-play-state: paused;
       z-index: -3;
     }
+
     &::after {
       opacity: 0;
       position: absolute;
@@ -186,9 +188,10 @@
       height: 100%;
       z-index: -2;
       background: transparent;
-      backdrop-filter: blur(40px);
+      backdrop-filter: blur(30px);
 
     }
+
     .content {
       position: relative;
       padding: 24px;
@@ -240,14 +243,15 @@
       }
 
       &:hover::before {
-        transition: opacity 2.2s ease 1s;
+        transition: opacity 2s ease 0.7s;
         opacity: 1;
         animation-play-state: running;
       }
+
       &:hover::after {
         transition: opacity 0.4s ease 1s;
         opacity: 1;
-      
+
       }
     }
 
@@ -325,7 +329,8 @@
       display: grid;
       grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.15fr);
       column-gap: clamp(1.5rem, 4vw, 4rem);
-      padding-inline:16px ;
+      padding-inline: 16px;
+
       .skill-group {
         min-width: 0;
 
@@ -536,9 +541,57 @@
   }
 
   .card-front .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }
+  .intro{
+    padding: 12px;
+    color: var(--text-muted);
+  }
+  .resume {
+    width: 97%;
+    max-height: 320px;
+    padding: 4px 12px 4px 4px;
+    display: grid;
+    gap: 18px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: $color-sky-400 transparent;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $color-sky-400;
+      border-radius: 999px;
+    }
+    .resume-section {
+
+      .resume-title {
+        margin: 0;
+        color: var(--text-primary);
+        padding-left: 12px;
+        // border-left: 3px solid $color-sky-400;
+        font-size: 1rem;
+        line-height: 1.4;
+        letter-spacing: 0.08em;
+      }
+  
+      p {
+        padding-left: 12px;
+        margin: 6px 0 0;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        text-align: justify;
+      }
+    }
   }
 }
 
