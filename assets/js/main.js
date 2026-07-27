@@ -4,6 +4,7 @@ import { scrollAnimation } from "./utils/scrollAnimation.js";
 import { loadSvgSprite } from "./utils/svgSprite.js";
 import { initHeader } from "./header.js";
 import { initTheme } from "./utils/theme.js";
+import { initGoToUp } from "./utils/goToUp.js";
 
 import { btnHoverAni } from "./utils/btnHoverAni.js";
 
@@ -24,6 +25,7 @@ function initCardFlip() {
 
 document.addEventListener("DOMContentLoaded", async () => {
     initTheme();
+    initGoToUp();
     btnHoverAni();
     initCardFlip();
     await loadSvgSprite();

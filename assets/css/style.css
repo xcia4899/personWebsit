@@ -6,7 +6,7 @@
   --text-primary: #181818;
   --text-secondary: #5f5f5f;
   --text-muted: #b6b6b6;
-  --scrollbar-thumb: #10b981;
+  --scrollbar-thumb: #8b5cf6;
   --brand-figma: #f24e1e;
   --brand-photoshop: #31a8ff;
   --brand-illustrator: #ff9a00;
@@ -637,12 +637,12 @@ p {
   margin: auto auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(5, minmax(200px, 1fr));
+  grid-auto-rows: minmax(200px, 1fr);
   gap: 2rem;
 }
 @media (max-width: 960px) {
   .main {
-    grid-template-rows: repeat(7, minmax(200px, 1fr));
+    gap: 4rem;
   }
 }
 
@@ -792,14 +792,14 @@ p {
 .personData {
   --card-bg-hover: var(--person-card-bg-hover);
   --card-hover-shadow: var(--person-card-hover-shadow);
-  grid-column: 1/3;
-  grid-row: 1/3;
+  grid-column: span 2;
+  grid-row: span 2;
   position: relative;
   transition: all 0.6s ease;
 }
 @media (max-width: 960px) {
   .personData {
-    grid-column: 1/5;
+    grid-column: span 4;
   }
 }
 @media (min-width: 640px) {
@@ -1017,36 +1017,17 @@ p {
     flex-basis: 120px;
   }
 }
-
-.aboutMe {
-  --card-bg-hover: var(--about-card-bg-hover);
-  --card-hover-shadow: var(--about-card-hover-shadow);
-  grid-column: 3/5;
-  grid-row: 1/3;
-  transition: all 0.6s ease;
-}
-@media (max-width: 960px) {
-  .aboutMe {
-    grid-column: 1/5;
-    grid-row: 3/5;
-  }
-}
-@media (min-width: 640px) {
-  .aboutMe:hover {
-    transform: translate(2px, -12px);
-  }
-}
-.aboutMe .card-front .content {
+.personData .card-back .content {
   display: flex;
   flex-direction: column;
   min-height: 0;
 }
-.aboutMe .intro {
+.personData .card-back .intro {
   flex: 0 0 auto;
   padding: 12px;
   color: var(--text-muted);
 }
-.aboutMe .resume {
+.personData .card-back .resume {
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
@@ -1060,10 +1041,10 @@ p {
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
 }
-.aboutMe .resume .resume-section {
+.personData .card-back .resume .resume-section {
   border-radius: 8px;
 }
-.aboutMe .resume .resume-section .resume-title {
+.personData .card-back .resume .resume-section .resume-title {
   position: relative;
   margin: 0;
   color: var(--text-primary);
@@ -1073,7 +1054,7 @@ p {
   letter-spacing: 0.08em;
   transition: all 0.3s ease;
 }
-.aboutMe .resume .resume-section .resume-title::before {
+.personData .card-back .resume .resume-section .resume-title::before {
   content: "✦";
   position: absolute;
   left: -6px;
@@ -1086,7 +1067,7 @@ p {
   transition: all 0.3s ease;
   animation: resume-star-spin 5s linear infinite;
 }
-.aboutMe .resume .resume-section p {
+.personData .card-back .resume .resume-section p {
   padding-left: 14px;
   margin: 6px 0 0;
   color: var(--text-secondary);
@@ -1095,19 +1076,18 @@ p {
   transition: color 0.8s, translate 0.3s ease;
 }
 @media (min-width: 640px) {
-  .aboutMe .resume .resume-section:hover .resume-title {
+  .personData .card-back .resume .resume-section:hover .resume-title {
     translate: 4px 0px;
     color: color-mix(in srgb, var(--text-primary) 75%, var(--scrollbar-thumb));
   }
-  .aboutMe .resume .resume-section:hover .resume-title::before {
+  .personData .card-back .resume .resume-section:hover .resume-title::before {
     translate: -4px 0px;
   }
-  .aboutMe .resume .resume-section:hover p {
+  .personData .card-back .resume .resume-section:hover p {
     translate: 4px 0px;
     color: var(--text-primary);
   }
 }
-
 @keyframes resume-star-spin {
   from {
     transform: translateY(-50%) rotate(0deg);
@@ -1116,22 +1096,50 @@ p {
     transform: translateY(-50%) rotate(360deg);
   }
 }
+
+.aboutMe {
+  --card-bg-hover: var(--about-card-bg-hover);
+  --card-hover-shadow: var(--about-card-hover-shadow);
+  grid-column: span 2;
+  grid-row: span 2;
+  transition: all 0.6s ease;
+}
+@media (max-width: 960px) {
+  .aboutMe {
+    grid-column: span 4;
+  }
+}
+@media (min-width: 640px) {
+  .aboutMe:hover {
+    transform: translate(2px, -12px);
+  }
+}
+.aboutMe .card-front .content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .work {
   --card-bg-hover: var(--work-card-bg-hover);
   --card-hover-shadow: var(--work-card-hover-shadow);
-  grid-column: 1/5;
-  grid-row: 3/6;
+  grid-column: span 4;
+  grid-row: span 3;
   transition: all 0.6s ease;
 }
 @media (max-width: 960px) {
   .work {
-    grid-column: 1/5;
-    grid-row: 5/8;
+    grid-column: span 4;
   }
 }
 @media (min-width: 640px) {
   .work:hover {
     transform: translate(6px, -10px);
+  }
+}
+@media (min-width: 640px) {
+  .work-2:hover {
+    transform: translate(-10px, -6px);
   }
 }
 .work .card-front {
@@ -1330,6 +1338,76 @@ p {
 @media (max-width: 640px) {
   .work .project-card {
     padding: 1.25rem;
+  }
+}
+
+.workCarousel {
+  --card-bg-hover: var(--person-card-bg-hover);
+  --card-hover-shadow: var(--person-card-hover-shadow);
+  grid-column: span 4;
+  grid-row: span 2;
+  transition: all 0.6s ease;
+}
+@media (max-width: 960px) {
+  .workCarousel {
+    grid-column: span 4;
+  }
+}
+@media (min-width: 640px) {
+  .workCarousel:hover {
+    transform: translate(-10px, 10px);
+  }
+}
+.workCarousel .card-front .content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* main -end */
+.goToUpBox {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 2rem;
+  z-index: 20;
+}
+.goToUpBox .goToUp {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--card-border), 0 8px 24px var(--card-shadow-color);
+  backdrop-filter: blur(10px) saturate(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.goToUpBox .goToUp .goToUp-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: miter;
+  transition: transform 0.3s ease;
+}
+.goToUpBox .goToUp:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px var(--scrollbar-thumb), 0 0 8px color-mix(in srgb, var(--scrollbar-thumb) 70%, transparent), 0 0 24px color-mix(in srgb, var(--scrollbar-thumb) 45%, transparent);
+}
+@media (min-width: 640px) {
+  .goToUpBox .goToUp:hover {
+    color: var(--scrollbar-thumb);
+    transform: translateY(-4px);
+    box-shadow: inset 0 0 0 1px var(--scrollbar-thumb), 0 0 8px color-mix(in srgb, var(--scrollbar-thumb) 75%, transparent), 0 0 26px color-mix(in srgb, var(--scrollbar-thumb) 48%, transparent), 0 12px 36px var(--card-shadow-color);
+  }
+  .goToUpBox .goToUp:hover .goToUp-icon {
+    transform: translateY(-2px);
   }
 }
 
