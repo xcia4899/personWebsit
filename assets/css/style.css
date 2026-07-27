@@ -910,7 +910,8 @@ p {
 .personData .card-front .dataBox .skill-group h4 {
   font-size: 12px;
   font-weight: 900;
-  margin-bottom: 4px;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
 }
 .personData .card-front .dataBox .skill-group .skill-list {
   display: flex;
@@ -968,18 +969,16 @@ p {
   backdrop-filter: blur(8px);
   pointer-events: none;
 }
-@media (min-width: 640px) {
-  .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover {
-    opacity: 1;
-    filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
-    transform: translateY(-4px) scale(1.1);
-  }
-  .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover::after {
-    transform: scaleY(1);
-  }
-  .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover::before {
-    opacity: 1;
-  }
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover {
+  opacity: 1;
+  filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
+  transform: translateY(-4px) scale(1.1);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover::after {
+  transform: scaleY(1);
+}
+.personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover::before {
+  opacity: 1;
 }
 .personData .card-front .dataBox .skill-group .skill-list .skill-icon[icon="simple-icons:figma"] {
   --skill-brand-color: var(--brand-figma);
@@ -1038,6 +1037,7 @@ p {
   flex: 1 1 auto;
 }
 .personData .card-front .bottom .expertise h5 {
+  color: var(--text-primary);
   max-width: 28ch;
   font-size: clamp(13px, 1.5vw, 16px);
   line-height: 1.6;
@@ -1254,23 +1254,83 @@ p {
   transition: transform 0.6s ease;
 }
 .work .project-card .rightBox {
-  padding: 32px 32px 32px 0;
+  margin-top: 24px;
+  padding: 0px 24px 4px;
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 1.8rem;
+  overflow-y: auto;
+  max-height: 602px;
+  scrollbar-width: none;
+}
+.work .project-card .rightBox .titleBox {
+  display: grid;
+  gap: 0.1rem;
+}
+.work .project-card .rightBox .titleBox .title,
+.work .project-card .rightBox .titleBox .subtitle {
+  margin: 0;
+}
+.work .project-card .rightBox .titleBox .title {
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+}
+.work .project-card .rightBox .titleBox .subtitle {
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
 }
 .work .project-card .rightBox .project-header {
   position: relative;
 }
-.work .project-card .rightBox .project-header .title {
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+.work .project-card .rightBox .project-header .titleBox {
+  padding-right: calc(80px + 0.45rem);
+}
+.work .project-card .rightBox .project-header .titleBox .title,
+.work .project-card .rightBox .project-header .titleBox .subtitle {
+  margin: 0;
+}
+.work .project-card .rightBox .project-header .titleBox .title {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+.work .project-card .rightBox .project-header .titleBox .subtitle {
+  font-size: 1rem;
 }
 .work .project-card .rightBox .project-header .date {
-  margin: 0.75rem 0 0;
+  margin: 0.45rem 0 0;
   color: var(--text-secondary);
-  font-size: 0.9375rem;
+  font-size: 0.9rem;
   letter-spacing: 0.08em;
+}
+.work .project-card .rightBox .project-header .project-link {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.45rem;
+}
+.work .project-card .rightBox .project-header .project-link a {
+  height: 100%;
+  width: 100%;
+}
+.work .project-card .rightBox .project-header .project-link .btn {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+@media (min-width: 640px) {
+  .work .project-card .rightBox .project-header .project-link .btn:hover::before {
+    width: 200%;
+    height: 200%;
+  }
+}
+.work .project-card .rightBox .project-header .project-link .iconlink {
+  font-weight: 900;
+  height: 100%;
+  width: 100%;
 }
 .work .project-card .rightBox .project-description p {
   color: var(--text-secondary);
@@ -1278,7 +1338,7 @@ p {
   line-height: 1.4;
 }
 .work .project-card .rightBox .project-description p + p {
-  margin-top: 1.25rem;
+  margin-top: 0.6rem;
 }
 .work .project-card .rightBox .tech-list {
   display: flex;
@@ -1305,17 +1365,11 @@ p {
 .work .project-card .rightBox .demo-account dl {
   margin: 0;
 }
-.work .project-card .rightBox .demo-account .account-heading {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.4rem;
-}
-.work .project-card .rightBox .demo-account .account-heading h4 {
+.work .project-card .rightBox .demo-account .titleBox .title {
   font-size: clamp(1rem, 1.4vw, 1.4rem);
 }
-.work .project-card .rightBox .demo-account .account-heading p {
+.work .project-card .rightBox .demo-account .titleBox .subtitle {
   font-size: 0.8rem;
-  color: var(--text-secondary);
   line-height: 1.6;
 }
 .work .project-card .rightBox .demo-account .account-info {
@@ -1342,39 +1396,45 @@ p {
   font-size: 1rem;
   overflow-wrap: anywhere;
 }
-.work .project-card .rightBox .project-link {
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 0.85rem;
+.work .project-card .rightBox .project-section .title {
+  margin-bottom: 0.2rem;
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
 }
-.work .project-card .rightBox .project-link a {
-  height: 100%;
-  width: 100%;
+.work .project-card .rightBox .project-section .feature-list {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  counter-reset: feature;
 }
-.work .project-card .rightBox .project-link .btn {
-  width: 80px;
-  height: 40px;
+.work .project-card .rightBox .project-section .feature-list li {
+  position: relative;
+  display: flex;
+  gap: 0.6rem;
   padding: 4px 8px;
+  border: 1px solid var(--work-project-border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  counter-increment: feature;
+  cursor: default;
 }
-@media (min-width: 640px) {
-  .work .project-card .rightBox .project-link .btn:hover::before {
-    width: 200%;
-    height: 200%;
-  }
-}
-.work .project-card .rightBox .project-link .iconlink {
-  font-weight: 900;
-  height: 100%;
-  width: 100%;
+.work .project-card .rightBox .project-section .feature-list li::before {
+  content: counter(feature, decimal-leading-zero);
+  color: var(--project-accent);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-weight: 800;
 }
 @media (max-width: 1000px) {
   .work .project-card .project-overview {
     grid-template-columns: 1fr;
+    grid-auto-rows: max-content;
+    align-content: start;
     height: 100%;
     min-height: 0;
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior-y: auto;
+    scrollbar-width: none;
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
     gap: 0;
@@ -1387,11 +1447,9 @@ p {
   .work .project-card .rightBox {
     order: 1;
     padding-left: 32px;
-  }
-}
-@media (max-width: 640px) {
-  .work .project-card {
-    padding: 1.25rem;
+    height: auto;
+    max-height: none;
+    overflow: visible;
   }
 }
 
