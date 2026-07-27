@@ -149,7 +149,7 @@ $color-brand-pinia: #ffd859;
   --switch-thumb-active: #{$color-white};
   --switch-border: #{$color-purple-300};
   --switch-border-hover: #{$color-purple-500};
-  --switch-shadow: 0 4px 14px #{rgba($color-purple-500, 0.18)};
+  --switch-depth-shadow: 0 4px 16px #{rgba($color-purple-700, 0.16)};
   --switch-shadow-hover: 0 0 18px #{rgba($color-purple-shadow, 0.726)};
 
   // In/out button
@@ -170,6 +170,9 @@ $color-brand-pinia: #ffd859;
   --flip-btn-shadow: 0 4px 14px #{rgba($color-purple-500, 0.16)};
   --flip-btn-glow: #{rgba($color-purple-500, 0.45)};
   --flip-btn-shine: #{$color-purple-100};
+
+  // Go-to-top button
+  --go-to-up-glow: #{$color-purple-500};
 
   // Shared cards
   --card-bg: #{rgba($color-white, 0.2)};
@@ -265,8 +268,8 @@ $color-brand-pinia: #ffd859;
   --switch-thumb-active: #{$color-blue-950};
   --switch-border: #{rgba($color-blue-400, 0.38)};
   --switch-border-hover: #{$color-blue-400};
-  --switch-shadow: 0 4px 14px #{rgba($color-blue-400, 0.2)};
-  --switch-shadow-hover: 0 0 18px #{rgba($color-blue-400, 0.38)};
+  --switch-depth-shadow: 0 4px 16px #{rgba($color-sky-950, 0.62)};
+  --switch-shadow-hover: 0 0 24px #{rgba($color-sky-400, 0.78)};
 
   // In/out button
   --inout-btn-text: #{$color-sky-300};
@@ -283,9 +286,12 @@ $color-brand-pinia: #ffd859;
   --flip-btn-bg: transparent;
   --flip-btn-bg-hover: #{$color-blue-600};
   --flip-btn-border: #{$color-blue-400};
-  --flip-btn-shadow: 0 4px 16px #{rgba($color-blue-500, 0.38)};
+  --flip-btn-shadow: 0 4px 24px #{rgba($color-blue-500, 0.38)};
   --flip-btn-glow: #{rgba($color-blue-500, 0.78)};
   --flip-btn-shine: #{$color-white};
+
+  // Go-to-top button
+  --go-to-up-glow: #{$color-sky-400};
 
   // Shared cards
   --card-bg: #{rgba($color-slate-900, 0.38)};

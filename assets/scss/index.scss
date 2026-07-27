@@ -18,17 +18,25 @@
   margin-bottom: 24px;
 
   .switch-btn {
+    @include breathing-glow(var(--switch-border-hover));
+
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
     column-gap: 0.6em;
-    padding: 6px 12px;
-    border: 1px solid var(--switch-border);
-    border-radius: 16px;
-    box-shadow: var(--switch-shadow);
-    transition: all 0.3s ease-in-out;
-
-
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 18px;
+    background: transparent;
+    box-shadow:
+      inset 0 0 0 1px var(--switch-border),
+      var(--switch-depth-shadow);
+    backdrop-filter: blur(2px) saturate(130%);
+    -webkit-backdrop-filter: blur(3px) saturate(130%);
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
 
     .light,
     .dark {
@@ -82,21 +90,20 @@
       transform: translateX(20px);
       box-shadow: inset 6px -4px 0px 0px var(--switch-thumb-active);
     }
-  }
 
-  @media (min-width: 640px) {
-    &:hover {
-      .switch-btn {
-        // background-color: #0c4586a6;
-        transform: scale(1.06);
-        border-color: var(--switch-border-hover);
-        box-shadow: var(--switch-shadow-hover);
+    @media (min-width: 640px) {
+      &:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow:
+          inset 0 0 0 1px var(--switch-border-hover),
+          var(--switch-shadow-hover);
+        text-shadow: 0 0 2px #a0a0a0;
+        &::before {
+          box-shadow: none;
+        }
       }
-
-      text-shadow: 0 0 2px #a0a0a0;
     }
   }
-
 }
 
 [data-theme="light"] .switch-btn .light,
@@ -117,6 +124,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: minmax(200px, 1fr);
   gap: 2rem;
+
   @media (max-width:960px) {
     gap: 4rem;
   }
@@ -189,7 +197,7 @@
       transform-origin: center;
       width: 70%;
       height: 200%;
-      background: linear-gradient(#ff2288, #902fff);
+      background: linear-gradient(#ff2288, #7a06ff);
       transition: opacity 0s ease;
       animation: rotation_9018 12000ms infinite linear;
       animation-play-state: paused;
@@ -739,6 +747,7 @@
     }
 
   }
+
   &-2 {
     @media (min-width: 640px) {
       &:hover {
@@ -1038,6 +1047,7 @@
 
 
 }
+
 /* main -end */
 .goToUpBox {
   position: fixed;
@@ -1046,8 +1056,10 @@
   z-index: 20;
 
   .goToUp {
-    width: 48px;
-    height: 48px;
+    @include breathing-glow(var(--go-to-up-glow) ,10s);
+
+    width: 50px;
+    height: 50px;
     padding: 0;
     display: grid;
     place-items: center;
@@ -1057,8 +1069,8 @@
     box-shadow:
       inset 0 0 0 1px var(--card-border),
       0 8px 24px var(--card-shadow-color);
-    backdrop-filter: blur(10px) saturate(130%);
-    -webkit-backdrop-filter: blur(10px) saturate(130%);
+    backdrop-filter: blur(3px) saturate(130%);
+    -webkit-backdrop-filter: blur(4px) saturate(120%);
     cursor: pointer;
     transition:
       color 0.3s ease,
@@ -1087,7 +1099,7 @@
     @media (min-width: 640px) {
       &:hover {
         color: var(--scrollbar-thumb);
-        transform: translateY(-4px);
+        transform: translateY(-4px) scale(1.1);
         box-shadow:
           inset 0 0 0 1px var(--scrollbar-thumb),
           0 0 8px color-mix(in srgb, var(--scrollbar-thumb) 75%, transparent),

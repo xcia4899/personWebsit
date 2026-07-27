@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
 *,
 *::before,
@@ -186,7 +187,12 @@ figure {
 
 /* From Uiverse.io by mrhyddenn */
 .flip-btn {
-  position: relative;
+  @include breathing-glow(
+    var(--flip-btn-border),
+    3s,
+    false
+  );
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -219,6 +225,7 @@ figure {
 
   @media (min-width: 640px) {
   &:hover {
+    animation: none;
     color: var(--flip-btn-text-hover);
     background: var(--flip-btn-bg-hover);
     box-shadow: 0 0 20px 4px var(--flip-btn-glow);
@@ -228,7 +235,7 @@ figure {
     transition: all 0.2s ease-out;
   }
 
-  &:hover::before {
+  &:hover::after {
     -webkit-animation: sh02 0.5s 0s linear;
     -moz-animation: sh02 0.5s 0s linear;
     animation: sh02 0.5s 0s linear;
@@ -239,7 +246,7 @@ figure {
   }
   }
 
-  &::before {
+  &::after {
     content: '';
     display: block;
     width: 0px;
@@ -275,10 +282,12 @@ figure {
   }
 
   &:active {
+    animation: none;
     box-shadow: 0 0 0 0 transparent;
     -webkit-transition: box-shadow 0.2s ease-in;
     -moz-transition: box-shadow 0.2s ease-in;
-    transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in ,transform 0.2s ease-in ;
+    transform: scale(0.9);
   }
 }
 
