@@ -122,15 +122,16 @@ figure {
   position: relative;
   display: inline-block;
   width: 100%;
-  font-size: 16px;
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.1em;
   line-height: 1.2;
 
   text-transform: uppercase;
   text-align: center;
   padding: 1rem 1.5rem;
-  border-radius: 50px;
+  border-radius: 10px;
   box-shadow: var(--inout-btn-shadow);
   cursor: pointer;
   isolation: isolate;
@@ -167,21 +168,34 @@ figure {
     inset: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--inout-btn-bg);
+    background:
+      linear-gradient(115deg, var(--inout-btn-highlight), transparent 32%),
+      repeating-linear-gradient(
+        125deg,
+        transparent 0 7px,
+        var(--inout-btn-grid) 8px 9px
+      ),
+      var(--inout-btn-bg);
     z-index: -2;
   }
 
   @media (min-width: 640px) {
-  &:hover {
-    color: var(--inout-btn-text-hover);
-    box-shadow:  var(--inout-btn-shadow-hover);
-    transform: translateY(-2px);
+    &:hover {
+      color: var(--inout-btn-text-hover);
+      box-shadow: var(--inout-btn-shadow-hover);
+      transform: translateY(-2px);
 
-    &::before {
-      width: 200%;
-      height: 1000%;
+      &::before {
+        width: 200%;
+        height: 1000%;
+      }
     }
   }
+
+  &:active {
+    box-shadow: var(--inout-btn-shadow);
+    transform: translateY(1px) scale(0.96);
+    transition-duration: 0.1s;
   }
 }
 
@@ -286,8 +300,8 @@ figure {
     box-shadow: 0 0 0 0 transparent;
     -webkit-transition: box-shadow 0.2s ease-in;
     -moz-transition: box-shadow 0.2s ease-in;
-    transition: box-shadow 0.2s ease-in ,transform 0.2s ease-in ;
-    transform: scale(0.9);
+    transition: box-shadow 0.1s ease-in, transform 0.1s ease-in;
+    transform: translateY(1px) scale(0.96);
   }
 }
 

@@ -11,13 +11,13 @@
   --brand-photoshop: #31a8ff;
   --brand-illustrator: #ff9a00;
   --brand-html: #e34f26;
-  --brand-css: #663399;
+  --brand-css: #8f3de0;
   --brand-sass: #cc6699;
-  --brand-javascript: #f7df1e;
+  --brand-javascript: #e7ab04;
   --brand-typescript: #3178c6;
-  --brand-vue: #4fc08d;
-  --brand-nuxt: #00dc82;
-  --brand-pinia: #ffd859;
+  --brand-vue: #42b883;
+  --brand-nuxt: #020420;
+  --brand-pinia: #ff9a00;
   --skill-tooltip-bg: rgba(255, 255, 255, 0.94);
   --skill-tooltip-text: #181818;
   --skill-tooltip-shadow: rgba(24, 24, 24, 0.2);
@@ -37,8 +37,14 @@
   --inout-btn-bg: #ecfdf5;
   --inout-btn-bg-hover: #10b981;
   --inout-btn-border: #10b981;
-  --inout-btn-shadow: 0 4px 10px rgba(16, 185, 129, 0.16);
-  --inout-btn-shadow-hover: 0 8px 28px rgba(16, 185, 129, 0.48);
+  --inout-btn-grid: rgba(4, 120, 87, 0.07);
+  --inout-btn-highlight: rgba(255, 255, 255, 0.72);
+  --inout-btn-shadow:
+    inset 0 1px 0 var(--inout-btn-highlight),
+    0 0 0 1px rgba(16, 185, 129, 0.08);
+  --inout-btn-shadow-hover:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 0 18px rgba(16, 185, 129, 0.42);
   --flip-btn-text: #6d28d9;
   --flip-btn-text-hover: #ffffff;
   --flip-btn-bg: transparent;
@@ -94,7 +100,12 @@
     rgba(124, 58, 237, 0.08),
     transparent 35%),
   rgba(255, 255, 255, 0.72);
-  --work-project-border: rgba(109, 40, 217, 0.18);
+  --work-project-border: rgba(4, 120, 87, 0.18);
+  --work-project-border-hover: rgba(4, 120, 87, 0.58);
+  --work-project-bg-hover: rgba(255, 255, 255, 0.68);
+  --work-project-shadow:
+    0 2px 0 rgba(4, 120, 87, 0.32),
+    0 4px 7px rgba(4, 120, 87, 0.18);
   --work-tech-text: #047857;
   --work-tech-border: #6ee7b7;
   --work-tech-border-hover: #10b981;
@@ -112,6 +123,10 @@
   --text-secondary: #94a3b8;
   --text-muted: #43507a;
   --scrollbar-thumb: #38bdf8;
+  --brand-figma: #ff7262;
+  --brand-sass: #cc6699;
+  --brand-javascript: #f7df1e;
+  --brand-nuxt: #00dc82;
   --skill-tooltip-bg: rgba(15, 23, 42, 0.94);
   --skill-tooltip-text: #f8fafc;
   --skill-tooltip-shadow: rgba(0, 0, 0, 0.42);
@@ -131,8 +146,14 @@
   --inout-btn-bg: rgba(14, 165, 233, 0.14);
   --inout-btn-bg-hover: #7dd3fc;
   --inout-btn-border: #38bdf8;
-  --inout-btn-shadow: 0 4px 10px rgba(56, 189, 248, 0.22);
-  --inout-btn-shadow-hover: 0px 8px 28px rgba(56, 189, 248, 0.46);
+  --inout-btn-grid: rgba(125, 211, 252, 0.09);
+  --inout-btn-highlight: rgba(186, 230, 253, 0.28);
+  --inout-btn-shadow:
+    inset 0 1px 0 var(--inout-btn-highlight),
+    0 0 0 1px rgba(56, 189, 248, 0.08);
+  --inout-btn-shadow-hover:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 16px rgba(56, 189, 248, 0.52);
   --flip-btn-text: #60a5fa;
   --flip-btn-text-hover: #ffffff;
   --flip-btn-bg: transparent;
@@ -188,7 +209,12 @@
     rgba(78, 57, 192, 0.08),
     transparent 35%),
   rgba(15, 23, 42, 0.72);
-  --work-project-border: rgba(148, 163, 184, 0.22);
+  --work-project-border: rgba(56, 189, 248, 0.22);
+  --work-project-border-hover: rgba(56, 189, 248, 0.82);
+  --work-project-bg-hover: rgba(10, 10, 10, 0.32);
+  --work-project-shadow:
+    0 2px 0 rgba(10, 10, 10, 0.82),
+    0 4px 7px rgba(56, 189, 248, 0.18);
   --work-tech-text: #7dd3fc;
   --work-tech-border: rgba(56, 189, 248, 0.3);
   --work-tech-border-hover: #38bdf8;
@@ -204,7 +230,7 @@
     box-shadow: 0 0 6px color-mix(in srgb, var(--breathing-glow-color) 4%, transparent), 0 0 12px color-mix(in srgb, var(--breathing-glow-color) 4%, transparent);
   }
   50% {
-    box-shadow: 0 0 8px color-mix(in srgb, var(--breathing-glow-color) 32%, transparent), 0 0 24px color-mix(in srgb, var(--breathing-glow-color) 28%, transparent);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--breathing-glow-color) 58%, transparent), 0 0 40px color-mix(in srgb, var(--breathing-glow-color) 38%, transparent);
   }
 }
 @keyframes soft-filter-breathe {
@@ -323,14 +349,15 @@ figure {
   position: relative;
   display: inline-block;
   width: 100%;
-  font-size: 16px;
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.1em;
   line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
   padding: 1rem 1.5rem;
-  border-radius: 50px;
+  border-radius: 10px;
   box-shadow: var(--inout-btn-shadow);
   cursor: pointer;
   isolation: isolate;
@@ -359,7 +386,7 @@ figure {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--inout-btn-bg);
+  background: linear-gradient(115deg, var(--inout-btn-highlight), transparent 32%), repeating-linear-gradient(125deg, transparent 0 7px, var(--inout-btn-grid) 8px 9px), var(--inout-btn-bg);
   z-index: -2;
 }
 @media (min-width: 640px) {
@@ -372,6 +399,11 @@ figure {
     width: 200%;
     height: 1000%;
   }
+}
+.inOutAniBtn:active {
+  box-shadow: var(--inout-btn-shadow);
+  transform: translateY(1px) scale(0.96);
+  transition-duration: 0.1s;
 }
 
 /* From Uiverse.io by mrhyddenn */
@@ -470,8 +502,8 @@ figure {
   box-shadow: 0 0 0 0 transparent;
   -webkit-transition: box-shadow 0.2s ease-in;
   -moz-transition: box-shadow 0.2s ease-in;
-  transition: box-shadow 0.2s ease-in, transform 0.2s ease-in;
-  transform: scale(0.9);
+  transition: box-shadow 0.1s ease-in, transform 0.1s ease-in;
+  transform: translateY(1px) scale(0.96);
 }
 
 .btnTag {
@@ -897,6 +929,15 @@ p {
   line-height: 1.4;
   letter-spacing: 0.12em;
 }
+.personData .card-front .top .profile .personName .subtitle,
+.personData .card-front .top .profile .personName .name {
+  transition: all 0.6s ease-in-out;
+}
+.personData .card-front .top .profile .personName .subtitle:hover,
+.personData .card-front .top .profile .personName .name:hover {
+  transform: translateX(2px);
+  text-shadow: 0 0 20px var(--text-muted);
+}
 .personData .card-front .dataBox {
   flex: 1 1 auto;
   display: grid;
@@ -912,6 +953,11 @@ p {
   font-weight: 900;
   color: var(--text-secondary);
   margin-bottom: 0.4rem;
+  transition: all 0.5s ease-in-out;
+}
+.personData .card-front .dataBox .skill-group h4:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
 }
 .personData .card-front .dataBox .skill-group .skill-list {
   display: flex;
@@ -926,9 +972,11 @@ p {
   font-size: 20px;
   padding: 8px;
   color: var(--skill-brand-color);
+  background-color: color-mix(in srgb, var(--skill-brand-color) 15%, transparent);
+  background-image: linear-gradient(115deg, var(--inout-btn-highlight), transparent 24%);
   border: 1px solid;
   border-radius: 4px;
-  filter: drop-shadow(0 0 0px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
+  filter: drop-shadow(0 0 0px color-mix(in srgb, var(--skill-brand-color) 12%, transparent));
   opacity: 1;
   transform-origin: center;
   transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
@@ -941,9 +989,11 @@ p {
   top: 0;
   width: 100%;
   height: 100%;
+  border-radius: inherit;
   z-index: -1;
-  transform: scaleY(0);
-  transition: all 0.4s ease;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  background-image: linear-gradient(115deg, var(--inout-btn-highlight), transparent 38%);
   background-color: color-mix(in srgb, var(--skill-brand-color) var(--skill-icon-hover-strength), var(--skill-icon-hover-surface));
 }
 .personData .card-front .dataBox .skill-group .skill-list .skill-icon::before {
@@ -972,10 +1022,10 @@ p {
 .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover {
   opacity: 1;
   filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--skill-brand-color) 42%, transparent));
-  transform: translateY(-4px) scale(1.1);
+  transform: translateY(-2px) scale(1.12);
 }
 .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover::after {
-  transform: scaleY(1);
+  transform: scale(1);
 }
 .personData .card-front .dataBox .skill-group .skill-list .skill-icon:hover::before {
   opacity: 1;
@@ -1037,16 +1087,22 @@ p {
   flex: 1 1 auto;
 }
 .personData .card-front .bottom .expertise h5 {
-  color: var(--text-primary);
+  color: var(--text-secondary);
   max-width: 28ch;
   font-size: clamp(13px, 1.5vw, 16px);
   line-height: 1.6;
   text-wrap: balance;
+  transition: all 0.8s ease-in-out;
+}
+.personData .card-front .bottom .expertise h5:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+  text-shadow: 0 0 20px var(--text-muted);
 }
 .personData .card-front .bottom .link {
   flex: 0 1 200px;
   display: grid;
-  gap: 8px;
+  gap: 16px;
 }
 .personData .card-front .bottom .link .btn {
   display: block;
@@ -1307,7 +1363,7 @@ p {
 .work .project-card .rightBox .project-header .project-link {
   position: absolute;
   right: 0;
-  top: 4px;
+  top: 12px;
   display: inline-flex;
   flex: 0 0 auto;
   gap: 0.45rem;
@@ -1323,8 +1379,8 @@ p {
 }
 @media (min-width: 640px) {
   .work .project-card .rightBox .project-header .project-link .btn:hover::before {
-    width: 200%;
-    height: 200%;
+    width: 160%;
+    height: 160%;
   }
 }
 .work .project-card .rightBox .project-header .project-link .iconlink {
@@ -1336,6 +1392,12 @@ p {
   color: var(--text-secondary);
   font-size: clamp(1rem, 1.3vw, 1.125rem);
   line-height: 1.4;
+  transition: color 0.5s ease-in-out;
+}
+@media (min-width: 640px) {
+  .work .project-card .rightBox .project-description p:hover {
+    color: var(--text-primary);
+  }
 }
 .work .project-card .rightBox .project-description p + p {
   margin-top: 0.6rem;
@@ -1416,13 +1478,27 @@ p {
   border-radius: 8px;
   color: var(--text-secondary);
   counter-increment: feature;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.3s ease-in-out, background-color 0.2s ease-in-out, color 0.4s ease;
   cursor: default;
+}
+@media (min-width: 640px) {
+  .work .project-card .rightBox .project-section .feature-list li:hover {
+    border-color: var(--work-project-border-hover);
+    background-color: var(--work-project-bg-hover);
+    box-shadow: var(--work-project-shadow);
+    transform: translateY(-2px);
+    color: var(--text-primary);
+  }
+  .work .project-card .rightBox .project-section .feature-list li:hover::before {
+    color: var(--scrollbar-thumb);
+  }
 }
 .work .project-card .rightBox .project-section .feature-list li::before {
   content: counter(feature, decimal-leading-zero);
-  color: var(--project-accent);
+  color: inherit;
   font-size: clamp(0.8rem, 1.2vw, 1rem);
-  font-weight: 800;
+  font-weight: 600;
+  transition: color 0.4s ease-in-out;
 }
 @media (max-width: 1000px) {
   .work .project-card .project-overview {
@@ -1540,6 +1616,11 @@ p {
   .goToUpBox .goToUp:hover .goToUp-icon {
     transform: translateY(-2px);
   }
+}
+.goToUpBox .goToUp:active {
+  animation: none;
+  transform: translateY(1px) scale(0.94);
+  transition-duration: 0.1s;
 }
 
 /*# sourceMappingURL=style.css.map */

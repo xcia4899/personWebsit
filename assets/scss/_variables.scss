@@ -98,17 +98,22 @@ $color-night-950: #090a0f;
 // Brand colors use their product names and are not
 // treated as reusable UI colors.
 // --------------------------------------------------
-$color-brand-figma: #f24e1e;
+$color-brand-figma-on-light: #f24e1e;
+$color-brand-figma-on-dark: #ff7262;
 $color-brand-photoshop: #31a8ff;
 $color-brand-illustrator: #ff9a00;
 $color-brand-html: #e34f26;
-$color-brand-css: #663399;
-$color-brand-sass: #cc6699;
-$color-brand-javascript: #f7df1e;
+$color-brand-css: #8f3de0;
+$color-brand-sass-on-light: #cc6699;
+$color-brand-sass-on-dark: #cc6699;
+// JavaScript has no official theme pair; use a deeper brand-adjacent gold on light surfaces.
+$color-brand-javascript-on-light: #e7ab04;
+$color-brand-javascript-on-dark: #f7df1e;
 $color-brand-typescript: #3178c6;
-$color-brand-vue: #4fc08d;
-$color-brand-nuxt: #00dc82;
-$color-brand-pinia: #ffd859;
+$color-brand-vue: #42b883;
+$color-brand-nuxt-on-light: #020420;
+$color-brand-nuxt-on-dark: #00dc82;
+$color-brand-pinia: #ff9a00;
 
 :root,
 [data-theme="light"] {
@@ -122,16 +127,16 @@ $color-brand-pinia: #ffd859;
   --scrollbar-thumb: #{$color-purple-500};
 
   // Brand colors exposed to skill icons
-  --brand-figma: #{$color-brand-figma};
+  --brand-figma: #{$color-brand-figma-on-light};
   --brand-photoshop: #{$color-brand-photoshop};
   --brand-illustrator: #{$color-brand-illustrator};
   --brand-html: #{$color-brand-html};
   --brand-css: #{$color-brand-css};
-  --brand-sass: #{$color-brand-sass};
-  --brand-javascript: #{$color-brand-javascript};
+  --brand-sass: #{$color-brand-sass-on-light};
+  --brand-javascript: #{$color-brand-javascript-on-light};
   --brand-typescript: #{$color-brand-typescript};
   --brand-vue: #{$color-brand-vue};
-  --brand-nuxt: #{$color-brand-nuxt};
+  --brand-nuxt: #{$color-brand-nuxt-on-light};
   --brand-pinia: #{$color-brand-pinia};
 
   // Skill icons and tooltips
@@ -158,8 +163,14 @@ $color-brand-pinia: #ffd859;
   --inout-btn-bg: #{$color-green-50};
   --inout-btn-bg-hover: #{$color-green-500};
   --inout-btn-border: #{$color-green-500};
-  --inout-btn-shadow: 0 4px 10px #{rgba($color-green-500, 0.16)};
-  --inout-btn-shadow-hover: 0 8px 28px #{rgba($color-green-500, 0.48)};
+  --inout-btn-grid: #{rgba($color-green-700, 0.07)};
+  --inout-btn-highlight: #{rgba($color-white, 0.72)};
+  --inout-btn-shadow:
+    inset 0 1px 0 var(--inout-btn-highlight),
+    0 0 0 1px #{rgba($color-green-500, 0.08)};
+  --inout-btn-shadow-hover:
+    inset 0 1px 0 #{rgba($color-white, 0.28)},
+    0 0 18px #{rgba($color-green-500, 0.42)};
 
   // Flip button
   --flip-btn-text: #{$color-purple-700};
@@ -226,7 +237,12 @@ $color-brand-pinia: #ffd859;
     #{rgba($color-purple-600, 0.08)},
     transparent 35%),
   #{rgba($color-white, 0.72)};
-  --work-project-border: #{rgba($color-purple-700, 0.18)};
+  --work-project-border: #{rgba($color-green-700, 0.18)};
+  --work-project-border-hover: #{rgba($color-green-700, 0.58)};
+  --work-project-bg-hover: #{rgba($color-white, 0.68)};
+  --work-project-shadow:
+    0 2px 0 #{rgba($color-green-700, 0.32)},
+    0 4px 7px #{rgba($color-green-700, 0.18)};
 
   --work-tech-text: #{$color-green-700};
   --work-tech-border: #{$color-green-300};
@@ -251,7 +267,11 @@ $color-brand-pinia: #ffd859;
   --text-muted: #{$color-slate-500};
   --scrollbar-thumb: #{$color-sky-400};
 
-  // Brand colors are inherited from :root.
+  // Official high-contrast brand variants for dark surfaces.
+  --brand-figma: #{$color-brand-figma-on-dark};
+  --brand-sass: #{$color-brand-sass-on-dark};
+  --brand-javascript: #{$color-brand-javascript-on-dark};
+  --brand-nuxt: #{$color-brand-nuxt-on-dark};
 
   // Skill icons and tooltips
   --skill-tooltip-bg: #{rgba($color-slate-900, 0.94)};
@@ -277,8 +297,14 @@ $color-brand-pinia: #ffd859;
   --inout-btn-bg: #{rgba($color-sky-500, 0.14)};
   --inout-btn-bg-hover: #{$color-sky-300};
   --inout-btn-border: #{$color-sky-400};
-  --inout-btn-shadow: 0 4px 10px #{rgba($color-sky-400, 0.22)};
-  --inout-btn-shadow-hover: 0px 8px 28px #{rgba($color-sky-400, 0.46)};
+  --inout-btn-grid: #{rgba($color-sky-300, 0.09)};
+  --inout-btn-highlight: #{rgba($color-sky-200, 0.28)};
+  --inout-btn-shadow:
+    inset 0 1px 0 var(--inout-btn-highlight),
+    0 0 0 1px #{rgba($color-sky-400, 0.08)};
+  --inout-btn-shadow-hover:
+    inset 0 1px 0 #{rgba($color-white, 0.2)},
+    0 0 16px #{rgba($color-sky-400, 0.52)};
 
   // Flip button
   --flip-btn-text: #{$color-blue-400};
@@ -344,7 +370,13 @@ $color-brand-pinia: #ffd859;
     #{rgba($color-purple-800, 0.08)},
     transparent 35%),
   #{rgba($color-slate-900, 0.72)};
-  --work-project-border: #{rgba($color-slate-400, 0.22)};
+  --work-project-border: #{rgba($color-sky-400, 0.22)};
+  --work-project-border-hover: #{rgba($color-sky-400, 0.82)};
+  --work-project-bg-hover: #{rgba($color-black, 0.32)};
+  --work-project-shadow:
+    0 2px 0 #{rgba($color-black, 0.82)},
+    0 4px 7px #{rgba($color-sky-400, 0.18)};
+
   --work-tech-text: #{$color-sky-300};
   --work-tech-border: #{rgba($color-sky-400, 0.3)};
   --work-tech-border-hover: #{$color-sky-400};
