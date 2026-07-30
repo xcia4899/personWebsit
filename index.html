@@ -398,14 +398,14 @@
           <section class="card-face card-front">
             <div class="content">
               <div class="workCarousel-header">
-                  <p class="subtitle">Selected projects</p>
+                <p class="subtitle">Selected projects</p>
                 <p class="workCarousel-hint">滑動瀏覽作品</p>
               </div>
 
               <div class="swiper workSwiper" aria-label="更多作品輪播">
                 <div class="swiper-wrapper"></div>
-                <div class="swiper-pagination workSwiper-pagination"></div>
               </div>
+              <div class="swiper-pagination workSwiper-pagination"></div>
             </div>
           </section>
         </div>
@@ -415,6 +415,11 @@
       <button class="goToUp" type="button" aria-label="回到頁面頂端" title="回到頁面頂端">
         <svg class="goToUp-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 15.5 12 8l7 7.5" />
+        </svg>
+      </button>
+      <button class="goToNext" type="button" aria-label="前往下一個內容區塊" title="前往下一個內容區塊">
+        <svg class="goToNext-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m5 8.5 7 7.5 7-7.5" />
         </svg>
       </button>
     </div>
@@ -499,33 +504,31 @@
 
       return `
         <article class="swiper-slide moreProject">
-          <div class="moreProject-inner">
-            <figure class="moreProject-media">
-              <img src="${project.image}" alt="${project.name}預覽圖">
-            </figure>
-            <div class="moreProject-content">
-              <header class="content-header">
-                <h5 class="title">${project.name}</h5>
-                <time datetime="${project.datetime}">${project.date}</time>
-              </header>
-              <ul class="moreProject-tags" aria-label="使用技術">
-                ${tags}
-              </ul>
-              <nav class="moreProject-links" aria-label="${project.name}專案連結">
-                <a class="inOutAniBtn btn moreProject-btn" href="${project.siteUrl}"
-                  aria-label="開啟 ${project.name}網站">
-                  <svg class="iconlink" aria-hidden="true">
-                    <use href="#iconlink"></use>
-                  </svg>
-                </a>
-                <a class="inOutAniBtn btn moreProject-btn" href="${project.githubUrl}"
-                  aria-label="開啟 ${project.name} GitHub">
-                  <svg class="iconlink" aria-hidden="true">
-                    <use href="#githubIcon"></use>
-                  </svg>
-                </a>
-              </nav>
-            </div>
+          <figure class="moreProject-media">
+            <img src="${project.image}" alt="${project.name}預覽圖">
+          </figure>
+          <div class="moreProject-content">
+            <header class="content-header">
+              <h5 class="title">${project.name}</h5>
+              <time datetime="${project.datetime}">${project.date}</time>
+            </header>
+            <ul class="moreProject-tags" aria-label="使用技術">
+              ${tags}
+            </ul>
+            <nav class="moreProject-links" aria-label="${project.name}專案連結">
+              <a class="inOutAniBtn btn moreProject-btn" href="${project.siteUrl}"
+                aria-label="開啟 ${project.name}網站">
+                <svg class="iconlink" aria-hidden="true">
+                  <use href="#iconlink"></use>
+                </svg>
+              </a>
+              <a class="inOutAniBtn btn moreProject-btn" href="${project.githubUrl}"
+                aria-label="開啟 ${project.name} GitHub">
+                <svg class="iconlink" aria-hidden="true">
+                  <use href="#githubIcon"></use>
+                </svg>
+              </a>
+            </nav>
           </div>
         </article>
       `;
@@ -546,20 +549,19 @@
       wrapper.innerHTML = cards.join("");
 
       new Swiper(carousel, {
-        slidesPerView: 1.2,
+        slidesPerView: "auto",
         centeredSlides: true,
         centeredSlidesBounds: false,
         centerInsufficientSlides: true,
         initialSlide: Math.min(1, workProjects.length - 1),
-        autoHeight: true,
         speed: 600,
         autoplay: {
           delay: 5000,
         },
-        spaceBetween: 20,
+        spaceBetween: 48,
         grabCursor: true,
         pagination: {
-          el: carousel.querySelector(".workSwiper-pagination"),
+          el: carousel.parentElement.querySelector(".workSwiper-pagination"),
           clickable: true,
         },
         keyboard: {
@@ -568,15 +570,11 @@
         breakpoints: {
           640: {
             centeredSlides: true,
-            slidesPerView: 2,
-            spaceBetween: 32,
+            spaceBetween: 48,
           },
           1024: {
-      
-            slidesPerView: 3,
             spaceBetween: 32,
             centeredSlides: false,
-
           },
         },
       });
