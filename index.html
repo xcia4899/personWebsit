@@ -13,7 +13,9 @@
   </script>
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="./assets/css/back.css" />
-  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js" defer></script>
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css" />
 
 </head>
 
@@ -186,25 +188,26 @@
                     <div class="project">
                       <div class="project-tag btnTag">首頁</div>
                       <figure class="project-img">
-                        <img src="./assets/images/Snipaste_2026-03-20_12-12-56.png" alt="Horizon 電商網站首頁畫面">
+                        <img src="./assets/images/Horizon-index.jpeg" alt="Horizon 電商網站首頁畫面">
                       </figure>
                     </div>
                     <div class="project">
                       <div class="project-tag btnTag">商品列表</div>
                       <figure class="project-img">
-                        <img src="./assets/images/Horizon-v2.png" alt="Horizon 電商網站商品列表">
+                        <img src="./assets/images/Horizon-shoplist.jpeg" alt="Horizon 電商網站商品列表">
                       </figure>
                     </div>
                     <div class="project">
-                      <div class="project-tag btnTag">商品詳細</div>
+                      <div class="project-tag btnTag">關於網站</div>
                       <figure class="project-img">
-                        <img src="./assets/images/Horizon-v2-2.png" alt="Horizon 電商網站商品詳細">
+                        <img src="./assets/images/Horizon-about.jpeg" alt="Horizon 關於網站">
                       </figure>
                     </div>
                     <div class="project">
                       <div class="project-tag btnTag">後台</div>
+
                       <figure class="project-img">
-                        <img src="./assets/images/Horizon-v2-3.png" alt="Horizon 電商網站後台">
+                        <img src="./assets/images/Horizon-back-02.jpeg" alt="Horizon 電商網站後台">
                       </figure>
                     </div>
                   </div>
@@ -327,7 +330,7 @@
                   <div class="rightBox">
                     <div class="project-header">
                       <div class="titleBox">
-                        <h3 class="title">品牌形象網站</h3>
+                        <h3 class="title">品牌形象網頁</h3>
                         <h5 class="subtitle">切版與互動特效練習</h5>
                       </div>
                       <p class="date">2026 / 05 ～ 2026 / 05</p>
@@ -366,7 +369,6 @@
                         專案主要使用 HTML、SCSS、JavaScript 開發，並結合 Swiper、Splitting.js 製作輪播、文字分割動畫與互動效果，同時透過模組化架構與動態模板提升程式碼的維護性。
                       </p>
                     </div>
-
                     <section class="project-section">
                       <h5 class="title">技術與功能</h5>
                       <ul class="feature-list">
@@ -381,8 +383,6 @@
                         <li>變數、@for迴圈</li>
                       </ul>
                     </section>
-
-
                   </div>
                 </div>
               </article>
@@ -397,8 +397,15 @@
         <div class="card-inner">
           <section class="card-face card-front">
             <div class="content">
-              <h3>更多作品</h3>
+              <div class="workCarousel-header">
+                  <p class="subtitle">Selected projects</p>
+                <p class="workCarousel-hint">滑動瀏覽作品</p>
+              </div>
 
+              <div class="swiper workSwiper" aria-label="更多作品輪播">
+                <div class="swiper-wrapper"></div>
+                <div class="swiper-pagination workSwiper-pagination"></div>
+              </div>
             </div>
           </section>
         </div>
@@ -424,7 +431,159 @@
 
   <div id="svgSprite"></div>
   <script type="module" src="./assets/js/main.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js" defer></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
+  <script>
+    const workProjects = [
+      {
+        name: "samphone 形象網站",
+        date: "2025 / 06 ～ 2025 / 07",
+        datetime: "2025-06",
+        image: "./assets/images/01.png",
+        tags: ["Vite", "Vue 3", "GSAP"],
+        siteUrl: "#",
+        githubUrl: "#",
+      },
+      {
+        name: "技能配置流程模擬器",
+        date: "2025 / 10",
+        datetime: "2025-10",
+        image: "./assets/images/02.png",
+        tags: ["Vue 3", "Vue Router", "Pinia"],
+        siteUrl: "#",
+        githubUrl: "#",
+      },
+      {
+        name: "品牌形象網站",
+        date: "2026 / 06",
+        datetime: "2026-06",
+        image: "./assets/images/03.png",
+        tags: ["HTML", "SCSS", "JavaScript"],
+        siteUrl: "#",
+        githubUrl: "#",
+      },
+      {
+        name: "品牌形象網站",
+        date: "2026 / 06",
+        datetime: "2026-06",
+        image: "./assets/images/03.png",
+        tags: ["HTML", "SCSS", "JavaScript"],
+        siteUrl: "#",
+        githubUrl: "#",
+      },
+      {
+        name: "品牌形象網站",
+        date: "2026 / 06",
+        datetime: "2026-06",
+        image: "./assets/images/03.png",
+        tags: ["HTML", "SCSS", "JavaScript"],
+        siteUrl: "#",
+        githubUrl: "#",
+      },
+      {
+        name: "品牌形象網站",
+        date: "2026 / 06",
+        datetime: "2026-06",
+        image: "./assets/images/03.png",
+        tags: ["HTML", "SCSS", "JavaScript"],
+        siteUrl: "#",
+        githubUrl: "#",
+      },
+    ];
 
+    function createProjectCard(project) {
+      const tags = project.tags
+        .map((tag) => `<li>${tag}</li>`)
+        .join("");
+
+      return `
+        <article class="swiper-slide moreProject">
+          <div class="moreProject-inner">
+            <figure class="moreProject-media">
+              <img src="${project.image}" alt="${project.name}預覽圖">
+            </figure>
+            <div class="moreProject-content">
+              <header class="content-header">
+                <h5 class="title">${project.name}</h5>
+                <time datetime="${project.datetime}">${project.date}</time>
+              </header>
+              <ul class="moreProject-tags" aria-label="使用技術">
+                ${tags}
+              </ul>
+              <nav class="moreProject-links" aria-label="${project.name}專案連結">
+                <a class="inOutAniBtn btn moreProject-btn" href="${project.siteUrl}"
+                  aria-label="開啟 ${project.name}網站">
+                  <svg class="iconlink" aria-hidden="true">
+                    <use href="#iconlink"></use>
+                  </svg>
+                </a>
+                <a class="inOutAniBtn btn moreProject-btn" href="${project.githubUrl}"
+                  aria-label="開啟 ${project.name} GitHub">
+                  <svg class="iconlink" aria-hidden="true">
+                    <use href="#githubIcon"></use>
+                  </svg>
+                </a>
+              </nav>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function initWorkCarousel() {
+      const carousel = document.querySelector(".workSwiper");
+      const wrapper = carousel?.querySelector(".swiper-wrapper");
+
+      if (!carousel || !wrapper || typeof Swiper !== "function") return;
+
+      const cards = [];
+
+      for (const project of workProjects) {
+        cards.push(createProjectCard(project));
+      }
+
+      wrapper.innerHTML = cards.join("");
+
+      new Swiper(carousel, {
+        slidesPerView: 1.2,
+        centeredSlides: true,
+        centeredSlidesBounds: false,
+        centerInsufficientSlides: true,
+        initialSlide: Math.min(1, workProjects.length - 1),
+        autoHeight: true,
+        speed: 600,
+        autoplay: {
+          delay: 5000,
+        },
+        spaceBetween: 20,
+        grabCursor: true,
+        pagination: {
+          el: carousel.querySelector(".workSwiper-pagination"),
+          clickable: true,
+        },
+        keyboard: {
+          enabled: true,
+        },
+        breakpoints: {
+          640: {
+            centeredSlides: true,
+            slidesPerView: 2,
+            spaceBetween: 32,
+          },
+          1024: {
+      
+            slidesPerView: 3,
+            spaceBetween: 32,
+            centeredSlides: false,
+
+          },
+        },
+      });
+    }
+
+    initWorkCarousel();
+  </script>
 </body>
 
 </html>

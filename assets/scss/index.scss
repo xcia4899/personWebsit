@@ -400,6 +400,7 @@
           color: var(--text-secondary);
           margin-bottom: 0.4rem;
           transition: all 0.5s ease-in-out;
+
           &:hover {
             color: var(--text-primary);
             transform: translateY(-2px);
@@ -1075,7 +1076,7 @@
             border-radius: 8px;
             color: var(--text-secondary);
             counter-increment: feature;
-            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.3s ease-in-out, background-color 0.2s ease-in-out ,color 0.4s ease;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.3s ease-in-out, background-color 0.2s ease-in-out, color 0.4s ease;
             cursor: default;
 
             @media (min-width:640px) {
@@ -1085,8 +1086,8 @@
                 box-shadow: var(--work-project-shadow);
                 transform: translateY(-2px);
                 color: var(--text-primary);
-             
-                &::before{
+
+                &::before {
                   color: var(--scrollbar-thumb);
 
                 }
@@ -1100,8 +1101,6 @@
               font-weight: 600;
               transition: color 0.4s ease-in-out;
             }
-
-
           }
         }
       }
@@ -1156,17 +1155,214 @@
 
   @media (min-width: 640px) {
     &:hover {
-      transform: translate(-10px, 10px);
+      transform: translate(0px, 16px);
     }
   }
 
-  .card-front .content {
+  .card-front {
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.4rem, 0.6vw, 1rem);
+      padding: 24px;
+      min-height: 0;
+      overflow: hidden;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .workCarousel-header {
     display: flex;
-    flex-direction: column;
-    min-height: 0;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 0 0.4rem;
+    .subtitle {
+      color: var(--scrollbar-thumb);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .workCarousel-hint {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
   }
 
 
+
+  .swiper {
+    flex: 1 1 0;
+    width: 100%;
+    min-height: 0;
+    // max-height: 400px;
+
+    padding: 0 0 2rem;
+    overflow: hidden;
+
+
+    .swiper-wrapper {
+      align-items: center;
+    }
+
+    .swiper-slide {
+      height: 100%;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+
+    }
+
+    .swiper-slide-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 1024px) {
+
+      .swiper-slide,
+      .swiper-slide-active {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .moreProject {
+      width: fit-content;
+      min-height: 0;
+
+      .moreProject-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: clamp(220px, 24vw, 280px);
+        min-width: 220px;
+        max-width: 300px;
+        height: 94%;
+        margin-inline: auto;
+        min-height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+
+        &:hover {
+          background: var(--card-bg);
+          box-shadow: 0 8px 22px 2px var(--card-shadow-color), 0 0 4px var(--card-shadow-color);
+        }
+      }
+
+      .moreProject-media {
+        min-height: 0;
+        margin: 0;
+        overflow: hidden;
+        flex: 1;
+        border-radius: 12px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+        }
+      }
+
+      .moreProject-content {
+        flex: 0 0 140px;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        // max-height: 140px;
+        padding: clamp(0.4rem, 1.2vw, 0.8rem) clamp(0.8rem, 1.6vw, 1rem);
+
+
+        .content-header {
+          text-align: center;
+
+          time {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+          }
+        }
+
+        .moreProject-tags {
+          display: flex;
+          flex-wrap: wrap;
+          // justify-content: center;
+          gap: 0.45rem;
+          margin: 0;
+
+          li {
+            padding: 0.2rem 0.6rem;
+            color: var(--work-tech-text);
+            font-size: 0.72rem;
+            border: 1px solid var(--work-tech-border);
+            border-radius: 99px;
+            background: var(--work-tech-bg);
+          }
+        }
+
+        .moreProject-links {
+          display: flex;
+          justify-content: center;
+          gap: 0.8rem;
+
+          .moreProject-btn {
+
+            display: flex;
+
+            position: relative;
+
+            height: 40px;
+            padding: 8px;
+            text-decoration: none;
+
+            .iconlink {
+              display: block;
+              width: 100%;
+              height: 100%;
+            }
+
+            @media (min-width: 640px) {
+              &:hover::before {
+                width: 160%;
+                height: 160%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .swiper-pagination {
+    bottom: 0px;
+
+    &-bullet {
+      background: var(--text-secondary);
+      opacity: 0.45;
+      transition: width 0.3s ease, border-radius 0.3s ease, opacity 0.3s ease;
+      height: 12px;
+      width: 12px;
+
+      &-active {
+        width: 24px;
+        border-radius: 99px;
+        background: var(--scrollbar-thumb);
+        opacity: 1;
+      }
+    }
+  }
 }
 
 /* main -end */
