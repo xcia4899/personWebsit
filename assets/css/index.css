@@ -85,6 +85,7 @@
     #eff6ff 76%,
     #ddd6fe 100%
   );
+  --experience-fact-bg: #ffffff;
   --work-card-bg-hover: linear-gradient(
     to bottom left,
     #d1fae5 0%,
@@ -180,6 +181,7 @@
   --flip-btn-shine: #ffffff;
   --go-to-up-glow: #38bdf8;
   --card-bg: rgba(15, 23, 42, 0.38);
+  --card-bg-hover: rgba(30, 58, 138, 0.88);
   --person-card-bg-hover: linear-gradient(
     to bottom left,
     #172554 0%,
@@ -194,6 +196,7 @@
     #172554 76%,
     #0f172a 100%
   );
+  --experience-fact-bg: #172554;
   --work-card-bg-hover: linear-gradient(
     to bottom left,
     #1e3a8a 0%,
@@ -862,6 +865,11 @@
   flex-direction: column;
   min-height: 0;
 }
+.aboutMe .card-back .content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
 .aboutMe .experience-header {
   display: grid;
   gap: 0.2rem;
@@ -877,6 +885,75 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
+.aboutMe .about-profile-header {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 0.2rem;
+  padding: 12px;
+}
+.aboutMe .about-profile-header p {
+  line-height: 1.4;
+}
+.aboutMe .about-profile-header .subtitle {
+  color: var(--scrollbar-thumb);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.aboutMe .about-profile {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 1rem;
+  padding: 12px 12px 12px 4px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: auto;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+.aboutMe .about-profile-section {
+  display: grid;
+  gap: 0.4rem;
+  padding-left: 14px;
+}
+.aboutMe .about-profile-section h5 {
+  position: relative;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.aboutMe .about-profile-section h5::before {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: -14px;
+  color: var(--scrollbar-thumb);
+  font-size: 10px;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+.aboutMe .about-profile-section p {
+  text-align: justify;
+}
+.aboutMe .about-profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+.aboutMe .about-profile-tags li {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+.aboutMe .about-profile-tags li::before {
+  content: "#";
+  margin-right: 0.22em;
+  color: var(--scrollbar-thumb);
+}
 .aboutMe .experience {
   display: flex;
   flex: 1 1 auto;
@@ -886,125 +963,261 @@
   padding: 12px 12px 12px 4px;
   overflow-y: auto;
   overscroll-behavior-y: auto;
+  scrollbar-color: color-mix(in srgb, var(--scrollbar-thumb) 35%, transparent) transparent;
+}
+.aboutMe .experience::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--scrollbar-thumb) 35%, transparent);
+  transition: background-color 0.3s ease;
+}
+@media (min-width: 640px) {
+  .aboutMe .experience:hover {
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+  .aboutMe .experience:hover::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
 }
 .aboutMe .experience .experience-list {
+  position: relative;
   display: grid;
   gap: 1.6rem;
   counter-reset: experience 3;
+}
+.aboutMe .experience .experience-list::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 14px;
+  left: 8px;
+  width: 2px;
+  background: color-mix(in srgb, var(--scrollbar-thumb) 18%, transparent);
 }
 .aboutMe .experience .experience-item {
   position: relative;
   display: grid;
   gap: 0.7rem;
-  padding: 0.35rem 0.25rem 0.5rem;
-  isolation: isolate;
+  padding: 0.2rem 0rem 1.4rem 2.8rem;
   counter-increment: experience -1;
+  margin-bottom: 12px;
+}
+.aboutMe .experience .experience-item:not(:last-child) {
+  border-bottom: 1px solid color-mix(in srgb, var(--card-border) 35%, transparent);
 }
 .aboutMe .experience .experience-item::before {
   content: "0" counter(experience);
   position: absolute;
-  top: 1.75rem;
-  right: 1.25rem;
-  z-index: -1;
-  color: color-mix(in srgb, var(--scrollbar-thumb) 6%, transparent);
-  font-size: clamp(3.5rem, 7vw, 5.5rem);
-  font-weight: 800;
+  top: 0.4rem;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--text-secondary);
+  background: color-mix(in srgb, var(--card-bg) 90%, var(--page-bg));
+  border: 1px solid color-mix(in srgb, var(--scrollbar-thumb) 42%, var(--card-border));
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
   line-height: 1;
   pointer-events: none;
-}
-.aboutMe .experience .experience-item time,
-.aboutMe .experience .experience-item .experience-meta {
-  color: var(--text-secondary);
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 .aboutMe .experience .experience-item header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
+  margin-left: 2px;
 }
 .aboutMe .experience .experience-item header h4,
 .aboutMe .experience .experience-item header h5 {
   position: relative;
   margin: 0;
-  padding-left: 14px;
   line-height: 1.6;
   letter-spacing: 0.04em;
 }
-.aboutMe .experience .experience-item header .experience-company::before {
-  content: "✦";
-  position: absolute;
-  top: 50%;
-  left: -6px;
-  color: var(--scrollbar-thumb);
-  font-size: 12px;
-  line-height: 1;
-  transform: translateY(-50%);
-  transform-origin: center;
-  animation: experience-star-spin 5s linear infinite;
+.aboutMe .experience .experience-item header .experience-company,
+.aboutMe .experience .experience-item header .title {
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 .aboutMe .experience .experience-item header .title {
   color: var(--text-secondary);
 }
-.aboutMe .experience .experience-item header .title:hover {
-  color: var(--text-primary);
+@media (max-width: 639px) {
+  .aboutMe .experience .experience-item header {
+    flex-direction: column;
+  }
+  .aboutMe .experience .experience-item header .experience-facts {
+    margin-left: 24px;
+  }
+  .aboutMe .experience .experience-item header .experience-facts li {
+    min-height: 30px;
+    gap: 0.4rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  .aboutMe .experience .experience-item header .experience-facts svg {
+    width: 16px;
+    height: 16px;
+  }
 }
-.aboutMe .experience .experience-item header time {
-  flex: 0 0 auto;
-  padding-top: 0.15rem;
-  color: var(--scrollbar-thumb);
-  font-weight: 600;
+@media (min-width: 640px) {
+  .aboutMe .experience .experience-item header .experience-company:hover,
+  .aboutMe .experience .experience-item header .title:hover {
+    color: var(--text-primary);
+    transform: translateX(4px);
+  }
 }
-.aboutMe .experience .experience-item .experience-meta {
-  padding-left: 14px;
-  opacity: 0.8;
+.aboutMe .experience .experience-item .experience-facts {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.4rem;
 }
-.aboutMe .experience .experience-item p {
-  padding-left: 14px;
+.aboutMe .experience .experience-item .experience-facts li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  min-height: 38px;
+  padding: 0.45rem 0.85rem;
   color: var(--text-secondary);
-  text-align: justify;
-  transition: color 0.5s ease, translate 0.35s ease;
+  border: 1px solid color-mix(in srgb, var(--card-border) 42%, transparent);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  line-height: 1.2;
 }
-.aboutMe .experience .experience-tags {
+.aboutMe .experience .experience-item .experience-facts svg {
+  flex: 0 0 auto;
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: var(--scrollbar-thumb);
+}
+.aboutMe .experience .experience-item .experience-facts time {
+  color: inherit;
+  font: inherit;
+}
+@media (min-width: 640px) {
+  .aboutMe .experience .experience-item .experience-facts {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .aboutMe .experience .experience-item .experience-facts li {
+    width: max-content;
+    max-width: 38px;
+    padding-inline: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: experience-fact-breathe 3.6s ease-in-out infinite;
+    transition: max-width 0.6s ease-in-out, background-color 0.6s ease-in-out, color 0.4s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .aboutMe .experience .experience-item .experience-facts li span,
+  .aboutMe .experience .experience-item .experience-facts li time {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    padding-right: 8px;
+  }
+  .aboutMe .experience .experience-item .experience-facts li:hover, .aboutMe .experience .experience-item .experience-facts li:focus-visible {
+    max-width: 230px;
+    color: var(--text-primary);
+    background-color: var(--experience-fact-bg);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--scrollbar-thumb) 88%, transparent), 0 0 14px color-mix(in srgb, var(--scrollbar-thumb) 30%, transparent);
+    animation: none;
+  }
+  .aboutMe .experience .experience-item .experience-facts li:hover span,
+  .aboutMe .experience .experience-item .experience-facts li:hover time, .aboutMe .experience .experience-item .experience-facts li:focus-visible span,
+  .aboutMe .experience .experience-item .experience-facts li:focus-visible time {
+    opacity: 1;
+  }
+  .aboutMe .experience .experience-item .experience-facts li:focus-visible {
+    outline: none;
+    outline-offset: 2px;
+  }
+}
+.aboutMe .experience .experience-item .experience-highlights {
+  display: grid;
+  gap: 0.45rem;
+}
+.aboutMe .experience .experience-item .experience-highlights li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  border-radius: 0 8px 8px 0;
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.65;
+  transition: all 0.5s ease-in-out;
+}
+@media (min-width: 639px) {
+  .aboutMe .experience .experience-item .experience-highlights li:hover {
+    transform: translateX(-4px);
+  }
+}
+.aboutMe .experience .experience-item .experience-highlights svg {
+  width: 20px;
+  height: 20px;
+  margin-top: 0.25em;
+  color: var(--scrollbar-thumb);
+}
+.aboutMe .experience .experience-item .experience-highlights p {
+  transition: all 0.5s ease-in-out;
+}
+@media (min-width: 639px) {
+  .aboutMe .experience .experience-item .experience-highlights p:hover {
+    color: var(--text-primary);
+  }
+}
+.aboutMe .experience .experience-item .experience-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 0.8rem;
   margin: 0;
-  padding-left: 14px;
+  padding-left: 0;
 }
-.aboutMe .experience .experience-tags li {
+.aboutMe .experience .experience-item .experience-tags li {
   color: var(--text-secondary);
   font-size: 0.75rem;
   letter-spacing: 0.03em;
   cursor: default;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
-.aboutMe .experience .experience-tags li::before {
+.aboutMe .experience .experience-item .experience-tags li::before {
   content: "#";
   margin-right: 0.22em;
   color: var(--scrollbar-thumb);
 }
-@keyframes experience-star-spin {
-  from {
-    transform: translateY(-50%) rotate(0deg);
-  }
-  to {
-    transform: translateY(-50%) rotate(360deg);
+@media (min-width: 639px) {
+  .aboutMe .experience .experience-item .experience-tags li:hover {
+    color: var(--text-primary);
+    transform: translateY(-2px);
   }
 }
 @media (min-width: 640px) {
-  .aboutMe .experience .experience-company,
-  .aboutMe .experience .title,
-  .aboutMe .experience .experience-item > p,
-  .aboutMe .experience .experience-tags li {
-    transition: color 0.4s ease-in-out, transform 0.4s ease-in-out;
+  .aboutMe .experience .experience-item:hover::before {
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--scrollbar-thumb) 68%, var(--card-bg));
+    border-color: var(--scrollbar-thumb);
   }
-  .aboutMe .experience .experience-company:hover,
-  .aboutMe .experience .title:hover,
-  .aboutMe .experience .experience-item > p:hover {
-    transform: translateX(4px);
+  .aboutMe .experience .experience-item:hover .experience-company {
     color: var(--text-primary);
   }
-  .aboutMe .experience .experience-tags li:hover {
-    transform: translateX(2px);
+}
+@keyframes experience-fact-breathe {
+  0%, 100% {
+    box-shadow: inset 0 0 0 0 transparent, 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--scrollbar-thumb) 35%, transparent), 0 1px 10px color-mix(in srgb, var(--scrollbar-thumb) 16%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aboutMe .experience .experience-facts li {
+    animation: none;
   }
 }
 

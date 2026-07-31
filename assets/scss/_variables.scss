@@ -201,6 +201,7 @@ $color-brand-pinia: #ff9a00;
     #{$color-blue-50} 76%,
     #{$color-purple-200} 100%
   );
+  --experience-fact-bg: #{$color-white};
   --work-card-bg-hover: linear-gradient(
     to bottom left,
     #{$color-green-100} 0%,
@@ -321,6 +322,7 @@ $color-brand-pinia: #ff9a00;
 
   // Shared cards
   --card-bg: #{rgba($color-slate-900, 0.38)};
+  --card-bg-hover: #{rgba($color-blue-900, 0.88)};
   --person-card-bg-hover: linear-gradient(
     to bottom left,
     #{$color-blue-950} 0%,
@@ -335,6 +337,7 @@ $color-brand-pinia: #ff9a00;
     #{$color-blue-950} 76%,
     #{$color-slate-900} 100%
   );
+  --experience-fact-bg: #{$color-blue-950};
   --work-card-bg-hover: linear-gradient(
     to bottom left,
     #{$color-blue-900} 0%,

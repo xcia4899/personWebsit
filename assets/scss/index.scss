@@ -759,6 +759,12 @@
     min-height: 0;
   }
 
+  .card-back .content {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
   .experience-header {
     display: grid;
     gap: 0.2rem;
@@ -777,6 +783,86 @@
     }
   }
 
+  .about-profile-header {
+    display: grid;
+    flex: 0 0 auto;
+    gap: 0.2rem;
+    padding: 12px;
+
+    p {
+      line-height: 1.4;
+    }
+
+    .subtitle {
+      color: var(--scrollbar-thumb);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+  }
+
+  .about-profile {
+    display: grid;
+    flex: 1 1 auto;
+    min-height: 0;
+    gap: 1rem;
+    padding: 12px 12px 12px 4px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .about-profile-section {
+    display: grid;
+    gap: 0.4rem;
+    padding-left: 14px;
+
+    h5 {
+      position: relative;
+      color: var(--text-primary);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+
+      &::before {
+        content: "✦";
+        position: absolute;
+        top: 50%;
+        left: -14px;
+        color: var(--scrollbar-thumb);
+        font-size: 10px;
+        line-height: 1;
+        transform: translateY(-50%);
+      }
+    }
+
+    p {
+      text-align: justify;
+    }
+  }
+
+  .about-profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.8rem;
+    margin: 0;
+    padding: 0;
+
+    li {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+
+      &::before {
+        content: "#";
+        margin-right: 0.22em;
+        color: var(--scrollbar-thumb);
+      }
+    }
+  }
+
   .experience {
     display: flex;
     flex: 1 1 auto;
@@ -786,37 +872,76 @@
     padding: 12px 12px 12px 4px;
     overflow-y: auto;
     overscroll-behavior-y: auto;
+    scrollbar-color: color-mix(in srgb, var(--scrollbar-thumb) 35%, transparent) transparent;
+
+    &::-webkit-scrollbar-thumb {
+      background: color-mix(in srgb, var(--scrollbar-thumb) 35%, transparent);
+      transition: background-color 0.3s ease;
+    }
+
+    @media (min-width: 640px) {
+      &:hover {
+        scrollbar-color: var(--scrollbar-thumb) transparent;
+
+        &::-webkit-scrollbar-thumb {
+          background: var(--scrollbar-thumb);
+        }
+      }
+    }
 
     .experience-list {
+      position: relative;
       display: grid;
       gap: 1.6rem;
       counter-reset: experience 3;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        bottom: 14px;
+        left: 8px;
+        width: 2px;
+        background: color-mix(in srgb, var(--scrollbar-thumb) 18%, transparent);
+      }
     }
 
     .experience-item {
       position: relative;
       display: grid;
       gap: 0.7rem;
-      padding: 0.35rem 0.25rem 0.5rem;
-      isolation: isolate;
+      padding: 0.2rem 0rem 1.4rem 2.8rem;
       counter-increment: experience -1;
+      margin-bottom: 12px;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid color-mix(in srgb, var(--card-border) 35%, transparent);
+      }
 
       &::before {
         content: "0" counter(experience);
         position: absolute;
-        top: 1.75rem;
-        right: 1.25rem;
-        z-index: -1;
-        color: color-mix(in srgb, var(--scrollbar-thumb) 6%, transparent);
-        font-size: clamp(3.5rem, 7vw, 5.5rem);
-        font-weight: 800;
+        top: 0.4rem;
+        left: 0;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        color: var(--text-secondary);
+        background: color-mix(in srgb, var(--card-bg) 90%, var(--page-bg));
+        border: 1px solid color-mix(in srgb, var(--scrollbar-thumb) 42%, var(--card-border));
+        border-radius: 50%;
+        font-size: 0.85rem;
+        font-weight: 700;
         line-height: 1;
         pointer-events: none;
-      }
+        transition:
+          color 0.3s ease,
+          background-color 0.3s ease,
+          border-color 0.3s ease;
 
-      time,
-      .experience-meta {
-        color: var(--text-secondary);
       }
 
       header {
@@ -824,110 +949,252 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 1rem;
+        margin-left: 2px;
 
         h4,
         h5 {
           position: relative;
           margin: 0;
-          padding-left: 14px;
           line-height: 1.6;
           letter-spacing: 0.04em;
         }
 
-        .experience-company {
-          &::before {
-            content: "✦";
-            position: absolute;
-            top: 50%;
-            left: -6px;
-            color: var(--scrollbar-thumb);
-            font-size: 12px;
-            line-height: 1;
-            transform: translateY(-50%);
-            transform-origin: center;
-            animation: experience-star-spin 5s linear infinite;
-          }
+        .experience-company,
+        .title {
+          transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .title {
           color: var(--text-secondary);
+        }
 
-          &:hover {
-            color: var(--text-primary);
+        @media (max-width: 639px) {
+          flex-direction: column;
+
+          .experience-facts {
+            margin-left: 24px;
+
+            li {
+              min-height: 30px;
+              gap: 0.4rem;
+              padding: 0.3rem 0.6rem;
+              font-size: 0.8rem;
+            }
+
+            svg {
+              width: 16px;
+              height: 16px;
+            }
           }
         }
 
-        time {
+        @media (min-width:640px) {
+
+          .experience-company:hover,
+          .title:hover {
+            color: var(--text-primary);
+            transform: translateX(4px);
+          }
+        }
+      }
+
+      .experience-facts {
+        display: flex;
+        // flex-wrap: wrap;
+        // flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 0.4rem;
+
+        li {
+          display: inline-flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          gap: 0.6rem;
+          min-height: 38px;
+          padding: 0.45rem 0.85rem;
+          color: var(--text-secondary);
+          // background: color-mix(in srgb, var(--card-bg) 72%, transparent);
+          border: 1px solid color-mix(in srgb, var(--card-border) 42%, transparent);
+          border-radius: 999px;
+          font-size: 0.8rem;
+          line-height: 1.2;
+        }
+
+        svg {
           flex: 0 0 auto;
-          padding-top: 0.15rem;
+          display: block;
+          width: 20px;
+          height: 20px;
           color: var(--scrollbar-thumb);
-          font-weight: 600;
+        }
+
+        time {
+          color: inherit;
+          font: inherit;
+        }
+
+        @media (min-width: 640px) {
+          position: absolute;
+          right: 0;
+          top: 0;
+
+          li {
+            width: max-content;
+            max-width: 38px;
+            padding-inline: 8px;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: experience-fact-breathe 3.6s ease-in-out infinite;
+            transition:
+              max-width 0.6s ease-in-out,
+              background-color 0.6s ease-in-out,
+              color 0.4s ease,
+              box-shadow 0.3s ease;
+            cursor: default;
+
+            span,
+            time {
+              opacity: 0;
+              transition: opacity 0.25s ease;
+              padding-right: 8px;
+            }
+
+            &:hover,
+            &:focus-visible {
+              max-width: 230px;
+              color: var(--text-primary);
+              background-color: var(--experience-fact-bg);
+              box-shadow:
+                inset 0 0 0 1px color-mix(in srgb, var(--scrollbar-thumb) 88%, transparent),
+                0 0 14px color-mix(in srgb, var(--scrollbar-thumb) 30%, transparent);
+              animation: none;
+
+              span,
+              time {
+                opacity: 1;
+              }
+            }
+
+            &:focus-visible {
+              outline: none;
+              outline-offset: 2px;
+            }
+          }
         }
       }
 
-      .experience-meta {
-        padding-left: 14px;
-        opacity: 0.8;
-      }
+      .experience-highlights {
+        display: grid;
+        gap: 0.45rem;
 
+        li {
+          display: grid;
+          grid-template-columns: 18px minmax(0, 1fr);
+          gap: 0.5rem;
+          color: var(--text-secondary);
+          border-radius: 0 8px 8px 0;
+          font-size: clamp(14px, 2vw, 16px);
+          line-height: 1.65;
+          transition: all 0.5s ease-in-out;
 
-      p {
-        padding-left: 14px;
-        color: var(--text-secondary);
-        text-align: justify;
-        transition: color 0.5s ease, translate 0.35s ease;
-      }
-    }
+          @media (min-width:639px) {
+            &:hover {
+              transform: translateX(-4px);
+            }
+          }
 
-    .experience-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem 0.8rem;
-      margin: 0;
-      padding-left: 14px;
+        }
 
-      li {
-        color: var(--text-secondary);
-        font-size: 0.75rem;
-        letter-spacing: 0.03em;
-        cursor: default;
-
-        &::before {
-          content: "#";
-          margin-right: 0.22em;
+        svg {
+          width: 20px;
+          height: 20px;
+          margin-top: 0.25em;
           color: var(--scrollbar-thumb);
         }
+
+        p {
+          transition: all 0.5s ease-in-out;
+
+          @media (min-width:639px) {
+            &:hover {
+              color: var(--text-primary);
+            }
+          }
+
+        }
+
+      }
+
+      .experience-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.8rem;
+        margin: 0;
+        padding-left: 0;
+
+        li {
+          color: var(--text-secondary);
+          font-size: 0.75rem;
+          letter-spacing: 0.03em;
+          cursor: default;
+          transition: transform 0.2s ease, color 0.2s ease;
+
+          &::before {
+            content: "#";
+            margin-right: 0.22em;
+            color: var(--scrollbar-thumb);
+          }
+
+          @media (min-width:639px) {
+            &:hover {
+              color: var(--text-primary);
+              transform: translateY(-2px);
+            }
+          }
+
+        }
+
       }
     }
 
-    @keyframes experience-star-spin {
-      from {
-        transform: translateY(-50%) rotate(0deg);
-      }
 
-      to {
-        transform: translateY(-50%) rotate(360deg);
-      }
-    }
 
     @media (min-width: 640px) {
+      .experience-item:hover {
+        &::before {
+          color: var(--text-primary);
+          background: color-mix(in srgb, var(--scrollbar-thumb) 68%, var(--card-bg));
+          border-color: var(--scrollbar-thumb);
 
-      .experience-company,
-      .title,
-      .experience-item>p,
-      .experience-tags li {
-        transition: color 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+        .experience-company {
+          color: var(--text-primary);
+        }
+      }
+    }
+
+    @keyframes experience-fact-breathe {
+
+      0%,
+      100% {
+        box-shadow:
+          inset 0 0 0 0 transparent,
+          0 0 0 transparent;
       }
 
-      .experience-company:hover,
-      .title:hover,
-      .experience-item>p:hover{
-        transform: translateX(4px);
-        color: var(--text-primary);
+      50% {
+        box-shadow:
+          inset 0 0 0 1px color-mix(in srgb, var(--scrollbar-thumb) 35%, transparent),
+          0 1px 10px color-mix(in srgb, var(--scrollbar-thumb) 16%, transparent);
       }
+    }
 
-      .experience-tags li:hover {
-        transform: translateX(2px);
+    @media (prefers-reduced-motion: reduce) {
+      .experience-facts li {
+        animation: none;
       }
     }
   }
