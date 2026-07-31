@@ -1217,11 +1217,64 @@
           }
 
           dd {
-            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            min-width: 0;
+            margin: 4px 0 0;
             color: var(--text-primary);
             font-family: monospace;
             font-size: 1rem;
             overflow-wrap: anywhere;
+
+            span {
+              display: flex;
+              align-items: center;
+              min-width: 0;
+              min-height: 30px;
+              line-height: 1.2;
+              overflow-wrap: anywhere;
+            }
+          }
+
+          .copy-account-btn {
+            flex: 0 0 auto;
+            display: grid;
+            width: 30px;
+            height: 30px;
+            padding: 6px;
+            place-items: center;
+            color: var(--text-secondary);
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+
+            svg {
+              display: block;
+              width: 100%;
+              height: 100%;
+            }
+
+            &.is-copied {
+              color: var(--scrollbar-thumb);
+              border-color: var(--scrollbar-thumb);
+            }
+
+            &:focus-visible {
+              outline: 2px solid var(--scrollbar-thumb);
+              outline-offset: 2px;
+            }
+
+            @media (min-width: 640px) {
+              &:hover {
+                color: var(--text-primary);
+                border-color: var(--scrollbar-thumb);
+
+              }
+            }
           }
         }
       }

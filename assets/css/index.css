@@ -1230,11 +1230,57 @@
   letter-spacing: 0.08em;
 }
 .work .project-card .rightBox .demo-account .account-info dd {
-  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 0;
+  margin: 4px 0 0;
   color: var(--text-primary);
   font-family: monospace;
   font-size: 1rem;
   overflow-wrap: anywhere;
+}
+.work .project-card .rightBox .demo-account .account-info dd span {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 30px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.work .project-card .rightBox .demo-account .account-info .copy-account-btn {
+  flex: 0 0 auto;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  place-items: center;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.work .project-card .rightBox .demo-account .account-info .copy-account-btn svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.work .project-card .rightBox .demo-account .account-info .copy-account-btn.is-copied {
+  color: var(--scrollbar-thumb);
+  border-color: var(--scrollbar-thumb);
+}
+.work .project-card .rightBox .demo-account .account-info .copy-account-btn:focus-visible {
+  outline: 2px solid var(--scrollbar-thumb);
+  outline-offset: 2px;
+}
+@media (min-width: 640px) {
+  .work .project-card .rightBox .demo-account .account-info .copy-account-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--scrollbar-thumb);
+  }
 }
 .work .project-card .rightBox .project-section .title {
   margin-bottom: 0.2rem;

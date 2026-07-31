@@ -5,6 +5,7 @@ import { loadSvgSprite } from "./utils/svgSprite.js";
 import { initHeader } from "./header.js";
 import { initTheme } from "./utils/theme.js";
 import { initGoToUp } from "./utils/goToUp.js";
+import { initCopyAccount } from "./utils/copyAccount.js";
 
 import { btnHoverAni } from "./utils/btnHoverAni.js";
 
@@ -26,6 +27,7 @@ function initCardFlip() {
 document.addEventListener("DOMContentLoaded", async () => {
     initTheme();
     initGoToUp();
+    initCopyAccount();
     btnHoverAni();
     initCardFlip();
     await loadSvgSprite();
