@@ -815,7 +815,6 @@
   padding-left: 14px;
   margin: 6px 0 0;
   color: var(--text-secondary);
-  line-height: 1.8;
   text-align: justify;
   transition: color 0.8s, translate 0.3s ease;
 }
@@ -862,6 +861,151 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
+}
+.aboutMe .experience-header {
+  display: grid;
+  gap: 0.2rem;
+  padding: 12px;
+}
+.aboutMe .experience-header p {
+  line-height: 1.4;
+}
+.aboutMe .experience-header .subtitle {
+  color: var(--scrollbar-thumb);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.aboutMe .experience {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 12px 12px 12px 4px;
+  overflow-y: auto;
+  overscroll-behavior-y: auto;
+}
+.aboutMe .experience .experience-list {
+  display: grid;
+  gap: 1.6rem;
+  counter-reset: experience 3;
+}
+.aboutMe .experience .experience-item {
+  position: relative;
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.35rem 0.25rem 0.5rem;
+  isolation: isolate;
+  counter-increment: experience -1;
+}
+.aboutMe .experience .experience-item::before {
+  content: "0" counter(experience);
+  position: absolute;
+  top: 1.75rem;
+  right: 1.25rem;
+  z-index: -1;
+  color: color-mix(in srgb, var(--scrollbar-thumb) 6%, transparent);
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+}
+.aboutMe .experience .experience-item time,
+.aboutMe .experience .experience-item .experience-meta {
+  color: var(--text-secondary);
+}
+.aboutMe .experience .experience-item header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.aboutMe .experience .experience-item header h4,
+.aboutMe .experience .experience-item header h5 {
+  position: relative;
+  margin: 0;
+  padding-left: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+.aboutMe .experience .experience-item header .experience-company::before {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: -6px;
+  color: var(--scrollbar-thumb);
+  font-size: 12px;
+  line-height: 1;
+  transform: translateY(-50%);
+  transform-origin: center;
+  animation: experience-star-spin 5s linear infinite;
+}
+.aboutMe .experience .experience-item header .title {
+  color: var(--text-secondary);
+}
+.aboutMe .experience .experience-item header .title:hover {
+  color: var(--text-primary);
+}
+.aboutMe .experience .experience-item header time {
+  flex: 0 0 auto;
+  padding-top: 0.15rem;
+  color: var(--scrollbar-thumb);
+  font-weight: 600;
+}
+.aboutMe .experience .experience-item .experience-meta {
+  padding-left: 14px;
+  opacity: 0.8;
+}
+.aboutMe .experience .experience-item p {
+  padding-left: 14px;
+  color: var(--text-secondary);
+  text-align: justify;
+  transition: color 0.5s ease, translate 0.35s ease;
+}
+.aboutMe .experience .experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  margin: 0;
+  padding-left: 14px;
+}
+.aboutMe .experience .experience-tags li {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  cursor: default;
+}
+.aboutMe .experience .experience-tags li::before {
+  content: "#";
+  margin-right: 0.22em;
+  color: var(--scrollbar-thumb);
+}
+@keyframes experience-star-spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+@media (min-width: 640px) {
+  .aboutMe .experience .experience-company,
+  .aboutMe .experience .title,
+  .aboutMe .experience .experience-item > p,
+  .aboutMe .experience .experience-tags li {
+    transition: color 0.4s ease-in-out, transform 0.4s ease-in-out;
+  }
+  .aboutMe .experience .experience-company:hover,
+  .aboutMe .experience .title:hover,
+  .aboutMe .experience .experience-item > p:hover {
+    transform: translateX(4px);
+    color: var(--text-primary);
+  }
+  .aboutMe .experience .experience-tags li:hover {
+    transform: translateX(2px);
+  }
 }
 
 .work {
@@ -911,7 +1055,7 @@
   position: relative;
   display: grid;
   grid-template-columns: minmax(300px, 1.1fr) minmax(280px, 0.9fr);
-  gap: clamp(1rem, 3vw, 3rem);
+  gap: clamp(0.4rem, 1vw, 1rem);
 }
 .work .project-card .leftBox {
   overflow: auto;
@@ -945,7 +1089,7 @@
 }
 .work .project-card .rightBox {
   margin-top: 24px;
-  padding: 0px 24px 4px;
+  padding: 0px 24px 4px 24px;
   display: flex;
   flex-direction: column;
   row-gap: 1.8rem;
@@ -992,6 +1136,7 @@
   margin: 0.45rem 0 0;
   color: var(--text-secondary);
   font-size: 0.9rem;
+  line-height: 1.4;
   letter-spacing: 0.08em;
 }
 .work .project-card .rightBox .project-header .project-link {
@@ -1024,13 +1169,12 @@
 }
 .work .project-card .rightBox .project-description p {
   color: var(--text-secondary);
-  font-size: clamp(1rem, 1.3vw, 1.125rem);
-  line-height: 1.4;
-  transition: color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 @media (min-width: 640px) {
   .work .project-card .rightBox .project-description p:hover {
     color: var(--text-primary);
+    transform: translateX(-4px);
   }
 }
 .work .project-card .rightBox .project-description p + p {
@@ -1147,7 +1291,7 @@
     scrollbar-width: none;
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
-    gap: 0;
+    gap: 24px;
   }
   .work .project-card .leftBox {
     order: 2;
@@ -1197,6 +1341,9 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
+}
+.workCarousel .workCarousel-header p {
+  line-height: 1.4;
 }
 .workCarousel .workCarousel-header .subtitle {
   color: var(--scrollbar-thumb);
@@ -1348,7 +1495,7 @@
 .workCarousel .swiper .moreProject .moreProject-content .moreProject-links {
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 .workCarousel .swiper .moreProject .moreProject-content .moreProject-links .moreProject-btn {
   display: grid;
