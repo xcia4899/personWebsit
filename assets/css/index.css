@@ -1790,6 +1790,18 @@
     height: 160%;
   }
 }
+.workCarousel .swiper .moreProject .moreProject-content .moreProject-links .moreProject-btn.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.workCarousel .swiper .moreProject .moreProject-content .moreProject-links .moreProject-btn.is-disabled::before {
+  display: none;
+}
+.workCarousel .swiper .moreProject .moreProject-content .moreProject-links .moreProject-btn.is-disabled:hover, .workCarousel .swiper .moreProject .moreProject-content .moreProject-links .moreProject-btn.is-disabled:active {
+  color: var(--inout-btn-text);
+  box-shadow: var(--inout-btn-shadow);
+  transform: none;
+}
 .workCarousel .swiper-pagination {
   position: static;
   flex: 0 0 auto;

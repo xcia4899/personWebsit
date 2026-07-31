@@ -2,27 +2,27 @@ async function copyText(text) {
     await navigator.clipboard.writeText(text);
 }
 
-export function initCopyAccount(selector = ".copy-account-btn") {
-    document.querySelectorAll(selector).forEach((button) => {
-        const defaultLabel = button.getAttribute("aria-label") || "複製";
+export function initCopyAccount(selector = "[data-copy-text]") {
+    document.querySelectorAll(selector).forEach((element) => {
+        const defaultLabel = element.getAttribute("aria-label") || "複製";
         let resetTimer;
 
-        button.addEventListener("click", async () => {
+        element.addEventListener("click", async () => {
             try {
-                await copyText(button.dataset.copyText || "");
-                button.classList.add("is-copied");
-                button.setAttribute("aria-label", "已複製");
-                button.title = "已複製";
+                await copyText(element.dataset.copyText || "");
+                element.classList.add("is-copied");
+                element.setAttribute("aria-label", "已複製");
+                element.title = "已複製";
 
                 window.clearTimeout(resetTimer);
                 resetTimer = window.setTimeout(() => {
-                    button.classList.remove("is-copied");
-                    button.setAttribute("aria-label", defaultLabel);
-                    button.title = defaultLabel;
+                    element.classList.remove("is-copied");
+                    element.setAttribute("aria-label", defaultLabel);
+                    element.title = defaultLabel;
                 }, 1600);
             } catch (error) {
-                button.setAttribute("aria-label", "複製失敗");
-                button.title = "複製失敗";
+                element.setAttribute("aria-label", "複製失敗");
+                element.title = "複製失敗";
                 console.error(error);
             }
         });

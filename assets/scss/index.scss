@@ -1917,6 +1917,23 @@
                 height: 160%;
               }
             }
+
+            &.is-disabled {
+              opacity: 0.35;
+              cursor: not-allowed;
+
+              &::before {
+                display: none;
+              }
+
+              &:hover,
+              &:active {
+                color: var(--inout-btn-text);
+                box-shadow: var(--inout-btn-shadow);
+                transform: none;
+              }
+            }
+
           }
         }
       }
