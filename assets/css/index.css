@@ -774,6 +774,13 @@
   padding: 12px;
   color: var(--text-muted);
 }
+.personData .card-back .intro .subtitle {
+  color: var(--scrollbar-thumb);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
 .personData .card-back .resume {
   flex: 1 1 auto;
   min-height: 0;
@@ -884,75 +891,6 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-}
-.aboutMe .about-profile-header {
-  display: grid;
-  flex: 0 0 auto;
-  gap: 0.2rem;
-  padding: 12px;
-}
-.aboutMe .about-profile-header p {
-  line-height: 1.4;
-}
-.aboutMe .about-profile-header .subtitle {
-  color: var(--scrollbar-thumb);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-.aboutMe .about-profile {
-  display: grid;
-  flex: 1 1 auto;
-  min-height: 0;
-  gap: 1rem;
-  padding: 12px 12px 12px 4px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior-y: auto;
-  touch-action: pan-y;
-  -webkit-overflow-scrolling: touch;
-}
-.aboutMe .about-profile-section {
-  display: grid;
-  gap: 0.4rem;
-  padding-left: 14px;
-}
-.aboutMe .about-profile-section h5 {
-  position: relative;
-  color: var(--text-primary);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-.aboutMe .about-profile-section h5::before {
-  content: "✦";
-  position: absolute;
-  top: 50%;
-  left: -14px;
-  color: var(--scrollbar-thumb);
-  font-size: 10px;
-  line-height: 1;
-  transform: translateY(-50%);
-}
-.aboutMe .about-profile-section p {
-  text-align: justify;
-}
-.aboutMe .about-profile-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.8rem;
-  margin: 0;
-  padding: 0;
-}
-.aboutMe .about-profile-tags li {
-  color: var(--text-secondary);
-  font-size: 0.8rem;
-  letter-spacing: 0.03em;
-}
-.aboutMe .about-profile-tags li::before {
-  content: "#";
-  margin-right: 0.22em;
-  color: var(--scrollbar-thumb);
 }
 .aboutMe .experience {
   display: flex;
@@ -1219,6 +1157,83 @@
   .aboutMe .experience .experience-facts li {
     animation: none;
   }
+}
+.aboutMe .about-profile-header {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 0.2rem;
+  padding: 12px;
+}
+.aboutMe .about-profile-header p {
+  line-height: 1.4;
+}
+.aboutMe .about-profile-header .subtitle {
+  color: var(--scrollbar-thumb);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.aboutMe .about-profile {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 1rem;
+  padding: 12px 12px 12px 4px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: auto;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+.aboutMe .about-profile .about-profile-section {
+  display: grid;
+  gap: 0.4rem;
+  padding-left: 14px;
+  transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;
+}
+.aboutMe .about-profile .about-profile-section h5 {
+  position: relative;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.aboutMe .about-profile .about-profile-section h5::before {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: -14px;
+  color: var(--scrollbar-thumb);
+  font-size: 10px;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+.aboutMe .about-profile .about-profile-section p {
+  text-align: justify;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.aboutMe .about-profile .about-profile-section:hover {
+  transform: translate(4px);
+}
+.aboutMe .about-profile .about-profile-section:hover p {
+  color: var(--text-primary);
+}
+.aboutMe .about-profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+.aboutMe .about-profile-tags li {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+.aboutMe .about-profile-tags li::before {
+  content: "#";
+  margin-right: 0.22em;
+  color: var(--scrollbar-thumb);
 }
 
 .work {
