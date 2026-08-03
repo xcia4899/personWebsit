@@ -548,13 +548,23 @@
 }
 .personData .card-front .top .profile .img {
   width: 80px;
-  border-radius: 24px;
+  aspect-ratio: 1/1;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0px 0px 4px 2px var(--page-bg);
+  transition: all 0.2s ease-in-out;
 }
 .personData .card-front .top .profile .img img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 36%;
+  transform: scale(1.1);
+}
+.personData .card-front .top .profile .img:hover {
+  transform: translate(0, -2px);
+  box-shadow: 0px 2px 4px 4px var(--page-bg), 0px 4px 20px 4px var(--page-bg);
 }
 .personData .card-front .top .profile .personName .subtitle {
   color: var(--text-secondary);
