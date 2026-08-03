@@ -619,7 +619,7 @@
         }
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 639px) {
         align-items: flex-end;
         gap: 1rem;
 
@@ -831,6 +831,9 @@
         left: 8px;
         width: 2px;
         background: color-mix(in srgb, var(--scrollbar-thumb) 18%, transparent);
+        @media (max-width: 639px) {
+          left: 0px;
+        }
       }
     }
 
@@ -900,23 +903,28 @@
           flex-direction: column;
 
           .experience-facts {
-            margin-left: 24px;
-
+            flex-direction: column;
+            align-items: flex-end;
+            width: 100%;
+            min-width: 0;
+            justify-content: flex-end;
             li {
               min-height: 30px;
               gap: 0.4rem;
               padding: 0.3rem 0.6rem;
               font-size: 0.8rem;
+              border: none;
+              svg {
+                width: 16px;
+                height: 16px;
+              }
             }
 
-            svg {
-              width: 16px;
-              height: 16px;
-            }
           }
+
         }
 
-        @media (min-width:640px) {
+        @media (min-width: 640px) {
 
           .experience-company:hover,
           .title:hover {
@@ -1027,12 +1035,14 @@
           line-height: 1.65;
           transition: all 0.5s ease-in-out;
 
-          @media (min-width:639px) {
+          @media (min-width: 640px) {
             &:hover {
               transform: translateX(-4px);
             }
           }
-
+          @media (max-width: 639px) {
+            grid-template-columns: minmax(0, 1fr);
+          }
         }
 
         svg {
@@ -1040,12 +1050,16 @@
           height: 20px;
           margin-top: 0.25em;
           color: var(--scrollbar-thumb);
+          @media (max-width: 639px) {
+            display: none;
+
+          }
         }
 
         p {
           transition: all 0.5s ease-in-out;
 
-          @media (min-width:639px) {
+          @media (min-width: 640px) {
             &:hover {
               color: var(--text-primary);
             }
@@ -1075,7 +1089,7 @@
             color: var(--scrollbar-thumb);
           }
 
-          @media (min-width:639px) {
+          @media (min-width: 640px) {
             &:hover {
               color: var(--text-primary);
               transform: translateY(-2px);
@@ -1085,9 +1099,13 @@
         }
 
       }
+      @media (max-width: 639px) {
+        padding: 0.2rem 0rem 1.4rem 2rem;
+        &::before{
+          left: -4px;
+        }
+      }
     }
-
-
 
     @media (min-width: 640px) {
       .experience-item:hover {
@@ -1428,7 +1446,7 @@
           color: var(--text-secondary);
           transition: color 0.5s ease-in-out, transform 0.5s ease-in-out;
 
-          @media (min-width:640px) {
+          @media (min-width: 640px) {
             &:hover {
               color: var(--text-primary);
               transform: translateX(-4px);
@@ -1594,7 +1612,7 @@
             transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.3s ease-in-out, background-color 0.2s ease-in-out, color 0.4s ease;
             cursor: default;
 
-            @media (min-width:640px) {
+            @media (min-width: 640px) {
               &:hover {
                 border-color: var(--work-project-border-hover);
                 background-color: var(--work-project-bg-hover);

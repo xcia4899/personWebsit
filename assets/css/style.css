@@ -1116,7 +1116,7 @@ p {
 .personData .card-front .bottom .link .btn::after {
   backdrop-filter: blur(2px);
 }
-@media (max-width: 640px) {
+@media (max-width: 639px) {
   .personData .card-front .bottom {
     align-items: flex-end;
     gap: 1rem;
@@ -1296,6 +1296,11 @@ p {
   width: 2px;
   background: color-mix(in srgb, var(--scrollbar-thumb) 18%, transparent);
 }
+@media (max-width: 639px) {
+  .aboutMe .experience .experience-list::before {
+    left: 0px;
+  }
+}
 .aboutMe .experience .experience-item {
   position: relative;
   display: grid;
@@ -1354,15 +1359,20 @@ p {
     flex-direction: column;
   }
   .aboutMe .experience .experience-item header .experience-facts {
-    margin-left: 24px;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-end;
   }
   .aboutMe .experience .experience-item header .experience-facts li {
     min-height: 30px;
     gap: 0.4rem;
     padding: 0.3rem 0.6rem;
     font-size: 0.8rem;
+    border: none;
   }
-  .aboutMe .experience .experience-item header .experience-facts svg {
+  .aboutMe .experience .experience-item header .experience-facts li svg {
     width: 16px;
     height: 16px;
   }
@@ -1457,9 +1467,14 @@ p {
   line-height: 1.65;
   transition: all 0.5s ease-in-out;
 }
-@media (min-width: 639px) {
+@media (min-width: 640px) {
   .aboutMe .experience .experience-item .experience-highlights li:hover {
     transform: translateX(-4px);
+  }
+}
+@media (max-width: 639px) {
+  .aboutMe .experience .experience-item .experience-highlights li {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 .aboutMe .experience .experience-item .experience-highlights svg {
@@ -1468,10 +1483,15 @@ p {
   margin-top: 0.25em;
   color: var(--scrollbar-thumb);
 }
+@media (max-width: 639px) {
+  .aboutMe .experience .experience-item .experience-highlights svg {
+    display: none;
+  }
+}
 .aboutMe .experience .experience-item .experience-highlights p {
   transition: all 0.5s ease-in-out;
 }
-@media (min-width: 639px) {
+@media (min-width: 640px) {
   .aboutMe .experience .experience-item .experience-highlights p:hover {
     color: var(--text-primary);
   }
@@ -1495,10 +1515,18 @@ p {
   margin-right: 0.22em;
   color: var(--scrollbar-thumb);
 }
-@media (min-width: 639px) {
+@media (min-width: 640px) {
   .aboutMe .experience .experience-item .experience-tags li:hover {
     color: var(--text-primary);
     transform: translateY(-2px);
+  }
+}
+@media (max-width: 639px) {
+  .aboutMe .experience .experience-item {
+    padding: 0.2rem 0rem 1.4rem 2rem;
+  }
+  .aboutMe .experience .experience-item::before {
+    left: -4px;
   }
 }
 @media (min-width: 640px) {
@@ -2277,3 +2305,5 @@ p {
   transform: translateY(1px) scale(0.94);
   transition-duration: 0.1s;
 }
+
+/*# sourceMappingURL=style.css.map */
